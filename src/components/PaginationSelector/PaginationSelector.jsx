@@ -6,6 +6,7 @@ function PaginationSelector({itensPerPage, setItensPerPage}) {
         <div className="ct-pagination-selector">
             
         <select value={itensPerPage} onChange={(e) => setItensPerPage(Number(e.target.value))}>
+        <option value={2} key="">2</option>
             <option value={5} key="">5</option>
             <option value={10} key="">10</option>
             <option value={15} key="">15</option>
