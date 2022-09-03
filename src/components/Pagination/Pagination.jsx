@@ -8,6 +8,7 @@ function Pagination({ setCurrentPage, pages, itensPerPage, setItensPerPage }) {
         <div className="ct-pagination">
             {Array.from(Array(pages), (item, index) => {
                 return <button
+                    key={index}
                     className="button-pagination"
                     value={index}
                     onClick={(e) => setCurrentPage(Number(e.target.value))}
@@ -16,6 +17,7 @@ function Pagination({ setCurrentPage, pages, itensPerPage, setItensPerPage }) {
                 </button>
             })}
             <PaginationSelector itensPerPage={itensPerPage} setItensPerPage={setItensPerPage} />
+            
         </div>
     );
 }
