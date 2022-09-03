@@ -46,3 +46,28 @@ que a janela do navegador seja fechada e aberta novamente;</li>
 <a href="https://www.youtube.com/watch?v=g42RRTPJFNg">Adicionando ao Array Hooks</a>
 
 </details>
+
+#### Rodar Projeto Localmente:
+<details>
+<summary><strong>🧞‍♂️ Resumo:</strong></summary><br />
+
+<ul>
+       <li>
+            <h4>Baixe o projeto para sua máquina:</h4>
+            <i> git clone git@github.com:tonistorres/mettzer-scientific-article.git</i>
+      </li>
+      <li>
+            <h4>Acesse a pasta do projeto:</h4>
+            <i> cd - caminho da pasta -</i>
+      </li>
+      <li>
+            <h4>Dentro da pasta do projeto digite:</h4>
+            <i>npm install</i>
+      </li>
+        <li>
+            <h4>Apos instalar as dependências, rode o seguinte comando:</h4>
+            <i>npm start</i>
+      </li>
+</ul>
+
+</details>
