@@ -28,7 +28,6 @@ function Favorite() {
             const checkDbFavorite = searchLocalStorage("Favorite");
 
             if (checkDisfavor === null && checkDbHome === null) {
-
                 saveLocalStorage("Disfavor", [])
                 saveLocalStorage("DbHome", [])
             }
@@ -69,17 +68,33 @@ function Favorite() {
     // }, [dbFavorite])
 
 
-
-
-
     const getId = (id) => {
-        const listFilter = dbFavorite.filter((item) => item.id !== id)
-        setDbFavorite([...listFilter])
-        const itemRemove = dbFavorite.filter((item) => item.id === id)
-        console.log('Item removido:', itemRemove);
-        setDisfavor([...dbDisfavorLocalStorage, ...itemRemove])
-        alert('MODIFICANDO lista em dbFavorite')
+        try {
+            setDbFavorite([...dbFavorite.filter((item) => item.id !== id)])
+            setDisfavor([...dbDisfavorLocalStorage, ...dbFavorite.filter((item) => item.id === id)])
+            console.log('1 array restante dbFavorites:',dbFavorite.filter((item) => item.id !== id)); 
+            console.log('2: Item removido:', [...dbDisfavorLocalStorage, ...dbFavorite.filter((item) => item.id === id)]);
+            // console.log('3: dbDisfavor:', dbDisfavorLocalStorage);
+            alert('MODIFICANDO lista em dbFavorite')
+        } catch (error) {
+            console.log(`Erro useEffect getId:${error}`);
+        }
     }
+
+
+    useEffect(() => {
+        try {
+            alert('Disfavor')
+            console.log('3: dbDisfavor:', dbDisfavorLocalStorage);
+            saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
+            const renderHome = dbFavorite.filter(function (item) {
+                return !dbDisfavorLocalStorage.includes(item)
+            })
+            saveLocalStorage("DbHome", [...renderHome])
+        } catch (error) {
+            console.log(`Erro useEffect itensPerPage:${error}`);
+        }
+    }, [dbDisfavorLocalStorage])
 
 
     useEffect(() => {
@@ -89,24 +104,6 @@ function Favorite() {
             console.log(`Erro useEffect itensPerPage:${error}`);
         }
     }, [itensPerPage])
-
-
-    useEffect(() => {
-
-        try {
-
-            saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
-            const renderHome = dbFavorite.filter(function (item) {
-                return !dbDisfavorLocalStorage.includes(item)
-            })
-            saveLocalStorage("DbHome", [...renderHome])
-        } catch (error) {
-            console.log(`Erro useEffect itensPerPage:${error}`);
-        }
-
-
-    }, [dbDisfavorLocalStorage])
-
     return (
 
         <div>
