@@ -31,6 +31,10 @@ que a janela do navegador seja fechada e aberta novamente;</li>
 <details>
 <summary><strong>🔗 Links Importantes</strong></summary><br />
 
+
+<a href="https://www.youtube.com/watch?v=jcc9T-5inrk">React Hooks</a>
+
+
 <a href="https://api.core.ac.uk/v3/search/works?apiKey=gStcq4C7GFURIwHQNryKTn9osuJ6DA5h">API CORE</a>
 
 <a href="https://www.youtube.com/watch?v=IC71Y214Xcc">Mudanças React Router DOM </a>
