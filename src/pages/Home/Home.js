@@ -50,8 +50,7 @@ function Home() {
         //    console.log('Render:',result[0]);
     }, [dbAuthors, dbFavorite])
 
-    console.log('dbValue', valueRender);
-
+    
     const pages = (array) => {
         return Math.ceil(array.length / itensPerPage)
     }
