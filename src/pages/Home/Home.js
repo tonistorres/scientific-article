@@ -11,19 +11,40 @@ function Home() {
     const [dbFavorite, setFavorites] = useState([]);
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
-   
-    
-    const pages = (array)=>{
+
+
+    const pages = (array) => {
         return Math.ceil(array.length / itensPerPage)
     }
 
-   const currentItens = (array) =>{
-    const startIndex = currentPage * itensPerPage
-    const endIndex = startIndex + itensPerPage
-    return array.slice(startIndex,endIndex)
-   }
+    const currentItens = (array) => {
+        const startIndex = currentPage * itensPerPage
+        const endIndex = startIndex + itensPerPage
+        return array.slice(startIndex, endIndex)
+    }
 
-    
+  
+    const renderList = (arrayListFull, arrayComparision) => {
+        console.log('Observando:',arrayListFull, arrayComparision);
+        if (arrayListFull.length && arrayComparision.length) {
+            arrayListFull.filter(function (item) {
+                return !arrayComparision.includes(item)
+            })
+        }
+
+        if(!arrayListFull.length && !arrayComparision.length){
+            return arrayListFull
+        }
+
+        if(!arrayListFull.length && arrayComparision.length){
+            return arrayListFull
+        }
+        if(arrayListFull.length && !arrayComparision.length){
+            return arrayListFull
+        }
+    }
+console.log('Estou renderizando quem:',renderList(dbAuthors,dbFavorite));
+
     useEffect(() => {
         const handleApiCORE = async () => {
             try {
@@ -63,22 +84,11 @@ function Home() {
         setCurrentPage(0)
     }, [itensPerPage])
 
-    // useEffect(() => {
-    //     renderPage(dbAuthors)
-    // }, [dbAuthors])
+    useEffect(() => {
+       renderList(dbAuthors,dbFavorite)
+    }, [dbFavorite])
 
-    // Logica corrigida: Escutador em dbFavorites, MUDOU/ATUALIZOU
-    // useEffect(() => {
-    //     alert('Usefecct')
-    //     const dbAuthors = dbAuthors.filter(function (item) {
-    //         return !dbFavorite.includes(item)
-    //     })
-
-    //     setRender(dbAuthors)
-    //     saveLocalStorage("Favorites", dbFavorite)
-
-    // }, [dbFavorite])
-
+  
     return (
         <div>
             <div className="ct-main-home">
@@ -92,7 +102,7 @@ function Home() {
                 />
                 <table className="table">
                     <tr>
-                        <thead class="thead-light">
+                        <thead className="thead-light">
                             <tr>
                                 <th scope="col" >Authors</th>
                                 <th scope="col">Type</th>
