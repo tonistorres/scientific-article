@@ -9,13 +9,18 @@ import '../../index.css';
 function Favorite() {
 
     const [pageCurrent, setPageCurrent] = useState('Favorite')
-    const [dbFavoriteLocalStorage, setDbFavorite] = useState([])
+    const [dbFavorite, setDbFavorite] = useState([])
+    const [dbDisfavorLocalStorage, setDisfavor] = useState([])
+    const [dbHome, setHome] = useState([])
+
+
+
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
-    const pages = Math.ceil(dbFavoriteLocalStorage.length / itensPerPage)
+    const pages = Math.ceil(dbFavorite.length / itensPerPage)
     const startIndex = currentPage * itensPerPage
     const endIndex = startIndex + itensPerPage
-    const currentItens = dbFavoriteLocalStorage.slice(startIndex, endIndex)
+    const currentItens = dbFavorite.slice(startIndex, endIndex)
 
 
     // Logica corrigida: Buscando informção localStorage
@@ -23,19 +28,51 @@ function Favorite() {
         try {
             const result = searchLocalStorage("Favorites")
             setDbFavorite([...result])
+            saveLocalStorage("Disfavor", [])
+            saveLocalStorage("DbHome", [])  
+
         } catch (error) {
             console.log(`Erro useEffect Favorites:${error}`);
         }
     }, [])
 
 
-    const getId = (id) => {
-        const listFilter = dbFavoriteLocalStorage.filter((item) => item.id !== id)
-        setDbFavorite(listFilter)
-        alert('MODIFICANDO lista em dbFavoriteLocalStorage')
-        console.log('Lista Filter Favorites:', listFilter);
+    useEffect(() => {
+        const searchDbHome = searchLocalStorage("DbHome")
+        alert('SALVAR NO STORAGE SERÁ RS')
+        if (searchDbHome.length === 0 && dbFavorite.length > 0) {
+            saveLocalStorage("DbHome", dbFavorite)
+        }
+    }, [dbFavorite])
 
+
+    // useEffect(() => {
+    //     alert("Component WillUnMount")
+    //     const searchFavorites = searchLocalStorage("Favorites")
+    //     const searchDisfavor = searchLocalStorage("Disfavor")
+    //     const searchDbHome = searchLocalStorage("DbHome")
+    //     console.log('Favorite',searchFavorites.length);
+    //     console.log('Disfavor',searchDisfavor.length);
+    //     console.log('DbHome',searchDbHome.length);
+    //      if(searchFavorites.length>0 && searchDisfavor.length===0 && searchDbHome.length===0){
+    //         alert('salvando no localStorage')
+    //         saveLocalStorage("DbHome",searchFavorites)
+    //          return () => console.log('Salvo em DbHome localStorage');
+    //      }
+
+    // }, [dbHome])
+
+
+
+    const getId = (id) => {
+        const listFilter = dbFavorite.filter((item) => item.id !== id)
+        setDbFavorite([...listFilter])
+        const itemRemove = dbFavorite.filter((item) => item.id === id)
+        console.log('Item removido:', itemRemove);
+        setDisfavor([...dbDisfavorLocalStorage, ...itemRemove])
+        alert('MODIFICANDO lista em dbFavorite')
     }
+
 
     useEffect(() => {
         setCurrentPage(0)
@@ -43,19 +80,22 @@ function Favorite() {
 
 
 
+    // Escutador em dbFavorite component didUpdate
     useEffect(() => {
-        alert('ESCUTEI dbFavoriteLocalStorage foi ALTERADO. Vou já efetuar a logica');
-        saveLocalStorage("Desfavoritado", dbFavoriteLocalStorage)
-        saveLocalStorage("Length", dbFavoriteLocalStorage.length)
-    }, [dbFavoriteLocalStorage])
-
+        // alert('Salvando no LocalStorage');
+        saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
+        const renderHome = dbFavorite.filter(function (item) {
+            return !dbDisfavorLocalStorage.includes(item)
+        })
+        saveLocalStorage("DbHome", [...renderHome])
+    }, [dbDisfavorLocalStorage])
 
     return (
         <div>
             <div className="ct-main-home">
                 <Header
-                    favoriteItems={dbFavoriteLocalStorage.length}
-                    dbFavorite={dbFavoriteLocalStorage}
+                    favoriteItems={dbFavorite.length}
+                    dbFavorite={dbFavorite}
                     pageCurrent={pageCurrent}
                 />
                 <table class="table">
@@ -67,7 +107,7 @@ function Favorite() {
                                 <th scope="col">Title</th>
                                 <th scope="col">Description(s)</th>
                                 <th scope="col">url(s)</th>
-                                <th scope="col">Favorite</th>
+                                <th scope="col">Disfavor</th>
                             </tr>
                         </thead>
                         {currentItens.length > 0 && currentItens.map((item) => {
