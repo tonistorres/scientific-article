@@ -9,25 +9,26 @@ import '../../index.css';
 function Home() {
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
+    const [valueRender, setValue] = useState([])
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
-   
-    
-    const pages = (array)=>{
-        return Math.ceil(array.length / itensPerPage)
+
+
+    const initialState=()=>{
+        // const checkDisfavor = searchLocalStorage("Disfavor");
+        // const checkDbHome = searchLocalStorage("DbHome")
+        // if (checkDisfavor === null && checkDbHome === null) {
+            saveLocalStorage("Disfavor", [])
+            saveLocalStorage("DbHome", [])
+        
+        
+        // }
     }
 
-   const currentItens = (array) =>{
-    const startIndex = currentPage * itensPerPage
-    const endIndex = startIndex + itensPerPage
-    return array.slice(startIndex,endIndex)
-   }
-
-    
     useEffect(() => {
         const handleApiCORE = async () => {
             try {
-
+                initialState()
                 //    removeAllLocalStorage() 
                 // const response = await apiCore.get();
                 // console.log(response.data.results);
@@ -46,6 +47,59 @@ function Home() {
         handleApiCORE();
     }, []);
 
+
+    useEffect(() => {
+        setCurrentPage(0)
+    }, [itensPerPage])
+
+
+    useEffect(() => {
+
+        //saveLocalStorage("DataRender",renderList);
+        saveLocalStorage("Favorite", dbFavorite);
+
+        //    console.log('Render:',result[0]);
+    }, [dbAuthors, dbFavorite])
+
+    
+    const pages = (array) => {
+        return Math.ceil(array.length / itensPerPage)
+    }
+
+    const currentItens = (array) => {
+        const startIndex = currentPage * itensPerPage
+        const endIndex = startIndex + itensPerPage
+        return array.slice(startIndex, endIndex)
+    }
+
+
+    const renderList = (arrayListFull, arrayComparision) => {
+        console.log('Observando:', arrayListFull, arrayComparision);
+        if (arrayListFull.length && arrayComparision.length) {
+            alert('Os Dois Arrays Contem valor')
+            arrayListFull.filter(function (item) {
+                return !arrayComparision.includes(item)
+                // return arrayComparision(item =>item.id !== element.id)
+            })
+        }
+
+        if (!arrayListFull.length && !arrayComparision.length) {
+            alert('1')
+            return arrayListFull
+        }
+
+        if (!arrayListFull.length && arrayComparision.length) {
+            alert('2')
+            return arrayListFull
+        }
+        if (arrayListFull.length && !arrayComparision.length) {
+            alert('3')
+            return arrayListFull
+        }
+    }
+
+
+
     // Logica corrigida: verifyExist
     const getId = (id) => {
         const objectArticleFilter = dbAuthors.filter((item) => item.id === id)
@@ -59,25 +113,6 @@ function Home() {
         }
     }
 
-    useEffect(() => {
-        setCurrentPage(0)
-    }, [itensPerPage])
-
-    // useEffect(() => {
-    //     renderPage(dbAuthors)
-    // }, [dbAuthors])
-
-    // Logica corrigida: Escutador em dbFavorites, MUDOU/ATUALIZOU
-    // useEffect(() => {
-    //     alert('Usefecct')
-    //     const dbAuthors = dbAuthors.filter(function (item) {
-    //         return !dbFavorite.includes(item)
-    //     })
-
-    //     setRender(dbAuthors)
-    //     saveLocalStorage("Favorites", dbFavorite)
-
-    // }, [dbFavorite])
 
     return (
         <div>
@@ -92,7 +127,7 @@ function Home() {
                 />
                 <table className="table">
                     <tr>
-                        <thead class="thead-light">
+                        <thead className="thead-light">
                             <tr>
                                 <th scope="col" >Authors</th>
                                 <th scope="col">Type</th>
