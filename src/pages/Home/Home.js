@@ -46,18 +46,15 @@ function Home() {
         handleApiCORE();
     }, []);
 
-    // Logica corrigida: Salvando dbFavorites
+    // Logica corrigida: verifyExist
     const getId = (id) => {
-
         const objectArticleFilter = dbAuthors.filter((item) => item.id === id)
-        const verifyExist = dbFavorite.filter((item) => item.id === id)
+        const verifyExist = dbFavorite.some((item) => item.id === id)
         console.log(verifyExist);
         if (!verifyExist) {
             setFavorites([...dbFavorite, ...objectArticleFilter])
-
             alert('SALVO')
         } else {
-
             alert('ITEM CADASTRADO')
         }
     }
