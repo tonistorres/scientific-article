@@ -21,12 +21,7 @@ function Favorite() {
     const endIndex = startIndex + itensPerPage
     const currentItens = dbFavorite.slice(startIndex, endIndex)
 
-
-    // alert('Pontas Soltas')
-
-
     const initialState = () => {
-
         try {
             const checkDisfavor = searchLocalStorage("Disfavor");
             const checkDbHome = searchLocalStorage("DbHome");
@@ -51,9 +46,7 @@ function Favorite() {
 
     useEffect(() => {
         try {
-            const result = searchLocalStorage("Favorite")
-            console.log(result);
-            setDbFavorite([...result])
+            setDbFavorite([...searchLocalStorage("Favorite")])
         } catch (error) {
             console.log(`Erro useEffect Favorite:${error}`);
         }
@@ -99,7 +92,7 @@ function Favorite() {
 
 
     useEffect(() => {
-      
+
         try {
 
             saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
