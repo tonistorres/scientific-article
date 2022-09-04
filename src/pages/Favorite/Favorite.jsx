@@ -26,49 +26,54 @@ function Favorite() {
 
 
     const initialState = () => {
+
         try {
-            const resultDisfavor = searchLocalStorage("Disfavor")
-            const resultDbHome = searchLocalStorage("DbHome")
-            
-            if(resultDisfavor===null && resultDbHome===null){
-                alert('Execute initialState')
+            const checkDisfavor = searchLocalStorage("Disfavor");
+            const checkDbHome = searchLocalStorage("DbHome");
+            const checkDbFavorite = searchLocalStorage("Favorite");
+
+            if (checkDisfavor === null && checkDbHome === null) {
+
                 saveLocalStorage("Disfavor", [])
-                saveLocalStorage("DbHome", []) 
-            }    
+                saveLocalStorage("DbHome", [])
+            }
+
+            if (checkDbFavorite.length && checkDbHome.length === 0) {
+                saveLocalStorage("DbHome", checkDbFavorite)
+            }
         } catch (error) {
             console.log(`Erro useEffect initialState:${error}`);
         }
     }
 
     initialState()
-    
 
-    // Logica corrigida: Buscando informção localStorage
+
     useEffect(() => {
         try {
-            // alert('Linha Execução: DidMount')
-            const result = searchLocalStorage("Favorites")
+            const result = searchLocalStorage("Favorite")
+            console.log(result);
             setDbFavorite([...result])
-            
         } catch (error) {
-            console.log(`Erro useEffect Favorites:${error}`);
+            console.log(`Erro useEffect Favorite:${error}`);
         }
     }, [])
 
 
-    useEffect(() => {
-        try {
-            alert('Linha Execução: UseEffect DbFavorite')
-            const searchDbHome = searchLocalStorage("DbHome")
-            alert('SALVAR NO STORAGE SERÁ RS')
-            if (searchDbHome.length === 0 && dbFavorite.length > 0) {
-                saveLocalStorage("DbHome", dbFavorite)
-            }
-        } catch (error) {
-            console.log(`Erro useEffect dbFavorite:${error}`);
-        }
+    // OLHAR COM CALMA ESSSA LOGICA
+    // useEffect(() => {
+    //     try {
+    //         // alert('Linha Execução: UseEffect DbFavorite')
+    //         const verifyDbhome = searchLocalStorage("DbHome")
+    //         alert('SALVAR NO STORAGE SERÁ RS')
+    //         if (searchDbHome.length && dbFavorite.length ) {
+    //             saveLocalStorage("DbHome", dbFavorite)
+    //         }
+    //     } catch (error) {
+    //         console.log(`Erro useEffect dbFavorite:${error}`);
+    //     }
 
-    }, [dbFavorite])
+    // }, [dbFavorite])
 
 
 
@@ -86,20 +91,15 @@ function Favorite() {
 
     useEffect(() => {
         try {
-            alert('Linha Execução: itensPerPage')
             setCurrentPage(0)
         } catch (error) {
             console.log(`Erro useEffect itensPerPage:${error}`);
         }
-
     }, [itensPerPage])
 
 
-
-    // Escutador em dbFavorite component didUpdate
     useEffect(() => {
-        // alert('Linha Execução: dbDisfavorLocalTorage')
-
+      
         try {
 
             saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
@@ -117,7 +117,6 @@ function Favorite() {
     return (
 
         <div>
-            {/* {alert('Render')} */}
             <div className="ct-main-home">
                 <Header
                     favoriteItems={dbFavorite.length}
