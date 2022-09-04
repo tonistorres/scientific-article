@@ -11,8 +11,7 @@ function Favorite() {
     const [pageCurrent, setPageCurrent] = useState('Favorite')
     const [dbFavorite, setDbFavorite] = useState([])
     const [dbDisfavorLocalStorage, setDisfavor] = useState([])
-    const [dbHome, setHome] = useState([])
-
+    // const [dbHomeState, setHomeState] = useState([])
 
 
     const [itensPerPage, setItensPerPage] = useState(10)
@@ -23,14 +22,34 @@ function Favorite() {
     const currentItens = dbFavorite.slice(startIndex, endIndex)
 
 
+    // alert('Pontas Soltas')
+
+
+    const initialState = () => {
+        try {
+            const resultDisfavor = searchLocalStorage("Disfavor")
+            const resultDbHome = searchLocalStorage("DbHome")
+            
+            if(resultDisfavor===null && resultDbHome===null){
+                alert('Execute initialState')
+                saveLocalStorage("Disfavor", [])
+                saveLocalStorage("DbHome", []) 
+            }    
+        } catch (error) {
+            console.log(`Erro useEffect initialState:${error}`);
+        }
+    }
+
+    initialState()
+    
+
     // Logica corrigida: Buscando informção localStorage
     useEffect(() => {
         try {
+            // alert('Linha Execução: DidMount')
             const result = searchLocalStorage("Favorites")
             setDbFavorite([...result])
-            saveLocalStorage("Disfavor", [])
-            saveLocalStorage("DbHome", [])  
-
+            
         } catch (error) {
             console.log(`Erro useEffect Favorites:${error}`);
         }
@@ -38,29 +57,20 @@ function Favorite() {
 
 
     useEffect(() => {
-        const searchDbHome = searchLocalStorage("DbHome")
-        alert('SALVAR NO STORAGE SERÁ RS')
-        if (searchDbHome.length === 0 && dbFavorite.length > 0) {
-            saveLocalStorage("DbHome", dbFavorite)
+        try {
+            alert('Linha Execução: UseEffect DbFavorite')
+            const searchDbHome = searchLocalStorage("DbHome")
+            alert('SALVAR NO STORAGE SERÁ RS')
+            if (searchDbHome.length === 0 && dbFavorite.length > 0) {
+                saveLocalStorage("DbHome", dbFavorite)
+            }
+        } catch (error) {
+            console.log(`Erro useEffect dbFavorite:${error}`);
         }
+
     }, [dbFavorite])
 
 
-    // useEffect(() => {
-    //     alert("Component WillUnMount")
-    //     const searchFavorites = searchLocalStorage("Favorites")
-    //     const searchDisfavor = searchLocalStorage("Disfavor")
-    //     const searchDbHome = searchLocalStorage("DbHome")
-    //     console.log('Favorite',searchFavorites.length);
-    //     console.log('Disfavor',searchDisfavor.length);
-    //     console.log('DbHome',searchDbHome.length);
-    //      if(searchFavorites.length>0 && searchDisfavor.length===0 && searchDbHome.length===0){
-    //         alert('salvando no localStorage')
-    //         saveLocalStorage("DbHome",searchFavorites)
-    //          return () => console.log('Salvo em DbHome localStorage');
-    //      }
-
-    // }, [dbHome])
 
 
 
@@ -75,23 +85,39 @@ function Favorite() {
 
 
     useEffect(() => {
-        setCurrentPage(0)
+        try {
+            alert('Linha Execução: itensPerPage')
+            setCurrentPage(0)
+        } catch (error) {
+            console.log(`Erro useEffect itensPerPage:${error}`);
+        }
+
     }, [itensPerPage])
 
 
 
     // Escutador em dbFavorite component didUpdate
     useEffect(() => {
-        // alert('Salvando no LocalStorage');
-        saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
-        const renderHome = dbFavorite.filter(function (item) {
-            return !dbDisfavorLocalStorage.includes(item)
-        })
-        saveLocalStorage("DbHome", [...renderHome])
+        // alert('Linha Execução: dbDisfavorLocalTorage')
+
+        try {
+
+            saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
+            const renderHome = dbFavorite.filter(function (item) {
+                return !dbDisfavorLocalStorage.includes(item)
+            })
+            saveLocalStorage("DbHome", [...renderHome])
+        } catch (error) {
+            console.log(`Erro useEffect itensPerPage:${error}`);
+        }
+
+
     }, [dbDisfavorLocalStorage])
 
     return (
+
         <div>
+            {/* {alert('Render')} */}
             <div className="ct-main-home">
                 <Header
                     favoriteItems={dbFavorite.length}
