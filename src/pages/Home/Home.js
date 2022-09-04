@@ -14,10 +14,21 @@ function Home() {
     const [currentPage, setCurrentPage] = useState(0)
 
 
+    const initialState=()=>{
+        // const checkDisfavor = searchLocalStorage("Disfavor");
+        // const checkDbHome = searchLocalStorage("DbHome")
+        // if (checkDisfavor === null && checkDbHome === null) {
+            saveLocalStorage("Disfavor", [])
+            saveLocalStorage("DbHome", [])
+        
+        
+        // }
+    }
+
     useEffect(() => {
         const handleApiCORE = async () => {
             try {
-
+                initialState()
                 //    removeAllLocalStorage() 
                 // const response = await apiCore.get();
                 // console.log(response.data.results);
