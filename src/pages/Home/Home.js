@@ -9,41 +9,10 @@ import '../../index.css';
 function Home() {
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
+    const [valueRender, setValue] = useState([])
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
 
-
-    const pages = (array) => {
-        return Math.ceil(array.length / itensPerPage)
-    }
-
-    const currentItens = (array) => {
-        const startIndex = currentPage * itensPerPage
-        const endIndex = startIndex + itensPerPage
-        return array.slice(startIndex, endIndex)
-    }
-
-  
-    const renderList = (arrayListFull, arrayComparision) => {
-        console.log('Observando:',arrayListFull, arrayComparision);
-        if (arrayListFull.length && arrayComparision.length) {
-            arrayListFull.filter(function (item) {
-                return !arrayComparision.includes(item)
-            })
-        }
-
-        if(!arrayListFull.length && !arrayComparision.length){
-            return arrayListFull
-        }
-
-        if(!arrayListFull.length && arrayComparision.length){
-            return arrayListFull
-        }
-        if(arrayListFull.length && !arrayComparision.length){
-            return arrayListFull
-        }
-    }
-console.log('Estou renderizando quem:',renderList(dbAuthors,dbFavorite));
 
     useEffect(() => {
         const handleApiCORE = async () => {
@@ -67,6 +36,60 @@ console.log('Estou renderizando quem:',renderList(dbAuthors,dbFavorite));
         handleApiCORE();
     }, []);
 
+
+    useEffect(() => {
+        setCurrentPage(0)
+    }, [itensPerPage])
+
+
+    useEffect(() => {
+
+        //saveLocalStorage("DataRender",renderList);
+        saveLocalStorage("Favorite", dbFavorite);
+
+        //    console.log('Render:',result[0]);
+    }, [dbAuthors, dbFavorite])
+
+    console.log('dbValue', valueRender);
+
+    const pages = (array) => {
+        return Math.ceil(array.length / itensPerPage)
+    }
+
+    const currentItens = (array) => {
+        const startIndex = currentPage * itensPerPage
+        const endIndex = startIndex + itensPerPage
+        return array.slice(startIndex, endIndex)
+    }
+
+
+    const renderList = (arrayListFull, arrayComparision) => {
+        console.log('Observando:', arrayListFull, arrayComparision);
+        if (arrayListFull.length && arrayComparision.length) {
+            alert('Os Dois Arrays Contem valor')
+            arrayListFull.filter(function (item) {
+                return !arrayComparision.includes(item)
+                // return arrayComparision(item =>item.id !== element.id)
+            })
+        }
+
+        if (!arrayListFull.length && !arrayComparision.length) {
+            alert('1')
+            return arrayListFull
+        }
+
+        if (!arrayListFull.length && arrayComparision.length) {
+            alert('2')
+            return arrayListFull
+        }
+        if (arrayListFull.length && !arrayComparision.length) {
+            alert('3')
+            return arrayListFull
+        }
+    }
+
+
+
     // Logica corrigida: verifyExist
     const getId = (id) => {
         const objectArticleFilter = dbAuthors.filter((item) => item.id === id)
@@ -80,15 +103,7 @@ console.log('Estou renderizando quem:',renderList(dbAuthors,dbFavorite));
         }
     }
 
-    useEffect(() => {
-        setCurrentPage(0)
-    }, [itensPerPage])
 
-    useEffect(() => {
-       renderList(dbAuthors,dbFavorite)
-    }, [dbFavorite])
-
-  
     return (
         <div>
             <div className="ct-main-home">
