@@ -11,45 +11,110 @@ function Favorite() {
     const [pageCurrent, setPageCurrent] = useState('Favorite')
     const [dbFavorite, setDbFavorite] = useState([])
     const [dbDisfavorLocalStorage, setDisfavor] = useState([])
-    // const [dbHomeState, setHomeState] = useState([])
+    const [dbHomeStateRender, setHomeState] = useState([])
 
 
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
-    const pages = Math.ceil(dbFavorite.length / itensPerPage)
+    const pages = Math.ceil(dbHomeStateRender.length / itensPerPage)
     const startIndex = currentPage * itensPerPage
     const endIndex = startIndex + itensPerPage
-    const currentItens = dbFavorite.slice(startIndex, endIndex)
+    const currentItens = dbHomeStateRender.slice(startIndex, endIndex)
 
     const initialState = () => {
+        // alert('Primeira Execução:initialState')
+
         try {
             const checkDisfavor = searchLocalStorage("Disfavor");
             const checkDbHome = searchLocalStorage("DbHome");
             const checkDbFavorite = searchLocalStorage("Favorite");
+            console.log('----------------------------------------------------------');
+            console.log('1: Checando se existe Disfavor e DbHome e checkDbFavorite ');
+            console.log('1.1 - Disfavor(localStorage):', checkDisfavor);
+            console.log('1.2 - Checando se existe DbHome(localStorage)', checkDbHome);
+            console.log('1.3 - Checando Tamanho DbFavorite(localStorage)', checkDbFavorite);
+            console.log('----------------------------------------------------------');
 
             if (checkDisfavor === null && checkDbHome === null) {
+                console.log('* Criando as chaves Disfavor e DbHome');
                 saveLocalStorage("Disfavor", [])
                 saveLocalStorage("DbHome", [])
+                console.log('1.1 - Disfavor(localStorage):', checkDisfavor);
+                console.log('1.2 - Checando se existe DbHome(localStorage)', checkDbHome);
             }
 
             if (checkDbFavorite.length && checkDbHome.length === 0) {
                 saveLocalStorage("DbHome", checkDbFavorite)
             }
+
+            //    reloadUpdateDBLogicHomePage()
+
         } catch (error) {
             console.log(`Erro useEffect initialState:${error}`);
         }
     }
 
-    initialState()
 
+// trabalhando rederização de forma acoplada
+    const reloadUpdateDBLogicHomePage = () => {
+        try {
+            setDbFavorite([...searchLocalStorage("Favorite")])
+            setDisfavor([...searchLocalStorage("Disfavor")]) 
+            // alert('reload execute')
+            // console.log('dbFavorite',dbFavorite);
+            // console.log('dbDisfavor',dbDisfavorLocalStorage);
+            const renderHome = dbFavorite.filter(function (item) {
+                return !dbDisfavorLocalStorage.includes(item)
+            })
+            // saveLocalStorage("DbHome", [...renderHome])
+            setHomeState([...renderHome])
+
+        } catch (error) {
+            console.log(`Erro useEffect initialState:${error}`);
+        }
+
+    }
 
     useEffect(() => {
         try {
-            setDbFavorite([...searchLocalStorage("Favorite")])
+            initialState()
+            
         } catch (error) {
             console.log(`Erro useEffect Favorite:${error}`);
         }
     }, [])
+
+    useEffect(() => {
+        try {
+            // alert('3: useEffect dbHomeStateRender salvando localstorage')
+            // console.log('UseEffectRender dbHomeStateRender', dbHomeStateRender);
+            saveLocalStorage("DbHome", dbHomeStateRender)
+        } catch (error) {
+            console.log(`Erro useEffect HomeStateRender:${error}`);
+        }
+    }, [dbHomeStateRender])
+
+
+    useEffect(() => {
+        try {
+            // alert('2:Escuta em dbDisfavorLocalStorage: Salve LocalStorage Disfavor e reloadUpdate')
+            // console.log('2: dbFavorite useEffect:', dbFavorite);
+            // console.log('3: dbDisfavor useEffect:', dbDisfavorLocalStorage);
+            saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
+            reloadUpdateDBLogicHomePage()
+        } catch (error) {
+            console.log(`Erro useEffect itensPerPage:${error}`);
+        }
+    }, [dbDisfavorLocalStorage])
+
+
+    useEffect(() => {
+        try {
+            setCurrentPage(0)
+        } catch (error) {
+            console.log(`Erro useEffect itensPerPage:${error}`);
+        }
+    }, [itensPerPage])
 
 
     // OLHAR COM CALMA ESSSA LOGICA
@@ -67,43 +132,19 @@ function Favorite() {
 
     // }, [dbFavorite])
 
-
     const getId = (id) => {
         try {
             setDbFavorite([...dbFavorite.filter((item) => item.id !== id)])
             setDisfavor([...dbDisfavorLocalStorage, ...dbFavorite.filter((item) => item.id === id)])
-            console.log('1 array restante dbFavorites:',dbFavorite.filter((item) => item.id !== id)); 
+            console.log('1 array restante dbFavorites:', dbFavorite.filter((item) => item.id !== id));
             console.log('2: Item removido:', [...dbDisfavorLocalStorage, ...dbFavorite.filter((item) => item.id === id)]);
             // console.log('3: dbDisfavor:', dbDisfavorLocalStorage);
-            alert('MODIFICANDO lista em dbFavorite')
+            alert('1 Qdo Click:MODIFICANDO lista em dbFavorite')
         } catch (error) {
             console.log(`Erro useEffect getId:${error}`);
         }
     }
 
-
-    useEffect(() => {
-        try {
-            alert('Disfavor')
-            console.log('3: dbDisfavor:', dbDisfavorLocalStorage);
-            saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
-            const renderHome = dbFavorite.filter(function (item) {
-                return !dbDisfavorLocalStorage.includes(item)
-            })
-            saveLocalStorage("DbHome", [...renderHome])
-        } catch (error) {
-            console.log(`Erro useEffect itensPerPage:${error}`);
-        }
-    }, [dbDisfavorLocalStorage])
-
-
-    useEffect(() => {
-        try {
-            setCurrentPage(0)
-        } catch (error) {
-            console.log(`Erro useEffect itensPerPage:${error}`);
-        }
-    }, [itensPerPage])
     return (
 
         <div>
