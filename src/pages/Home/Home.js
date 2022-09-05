@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaStar } from 'react-icons/fa';
-// import { apiCore } from '../../services/Api';
+// import { apiCore, apiCoreEndPoint } from '../../services/Api';
+
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
 import Pagination from "../../components/Pagination/Pagination";
 import Header from "../../components/Header/Header";
@@ -9,33 +10,62 @@ import '../../index.css';
 function Home() {
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
-    const [valueRender, setValue] = useState([])
+
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
+    const pages = Math.ceil(dbAuthors.length / itensPerPage)
+    const startIndex = currentPage * itensPerPage
+    const endIndex = startIndex + itensPerPage
+    const currentItens = dbAuthors.slice(startIndex, endIndex)
 
 
-    const initialState=()=>{
-        // const checkDisfavor = searchLocalStorage("Disfavor");
-        // const checkDbHome = searchLocalStorage("DbHome")
-        // if (checkDisfavor === null && checkDbHome === null) {
-            saveLocalStorage("Disfavor", [])
-            saveLocalStorage("DbHome", [])
-        
-        
-        // }
+    const initialState = () => {
+        try {
+            saveLocalStorage("Disfavor", []);
+            saveLocalStorage("DbHome", []);
+            verifyKeyDbAuthorsExistLocalStorage();
+            verifyKeyFavoriteExistLocalStorage();
+        } catch (error) {
+            console.log(`Erro function initialState:${error}`);
+        }
+
     }
+
+
+    const verifyKeyDbAuthorsExistLocalStorage = () => {
+        const checkKey = searchLocalStorage('DadosAPI');
+        if (!checkKey) {
+            saveLocalStorage("DadosAPI", [])
+            setAuthors([])
+        }
+        setAuthors(searchLocalStorage('DadosAPI'));
+    }
+
+
+    const verifyKeyFavoriteExistLocalStorage = () => {
+        const checkKey = searchLocalStorage("Favorite");
+        if (!checkKey) {
+            saveLocalStorage("Favorite", [])
+            setFavorites([])
+        }
+        setFavorites(searchLocalStorage('Favorite'));
+    }
+
+
+
 
     useEffect(() => {
         const handleApiCORE = async () => {
             try {
                 initialState()
+
                 //    removeAllLocalStorage() 
                 // const response = await apiCore.get();
                 // console.log(response.data.results);
                 // setAuthors(response.data.results)
                 // if (dbAuthors) {
                 //  saveLocalStorage('DadosAPI', response.data.results)
-                setAuthors(searchLocalStorage('DadosAPI'))
+
                 // setFavorites(searchLocalStorage('DbHome'))
                 // setRender(searchLocalStorage('DadosAPI'))
 
@@ -53,74 +83,20 @@ function Home() {
     }, [itensPerPage])
 
 
-    useEffect(() => {
-
-        //saveLocalStorage("DataRender",renderList);
-        saveLocalStorage("Favorite", dbFavorite);
-
-        //    console.log('Render:',result[0]);
-    }, [dbAuthors, dbFavorite])
-
-    
-    const pages = (array) => {
-        return Math.ceil(array.length / itensPerPage)
-    }
-
-    const currentItens = (array) => {
-        const startIndex = currentPage * itensPerPage
-        const endIndex = startIndex + itensPerPage
-        return array.slice(startIndex, endIndex)
-    }
-
-
-    const renderList = (arrayListFull, arrayComparision) => {
-        console.log('Observando:', arrayListFull, arrayComparision);
-        if (arrayListFull.length && arrayComparision.length) {
-            alert('Os Dois Arrays Contem valor')
-            arrayListFull.filter(function (item) {
-                return !arrayComparision.includes(item)
-                // return arrayComparision(item =>item.id !== element.id)
-            })
-        }
-
-        if (!arrayListFull.length && !arrayComparision.length) {
-            alert('1')
-            return arrayListFull
-        }
-
-        if (!arrayListFull.length && arrayComparision.length) {
-            alert('2')
-            return arrayListFull
-        }
-        if (arrayListFull.length && !arrayComparision.length) {
-            alert('3')
-            return arrayListFull
-        }
-    }
-
-
-
-    // Logica corrigida: verifyExist
     const getId = (id) => {
-        const objectArticleFilter = dbAuthors.filter((item) => item.id === id)
-        const verifyExist = dbFavorite.some((item) => item.id === id)
-        console.log(verifyExist);
-        if (!verifyExist) {
-            setFavorites([...dbFavorite, ...objectArticleFilter])
-            alert('SALVO')
-        } else {
-            alert('ITEM CADASTRADO')
-        }
+        const addItemFilter = dbAuthors.filter((item) => item.id !== id);
+        setAuthors([...addItemFilter])
+        const itemAddFavorite = dbAuthors.filter((item) => item.id === id)
+        setFavorites([...dbFavorite, ...itemAddFavorite]);
+        saveLocalStorage("Favorite", dbFavorite);
     }
-
 
     return (
         <div>
             <div className="ct-main-home">
                 <h1>{`dbAuthors:${dbAuthors.length}`}</h1>
                 <h1>{`dbFavorites:${dbFavorite.length}`}</h1>
-
-
+           
                 <Header
                     favoriteItems={dbFavorite.length}
                     dbFavorite={dbFavorite}
@@ -137,7 +113,7 @@ function Home() {
                                 <th scope="col">Favorite</th>
                             </tr>
                         </thead>
-                        {currentItens(dbAuthors).length > 0 && currentItens(dbAuthors).map((item) => {
+                        {currentItens.length > 0 && currentItens.map((item) => {
                             return (
                                 <tbody>
                                     <tr key={item.id} scope="row">
@@ -168,7 +144,7 @@ function Home() {
 
                 <Pagination
                     setCurrentPage={setCurrentPage}
-                    pages={pages(currentItens(dbAuthors))}
+                    pages={pages}
                     itensPerPage={itensPerPage}
                     setItensPerPage={setItensPerPage}
                 />
