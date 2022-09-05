@@ -9,9 +9,9 @@ import '../../index.css';
 function Favorite() {
 
     const [pageCurrent, setPageCurrent] = useState('Favorite')
-    const [dbFavorite, setDbFavorite] = useState([])
-    const [dbDisfavorLocalStorage, setDisfavor] = useState([])
-    const [dbHomeStateRender, setHomeState] = useState([])
+    const [dbFavorite, setDbFavorite] = useState([]) // precisa 
+    const [dbDisfavorLocalStorage, setDisfavor] = useState([]) // precisa
+    const [dbHomeStateRender, setHomeState] = useState([]) // precisa 
 
 
     const [itensPerPage, setItensPerPage] = useState(10)
@@ -19,12 +19,13 @@ function Favorite() {
     const pages = Math.ceil(dbFavorite.length / itensPerPage)
     const startIndex = currentPage * itensPerPage
     const endIndex = startIndex + itensPerPage
-    const currentItens = dbFavorite.slice(startIndex, endIndex)
+    const currentItens = dbFavorite.slice(startIndex, endIndex);
 
-    const initialState = () => {
+
+    const initialState = async () => {
         try {
-            const checkDbFavorite = searchLocalStorage("Favorite");
-            const checkDisfavor = searchLocalStorage("Disfavor");
+            const checkDbFavorite = await searchLocalStorage("Favorite");
+            const checkDisfavor = await searchLocalStorage("Disfavor");
             if (checkDbFavorite.length && !checkDisfavor.length) {
                 alert('if')
                 setDbFavorite(checkDbFavorite)
@@ -34,17 +35,15 @@ function Favorite() {
                 alert('else')
                 setDbFavorite(checkDbFavorite)
                 setDisfavor(checkDisfavor)
-                const renderResultOperations = dbFavorite.filter(function (item) {
-                    return !dbDisfavorLocalStorage.includes(item)
-                })
+               
              
 
-            const feedingFavoriteList = searchLocalStorage("Favorite")
+            const feedingFavoriteList = await searchLocalStorage("Favorite")
             setDbFavorite([...feedingFavoriteList])
             
             }
         } catch (error) {
-            console.log(`Erro useEffect initialState:${error}`);
+            console.log(`Erro function initialState:${error}`);
         }
     }
 
@@ -64,17 +63,6 @@ function Favorite() {
         })
     }
 
-
-    // // Escutador em dbFavorite component didUpdate
-    // useEffect(() => {
-    //     // 
-    //     const renderHome = renderPageFavorite(dbFavorite, dbDisfavorLocalStorage)
-    //     saveLocalStorage("DbHome", [...renderHome])
-    //     // saveLocalStorage("DbHomeReloadFavorite",[...renderHome])
-    //     setHomeState([...renderHome])
-    // }, [dbDisfavorLocalStorage, dbFavorite])
-
-
     const getId = (id) => {
         const listFilter = dbFavorite.filter((item) => item.id !== id)
         setDbFavorite([...listFilter])
@@ -93,66 +81,6 @@ function Favorite() {
             console.log(`Erro useEffect itensPerPage:${error}`);
         }
     }, [itensPerPage])
-
-
-    //         // alert('Linha Execução: UseEffect DbFavorite')
-    //         const verifyDbhome = searchLocalStorage("DbHome")
-    //         alert('SALVAR NO STORAGE SERÁ RS')
-    //         if (searchDbHome.length && dbFavorite.length ) {
-    //             saveLocalStorage("DbHome", dbFavorite)
-    //         }
-
-    // OLHAR COM CALMA ESSSA LOGICA
-    // useEffect(() => {
-    //     try {
-
-    //         console.log('----------------------------------------------------------');
-    //         console.log('Trazendo Responsta da Escuta em dbFavorite e dbDisfavor   ');
-    //         console.log('         Printando Modificaçẽos no State                  ');
-    //         console.log('----------------------------------------------------------');
-    //         console.log('1.7 - dbFavorite após exclusão item(State):',[...dbFavorite]);
-    //         console.log('1.8 - dbDisfavor após exclusão item(State):',[...dbDisfavorLocalStorage]);
-    //         saveLocalStorage('Disfavor',dbDisfavorLocalStorage)
-    //     } catch (error) {
-    //         console.log(`Erro useEffect dbFavorite:${error}`);
-    //     }
-
-    // }, [dbFavorite,dbDisfavorLocalStorage])
-
-    // Escutador em dbFavorite component didUpdate
-    // useEffect(() => {
-    //     // alert('Salvando no LocalStorage');
-    //     saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
-    //     const renderHome = dbFavorite.filter(function (item) {
-    //         return !dbDisfavorLocalStorage.includes(item)
-    //     })
-    //     saveLocalStorage("DbHome", [...renderHome])
-    // }, [dbDisfavorLocalStorage])
-
-
-
-
-    // useEffect(() => {
-    //     try {
-    //          console.log('1.6 - dbHomeStateRender(State):', dbHomeStateRender);
-    //   } catch (error) {
-    //         console.log(`Erro useEffect HomeStateRender:${error}`);
-    //     }
-    // }, [dbHomeStateRender])
-
-
-    // useEffect(() => {
-    //     try {
-    //         // alert('2:Escuta em dbDisfavorLocalStorage: Salve LocalStorage Disfavor e reloadUpdate')
-    //         // console.log('2: dbFavorite useEffect:', dbFavorite);
-    //         // console.log('3: dbDisfavor useEffect:', dbDisfavorLocalStorage);
-    //         saveLocalStorage("Disfavor", dbDisfavorLocalStorage)
-    //         reloadUpdateDBLogicHomePage()
-    //     } catch (error) {
-    //         console.log(`Erro useEffect itensPerPage:${error}`);
-    //     }
-    // }, [dbDisfavorLocalStorage])
-
 
     return (
 
