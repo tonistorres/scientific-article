@@ -16,7 +16,7 @@ body {
 
 .ct-main-header {
   align-items: center;
-  background-color: #EAEAEA;
+  background-color: whitesmoke;
   border-radius: 8px;
   color: #212121;
   display: flex;
@@ -28,6 +28,21 @@ body {
   width: 99vw;
 }
 
+.ct-size-header{
+  align-items: center;
+  border-radius: 12px;
+  display: flex;
+  /* background-color: #89EDA8; */
+  border: 1px solid black;
+  /* font-size: 18px; */
+  justify-content: center; 
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  letter-spacing: 5px;
+  height: 100%;
+  width: 100%;
+}
 
 .ct-main-home {
   align-items: center;
@@ -105,13 +120,27 @@ tr:nth-child(even) {
 }
 
 
+@media only screen and (max-width: 1159px) {
+  .media-resp-length{
+    background-color: yellow;
+    display: none;
+  }
+}
+
+
 h1 {
   font-size: 30px;
   font-weight: 650;
-  letter-spacing: 15px;
+  letter-spacing: 4px;
   margin-top: 10px;
   margin-left: 100px;
+  }
+
+p{
+font-size: 15px;
+font-weight: 500;
 }
+
 
 .logo-mettzer {
   height: 70px;
@@ -136,11 +165,12 @@ h1 {
 }
 
 .btn-ir-favorite{
-  background-color:#89EDA8;
+  background-color: #89EDA8;
   border-radius: 8px;
   border: none;
   height: 48px;
-  width: 110px;
+  width: 150px;
+  
 }
 
 button:hover{
@@ -152,3 +182,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
