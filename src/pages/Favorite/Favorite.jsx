@@ -27,12 +27,12 @@ function Favorite() {
             const checkDbFavorite = await searchLocalStorage("Favorite");
             const checkDisfavor = await searchLocalStorage("Disfavor");
             if (checkDbFavorite.length && !checkDisfavor.length) {
-                alert('if')
+                // alert('if')
                 setDbFavorite(checkDbFavorite)
                 setHomeState(checkDbFavorite)
                 saveLocalStorage("DbHome", checkDbFavorite)
             }else{
-                alert('else')
+                // alert('else')
                 setDbFavorite(checkDbFavorite)
                 setDisfavor(checkDisfavor)
                
@@ -64,12 +64,15 @@ function Favorite() {
     }
 
     const getId = (id) => {
+        const addInListResulting = searchLocalStorage('ListResulting');
         const listFilter = dbFavorite.filter((item) => item.id !== id)
         setDbFavorite([...listFilter])
+        console.log(listFilter);
         saveLocalStorage("Favorite",[...listFilter]) // ficar de olho nessa alteração
         const itemRemove = dbFavorite.filter((item) => item.id === id)
         setDisfavor([...dbDisfavorLocalStorage, ...itemRemove])
         saveLocalStorage("Disfavor", [...dbDisfavorLocalStorage,...itemRemove])
+        saveLocalStorage('ListResulting',[...addInListResulting,...itemRemove])
         alert('MODIFICANDO lista em dbFavorite')
     }
 
@@ -88,33 +91,34 @@ function Favorite() {
             <div className="ct-main-home">
                 <Header
                     favoriteItems={dbFavorite.length}
+                    dbAuthors={currentItens.length}
                     dbFavorite={dbFavorite}
                     pageCurrent={pageCurrent}
                 />
-                <table class="table">
+                  <table className="table">
                     <tr>
-                        <thead class="thead-light">
+                        <thead className="thead-light">
                             <tr>
                                 <th scope="col" >Authors</th>
                                 <th scope="col">Type</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Description(s)</th>
                                 <th scope="col">url(s)</th>
-                                <th scope="col">Disfavor</th>
+                                <th scope="col">Favorite</th>
                             </tr>
                         </thead>
                         {currentItens.length > 0 && currentItens.map((item) => {
                             return (
                                 <tbody>
-                                    <tr key={item.id} scope="row">
-                                        <td>{item.authors.map(item => <ul className="ul-none"><li>{item.name}</li></ul>)}</td>
-                                        <td>{item.links.map(item => <ul className="ul-none"><li>{item.type}</li></ul>)}</td>
-                                        <td>{item.title}</td>
-                                        <td>{item.abstract}</td>
+                                    <tr key={item._id} scope="row">
+                                        <td>{item._source.authors.map(item => <ul className="ul-none"><li>{item}</li></ul>)}</td>
+                                        <td>{item._type}</td>
+                                        <td>{item._source.title}</td>
+                                        <td>{item._source.description}</td>
                                         <td>{
-                                            item.dataProviders
+                                            item._source.urls
                                                 .map(item => <ul className="ul-none">
-                                                    <li><a href={item.url} target="_blank" rel="noreferrer" >{item.url}</a>
+                                                    <li><a href={item} target="_blank" rel="noreferrer" >{item}</a>
                                                     </li>
                                                 </ul>
                                                 )
@@ -122,7 +126,7 @@ function Favorite() {
                                         </td>
                                         <td >
                                             <div className="btn-favorite">
-                                                <button className="btn-size-favorite" onClick={() => getId(item.id)}><FaStar size={30} /></button>
+                                                <button className="btn-size-favorite" onClick={() => getId(item._id)}><FaStar size={30} /></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -131,6 +135,7 @@ function Favorite() {
                         })}
                     </tr>
                 </table>
+
                 <Pagination
                     setCurrentPage={setCurrentPage}
                     pages={pages}
