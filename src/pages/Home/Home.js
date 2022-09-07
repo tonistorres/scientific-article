@@ -9,74 +9,38 @@ import Load from "../../components/Loading/Load";
 import '../../index.css';
 
 function Home() {
-    const NUMBER_PAGES_CONST=1;
+    const NUMBER_PAGES_CONST = 1;
     const [load, setLoad] = useState(false);
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
-    
+
+    const stateRender = dbFavorite.filter(function (item) {
+        return !dbAuthors.includes(item)
+    })
+
+
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
-    
     const startIndex = currentPage * itensPerPage
     const endIndex = startIndex + itensPerPage
     const currentItens = dbAuthors.slice(startIndex, endIndex)
 
-    const paginationControl =()=>{
-        const checkListingResultLocalStorage = searchLocalStorage('ListResulting')
-        if(!checkListingResultLocalStorage){
-            const pages = NUMBER_PAGES_CONST;
-            return pages;
-        }else{
-            const pages =Number( Math.ceil(dbAuthors.length / itensPerPage));
-            return pages;
+
+    useEffect(() => {
+        const handleApiCORE = async () => {
+            try {
+                initialState()
+            } catch (error) {
+                console.log("Error useEffect in Home:", error);
+            }
         }
-    }
-
-    // corrigida
-    const searchAPI = async () => {
-        const response = await apiCoreEndPoint.get();
-        setAuthors(response.data.data)
-        setLoad(true)
-    }
+        handleApiCORE();
+    }, []);
 
 
-    // corrigida: Ambos nulos no localStorage
-    const feedInitial =() =>{
-        const dataFavorite = searchLocalStorage("Favorite");
-        const listResulting = searchLocalStorage("listResulting")
-        if(dataFavorite===null && listResulting===null){
-            searchAPI();
-        }
-    }
-
-
-    const feedInitialFull =()=>{
-        alert('Full')
-        const dataFavorite = searchLocalStorage("Favorite");
-        const listResulting = searchLocalStorage("listResulting");
-        console.log('dataFavorite',typeof(dataFavorite));
-        console.log('listingResulting',typeof(listResulting));
-
-        console.log('Data Favorite',[...dataFavorite]);
-        console.log('Data Listing',[...listResulting]);
-        //  if(dataFavorite.length && listResulting.length){
-        //      searchAPI();
-        //      setFavorites(dataFavorite)
-        //     setLoad(true)
-        //  }
-
-        setLoad(true)
-    }
-
-    const feedCheckFavoriteFullListingEmpty =()=>{
-        alert('Empty')
-        const dataFavorite = searchLocalStorage("Favorite");
-        const listResulting = searchLocalStorage("listResulting")
-        if(dataFavorite.length && !listResulting.length){
-            setFavorites(dataFavorite)
-            setLoad(true)
-        }
-    }
+    useEffect(() => {
+        setCurrentPage(0)
+    }, [itensPerPage])
 
 
     const initialState = () => {
@@ -85,52 +49,37 @@ function Home() {
             saveLocalStorage("DbHome", []);
             feedInitial();
             feedInitialFull();
-
-            // feedCheckFavoriteFullListingEmpty();
-            // feedCheckFavoriteFullListingContainSize();
             setLoad(true)
         } catch (error) {
             console.log(`Erro function initialState:${error}`);
         }
     }
 
-   
-    // const callingVerifyDbAuthors = () => {
-    //     if (dbAuthors.length) {
-    //         alert('Acessei Deu BOm')
-    //         verifyDbAuthors();
-    //     } else {
-    //         alert('The state not feed')
-    //     }
-
-    // }
+  
+    const searchAPI = async () => {
+        const response = await apiCoreEndPoint.get();
+        setAuthors(response.data.data)
+        saveLocalStorage("DbAuthorsAPI",response.data.data)
+        setLoad(true)
+    }
 
 
-    // const verifyDbAuthors = () => {
-    //     alert('Consegui entrar em DbAuthors')
-    //     // verifyFavorite();
+    const feedInitial = () => {
+        const dataFavorite = searchLocalStorage("Favorite");
+        if (dataFavorite === null) {
+            searchAPI();
+        }
+    }
 
-    // // criar uma função buscar direto da api
-    // const checKeyAPI = searchLocalStorage('DadosAPI');
-    // const checKeyFavorite = searchLocalStorage('Favorite');
 
-    // if (!checKeyAPI) {
-    //     // alert('CRIANDO CHAVE API')
-    //     saveLocalStorage("DadosAPI", [])
-    //     setAuthors([])
-    // }
-
-    // if (!checKeyFavorite.length) {
-    //     // alert('PEGANDO DA API')
-    //     setAuthors(searchLocalStorage('DadosAPI'));
-    // } 
-
-    // if(checKeyFavorite.length && checKeyAPI.length){
-    //     // alert('PEGANDO ListResulting')
-    //     setAuthors(searchLocalStorage('ListResulting'));
-    // }
-
-    // }
+    const feedInitialFull = () => {
+        const dataFavorite = searchLocalStorage("Favorite");
+        if (dataFavorite.length ) {
+            setFavorites(dataFavorite)
+            searchAPI();
+        }
+         
+    }
 
 
     const verifyFavorite = () => {
@@ -144,34 +93,14 @@ function Home() {
     }
 
 
-    // lógica corrigida
-    useEffect(() => {
-        const handleApiCORE = async () => {
-            try {
-                initialState()
-            } catch (error) {
-                console.log("Error useEffect in Home:", error);
-            }
-        }
-        handleApiCORE();
-    }, []);
-
-
-    // observar se for fazer pesquisa
-    useEffect(() => {
-        setCurrentPage(0)
-    }, [itensPerPage])
-
-
-    //Revisar lógica
     const getId = (id) => {
         const checkListFavorited = dbFavorite.some((item) => item._id === id);
         if (!checkListFavorited) {
-        const listResulting = dbAuthors.filter((item) => item._id !== id);
-        setAuthors([...listResulting]);
-        saveLocalStorage("ListResulting", [...listResulting])
-        
-      
+            const listResulting = dbAuthors.filter((item) => item._id !== id);
+            setAuthors([...listResulting]);
+            saveLocalStorage("ListResulting", [...listResulting])
+
+
             const itemAddFavorite = dbAuthors.filter((item) => item._id === id)
             setFavorites([...dbFavorite, ...itemAddFavorite]);
             saveLocalStorage("Favorite", [...dbFavorite, ...itemAddFavorite]);
@@ -179,7 +108,36 @@ function Home() {
             alert('Item já Favoritado :)');
         }
     }
-    // console.log('-------------aqui------',dbAuthors.length)
+
+    const paginationControl = () => {
+        const checkListingResultLocalStorage = searchLocalStorage('ListResulting')
+        if (!checkListingResultLocalStorage) {
+            const pages = NUMBER_PAGES_CONST;
+            return pages;
+        } else {
+            const pages = Number(Math.ceil(dbAuthors.length / itensPerPage));
+            return pages;
+        }
+    }
+
+
+    const addingKeyCheckBox = () => {
+        const dataAuthors=searchLocalStorage('DadosAPI');
+        const dataFavorite=searchLocalStorage('Favorite')
+       
+        var array1 = []
+        for (let i = 0; i < dataAuthors.length; i++) {
+            for (let k = 0; k < dataFavorite.length; k++) {
+                if (dbAuthors[i]._id !== dbFavorite[k]._id) {
+                    array1.push(dbAuthors[i])
+                }
+            }
+        }
+        console.log('Aqui Dentro mesmo ',array1);
+        return array1;
+    }
+
+
     return (
         
         <div>
