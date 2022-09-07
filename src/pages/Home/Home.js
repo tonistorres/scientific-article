@@ -6,7 +6,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import Header from "../../components/Header/Header";
 import Load from "../../components/Loading/Load";
 import '../../index.css';
-// https://mettzer-scientific-article.vercel.app/home
+
 function Home() {
     const NUMBER_PAGES_CONST = 1;
     const [dbAuthors, setAuthors] = useState([]);
