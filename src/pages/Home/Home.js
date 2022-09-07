@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaStar } from 'react-icons/fa';
-import { apiCore, apiCoreEndPoint } from '../../services/Api';
-
+import { getWorks } from '../../services/Api';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
 import Pagination from "../../components/Pagination/Pagination";
 import Header from "../../components/Header/Header";
@@ -10,14 +9,14 @@ import '../../index.css';
 
 function Home() {
     const NUMBER_PAGES_CONST = 1;
-    const [load, setLoad] = useState(false);
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
+    const [dbStateOptions,setStateOptions] = useState('works');
 
-    const stateRender = dbFavorite.filter(function (item) {
-        return !dbAuthors.includes(item)
-    })
-
+    // const stateRender = dbFavorite.filter(function (item) {
+    //     return !dbAuthors.includes(item)
+    // })
+    // console.log('stateRender:', stateRender);
 
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
@@ -25,11 +24,10 @@ function Home() {
     const endIndex = startIndex + itensPerPage
     const currentItens = dbAuthors.slice(startIndex, endIndex)
 
-
     useEffect(() => {
         const handleApiCORE = async () => {
             try {
-                initialState()
+                initialState();
             } catch (error) {
                 console.log("Error useEffect in Home:", error);
             }
@@ -49,64 +47,83 @@ function Home() {
             saveLocalStorage("DbHome", []);
             feedInitial();
             feedInitialFull();
-            setLoad(true)
         } catch (error) {
             console.log(`Erro function initialState:${error}`);
         }
     }
 
-  
     const searchAPI = async () => {
-        const response = await apiCoreEndPoint.get();
-        setAuthors(response.data.data)
-        saveLocalStorage("DbAuthorsAPI",response.data.data)
-        setLoad(true)
+        try {
+            const response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`)
+            setAuthors(response)
+            saveLocalStorage("DbAuthorsAPI", response)
+     
+        } catch (error) {
+            console.log(`Erro function searcAPI:${error}`);
+        }
     }
 
 
     const feedInitial = () => {
-        const dataFavorite = searchLocalStorage("Favorite");
-        if (dataFavorite === null) {
-            searchAPI();
+        try {
+            const dataFavorite = searchLocalStorage("Favorite");
+            if (dataFavorite === null) {
+                searchAPI();
+            }
+        } catch (error) {
+            console.log(`Erro function feedInitial:${error}`);
         }
     }
 
 
     const feedInitialFull = () => {
-        const dataFavorite = searchLocalStorage("Favorite");
-        if (dataFavorite.length ) {
-            setFavorites(dataFavorite)
-            searchAPI();
+        try {
+            const dataFavorite = searchLocalStorage("Favorite");
+            if (dataFavorite.length) {
+                setFavorites(dataFavorite)
+                searchAPI();
+            }
+        } catch (error) {
+            console.log(`Erro function feedInitialFull:${error}`);
         }
-         
     }
 
 
     const verifyFavorite = () => {
-        const checkKey = searchLocalStorage("Favorite");
-        if (!checkKey) {
-            saveLocalStorage("Favorite", []);
-            setFavorites([]);
-        } else {
-            setFavorites(searchLocalStorage('Favorite'));
+        try {
+            const checkKey = searchLocalStorage("Favorite");
+            if (!checkKey) {
+                saveLocalStorage("Favorite", []);
+                setFavorites([]);
+            } else {
+                setFavorites(searchLocalStorage('Favorite'));
+            }
+        } catch (error) {
+            console.log(`Erro function verifyFavorite:${error}`);
         }
+
     }
 
 
     const getId = (id) => {
-        const checkListFavorited = dbFavorite.some((item) => item._id === id);
-        if (!checkListFavorited) {
-            const listResulting = dbAuthors.filter((item) => item._id !== id);
-            setAuthors([...listResulting]);
-            saveLocalStorage("ListResulting", [...listResulting])
+        try {
+            const checkListFavorited = dbFavorite.some((item) => item._id === id);
+            if (!checkListFavorited) {
+                const listResulting = dbAuthors.filter((item) => item._id !== id);
+                setAuthors([...listResulting]);
+                saveLocalStorage("ListResulting", [...listResulting])
 
 
-            const itemAddFavorite = dbAuthors.filter((item) => item._id === id)
-            setFavorites([...dbFavorite, ...itemAddFavorite]);
-            saveLocalStorage("Favorite", [...dbFavorite, ...itemAddFavorite]);
-        } else {
-            alert('Item já Favoritado :)');
+                const itemAddFavorite = dbAuthors.filter((item) => item._id === id)
+                setFavorites([...dbFavorite, ...itemAddFavorite]);
+                saveLocalStorage("Favorite", [...dbFavorite, ...itemAddFavorite]);
+            } else {
+                alert('Item já Favoritado :)');
+            }
+        } catch (error) {
+            console.log(`Erro function getId:${error}`);
         }
+
     }
 
     const paginationControl = () => {
@@ -121,10 +138,11 @@ function Home() {
     }
 
 
+
     const addingKeyCheckBox = () => {
-        const dataAuthors=searchLocalStorage('DadosAPI');
-        const dataFavorite=searchLocalStorage('Favorite')
-       
+        const dataAuthors = searchLocalStorage('DadosAPI');
+        const dataFavorite = searchLocalStorage('Favorite')
+
         var array1 = []
         for (let i = 0; i < dataAuthors.length; i++) {
             for (let k = 0; k < dataFavorite.length; k++) {
@@ -133,22 +151,28 @@ function Home() {
                 }
             }
         }
-        console.log('Aqui Dentro mesmo ',array1);
+        console.log('Aqui Dentro mesmo ', array1);
         return array1;
     }
-
+   
 
     return (
-        
+
         <div>
             {
-                !load ? <Load /> :
+
+                !currentItens.length ? <Load /> :
                     <div className="ct-main-home">
-                        <Header
-                            dbFavorite={dbFavorite}
-                            
-                            dbAuthors={dbAuthors}
-                        />
+                        <Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
+                        <div className="ct-search">
+                            <input type="text" placeholder="type your search" />
+                            <select className="select-style">
+                                <option selected value="works">Works</option>
+                                {/* <option value="Authors">Authors</option> */}
+                                {/* <option selected value="language">Language</option>                                 */}
+                            </select>
+                            <button>Go</button>
+                        </div>
                         <table className="table">
                             <tr>
                                 <thead className="thead-light">
