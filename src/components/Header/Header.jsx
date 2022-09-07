@@ -12,7 +12,7 @@ function Header({  dbFavorite, pageCurrent, dbAuthors }) {
     }
 
     const handleClickHome = () => {
-        navigate('/')
+        navigate('/home')
     }
 
     return (

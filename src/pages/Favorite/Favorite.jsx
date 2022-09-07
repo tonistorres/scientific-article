@@ -8,12 +8,8 @@ import '../../index.css';
 
 function Favorite() {
 
-    const [pageCurrent, setPageCurrent] = useState('Favorite')
-    const [dbFavorite, setDbFavorite] = useState([]) // precisa 
-    const [dbDisfavorLocalStorage, setDisfavor] = useState([]) // precisa
-    const [dbHomeStateRender, setHomeState] = useState([]) // precisa 
-
-
+    const [pageCurrent, setPageCurrent] = useState('Favorite');
+    const [dbFavorite, setDbFavorite] = useState([]); 
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
     const pages = Math.ceil(dbFavorite.length / itensPerPage)
@@ -21,23 +17,26 @@ function Favorite() {
     const endIndex = startIndex + itensPerPage
     const currentItens = dbFavorite.slice(startIndex, endIndex);
 
+    useEffect(() => {
+        try {
+            initialState()  
+
+        } catch (error) {
+            console.log(`Erro useEffect Favorite:${error}`);
+        }
+    }, []);
+
+
 
     const initialState = async () => {
         try {
             const checkDbFavorite = await searchLocalStorage("Favorite");
             const checkDisfavor = await searchLocalStorage("Disfavor");
             if (checkDbFavorite.length && !checkDisfavor.length) {
-                // alert('if')
                 setDbFavorite(checkDbFavorite)
-                setHomeState(checkDbFavorite)
                 saveLocalStorage("DbHome", checkDbFavorite)
             }else{
-                // alert('else')
                 setDbFavorite(checkDbFavorite)
-                setDisfavor(checkDisfavor)
-               
-             
-
             const feedingFavoriteList = await searchLocalStorage("Favorite")
             setDbFavorite([...feedingFavoriteList])
             
@@ -47,15 +46,6 @@ function Favorite() {
         }
     }
 
-    useEffect(() => {
-        try {
-            initialState() // 1ª execução 
-
-        } catch (error) {
-            console.log(`Erro useEffect Favorite:${error}`);
-        }
-    }, [])
-
 
     const renderPageFavorite = (arrayFavorite, arrayDisfavor) => {
         return arrayFavorite.filter(function (item) {
@@ -64,16 +54,9 @@ function Favorite() {
     }
 
     const getId = (id) => {
-        const addInListResulting = searchLocalStorage('ListResulting');
-        const listFilter = dbFavorite.filter((item) => item.id !== id)
-        setDbFavorite([...listFilter])
-        console.log(listFilter);
-        saveLocalStorage("Favorite",[...listFilter]) // ficar de olho nessa alteração
-        const itemRemove = dbFavorite.filter((item) => item.id === id)
-        setDisfavor([...dbDisfavorLocalStorage, ...itemRemove])
-        saveLocalStorage("Disfavor", [...dbDisfavorLocalStorage,...itemRemove])
-        saveLocalStorage('ListResulting',[...addInListResulting,...itemRemove])
-        alert('MODIFICANDO lista em dbFavorite')
+        const listFilter = dbFavorite.filter((item) => item._id !== id);
+        setDbFavorite(listFilter);
+        saveLocalStorage("Favorite",[...listFilter]); 
     }
 
 
@@ -86,7 +69,6 @@ function Favorite() {
     }, [itensPerPage])
 
     return (
-
         <div>
             <div className="ct-main-home">
                 <Header

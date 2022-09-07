@@ -20,7 +20,7 @@ function Loading() {
             try {
                 setTimeout(() => {
                     return setRemoveLoading(true);
-                }, 500);
+                }, 5000);
 
             } catch (error) {
                 console.log("Erro useEffect handleStateRedirect: ", error);
