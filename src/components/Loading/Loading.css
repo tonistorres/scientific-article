@@ -9,7 +9,7 @@
 }
 
 
-h3{
+h3 {
     /* border: 1px solid red; */
     font-size: 172px;
     font-weight: 400;
@@ -17,30 +17,38 @@ h3{
     width: 98%;
 }
 
-.ct-oroganization{
+.ct-oroganization {
     /* border: 1px solid black; */
     /* border-radius: 50%; */
     /* background-color: white; */
     display: flex;
     height: auto;
-    align-items: start ;
+    align-items: start;
     justify-content: space-between;
     width: 57%;
 }
 
-.img-boy{
-    border:1px solid black;
+.img-boy {
+    border: 1px solid black;
     border-radius: 50%;
     width: 250px;
     width: 250px;
 
 }
+
 .load-render {
     align-items: center;
     /* border: 2px solid black; */
     justify-content: center;
-    background-color: #E9ECEF;
+    background-color:white;
     display: flex;
     height: 100vh;
     width: 100vw;
+}
+
+.img-logo-load {
+    border: none;
+    border-radius: 50%;
+    height: 50%;
+    width: 50%;
 }
