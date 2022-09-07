@@ -12,12 +12,6 @@ function Home() {
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
     const [dbStateOptions,setStateOptions] = useState('works');
-
-    // const stateRender = dbFavorite.filter(function (item) {
-    //     return !dbAuthors.includes(item)
-    // })
-    // console.log('stateRender:', stateRender);
-
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
     const startIndex = currentPage * itensPerPage
@@ -35,9 +29,8 @@ function Home() {
         handleApiCORE();
     }, []);
 
-
     useEffect(() => {
-        setCurrentPage(0)
+        setCurrentPage(0);
     }, [itensPerPage])
 
 
@@ -61,11 +54,11 @@ function Home() {
                 setFavorites([]);            }
             else{
                 const listRender = response.reduce((acc,curr)=>{
-                    const arr=responseFavorite.filter((e)=>e._id===curr._id)
+                    const arr=responseFavorite.filter((e)=>e._id===curr._id);
                     if(arr.length < 1){
-                        acc.push(curr)
+                        acc.push(curr);
                     }
-                    return acc
+                    return acc;
                 },[])
                 
                 setAuthors(listRender);
@@ -93,30 +86,13 @@ function Home() {
         try {
             const dataFavorite = searchLocalStorage("Favorite");
             if (dataFavorite.length) {
-                setFavorites(dataFavorite)
+                setFavorites(dataFavorite);
                 searchAPI();
             }
         } catch (error) {
             console.log(`Erro function feedInitialFull:${error}`);
         }
     }
-
-
-    const verifyFavorite = () => {
-        try {
-            const checkKey = searchLocalStorage("Favorite");
-            if (!checkKey) {
-                saveLocalStorage("Favorite", []);
-                setFavorites([]);
-            } else {
-                setFavorites(searchLocalStorage('Favorite'));
-            }
-        } catch (error) {
-            console.log(`Erro function verifyFavorite:${error}`);
-        }
-
-    }
-
 
     const getId = (id) => {
         try {
@@ -134,7 +110,6 @@ function Home() {
         } catch (error) {
             console.log(`Erro function getId:${error}`);
         }
-
     }
 
     const paginationControl = () => {
@@ -148,29 +123,9 @@ function Home() {
         }
     }
 
-
-
-    const addingKeyCheckBox = (arrayApi, array2Localstorage) => {
-        var array1 = []
-        for (let i = 0; i < arrayApi.length; i++) {
-            for (let k = 0; k < array2Localstorage.length; k++) {
-                if (arrayApi[i]._id !== array2Localstorage[k]._id) {
-                    array1.push(arrayApi[i])
-                
-                }
-            }
-        }
-        console.log('Aqui Dentro mesmo ', array1);
-        return array1;
-    }
-   
-
     return (
-
         <div>
-            {
-
-                !currentItens.length ? <Load /> :
+            {!currentItens.length ? <Load /> :
                     <div className="ct-main-home">
                         <Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
                         <div className="ct-search">
