@@ -112,8 +112,6 @@ function Home() {
                 const listResulting = dbAuthors.filter((item) => item._id !== id);
                 setAuthors([...listResulting]);
                 saveLocalStorage("ListResulting", [...listResulting])
-
-
                 const itemAddFavorite = dbAuthors.filter((item) => item._id === id)
                 setFavorites([...dbFavorite, ...itemAddFavorite]);
                 saveLocalStorage("Favorite", [...dbFavorite, ...itemAddFavorite]);
