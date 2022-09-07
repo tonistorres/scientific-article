@@ -44,7 +44,7 @@ function Home() {
             console.log(`Erro function initialState:${error}`);
         }
     }
-    // fazer verificação se existe favorito 
+    
     const searchAPI = async () => {
         try {
             let response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`)
@@ -69,7 +69,6 @@ function Home() {
         }
     }
 
-
     const feedInitial = () => {
         try {
             const dataFavorite = searchLocalStorage("Favorite");
@@ -80,7 +79,6 @@ function Home() {
             console.log(`Erro function feedInitial:${error}`);
         }
     }
-
 
     const feedInitialFull = () => {
         try {
