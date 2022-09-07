@@ -6,7 +6,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import Header from "../../components/Header/Header";
 import Load from "../../components/Loading/Load";
 import '../../index.css';
-
+// https://mettzer-scientific-article.vercel.app/home
 function Home() {
     const NUMBER_PAGES_CONST = 1;
     const [dbAuthors, setAuthors] = useState([]);
@@ -51,13 +51,21 @@ function Home() {
             console.log(`Erro function initialState:${error}`);
         }
     }
-
+    // fazer verificação se existe favorito 
     const searchAPI = async () => {
         try {
-            const response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`)
-            setAuthors(response)
-            saveLocalStorage("DbAuthorsAPI", response)
-     
+            let response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`)
+            const responseFavorite = searchLocalStorage("Favorite");
+             const listRender = response.reduce((acc,curr)=>{
+                const arr=responseFavorite.filter((e)=>e._id===curr._id)
+                if(arr.length < 1){
+                    acc.push(curr)
+                }
+                return acc
+            },[])
+            
+            setAuthors(listRender);
+            // saveLocalStorage("DbAuthorsAPI", response)
         } catch (error) {
             console.log(`Erro function searcAPI:${error}`);
         }
@@ -137,15 +145,13 @@ function Home() {
 
 
 
-    const addingKeyCheckBox = () => {
-        const dataAuthors = searchLocalStorage('DadosAPI');
-        const dataFavorite = searchLocalStorage('Favorite')
-
+    const addingKeyCheckBox = (arrayApi, array2Localstorage) => {
         var array1 = []
-        for (let i = 0; i < dataAuthors.length; i++) {
-            for (let k = 0; k < dataFavorite.length; k++) {
-                if (dbAuthors[i]._id !== dbFavorite[k]._id) {
-                    array1.push(dbAuthors[i])
+        for (let i = 0; i < arrayApi.length; i++) {
+            for (let k = 0; k < array2Localstorage.length; k++) {
+                if (arrayApi[i]._id !== array2Localstorage[k]._id) {
+                    array1.push(arrayApi[i])
+                
                 }
             }
         }
@@ -169,7 +175,7 @@ function Home() {
                                 {/* <option value="Authors">Authors</option> */}
                                 {/* <option selected value="language">Language</option>                                 */}
                             </select>
-                            <button>Go</button>
+                            <button className="btn-go-search">Go</button>
                         </div>
                         <table className="table">
                             <tr>
