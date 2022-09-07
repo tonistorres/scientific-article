@@ -56,16 +56,21 @@ function Home() {
         try {
             let response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`)
             const responseFavorite = searchLocalStorage("Favorite");
-             const listRender = response.reduce((acc,curr)=>{
-                const arr=responseFavorite.filter((e)=>e._id===curr._id)
-                if(arr.length < 1){
-                    acc.push(curr)
-                }
-                return acc
-            },[])
-            
-            setAuthors(listRender);
-            // saveLocalStorage("DbAuthorsAPI", response)
+            if(responseFavorite==null){
+                saveLocalStorage("Favorite", []);
+                setFavorites([]);            }
+            else{
+                const listRender = response.reduce((acc,curr)=>{
+                    const arr=responseFavorite.filter((e)=>e._id===curr._id)
+                    if(arr.length < 1){
+                        acc.push(curr)
+                    }
+                    return acc
+                },[])
+                
+                setAuthors(listRender);
+            }
+             
         } catch (error) {
             console.log(`Erro function searcAPI:${error}`);
         }
