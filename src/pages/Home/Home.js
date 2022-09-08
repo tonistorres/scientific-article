@@ -8,24 +8,12 @@ import Load from "../../components/Loading/Load";
 import '../../index.css';
 
 function Home() {
-    // const NUMBER_PAGES_CONST = 1;
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
     const [dbStateOptions, setStateOptions] = useState('works');
     const [inputControlSearch, setInputControl] = useState(false);
     const [valueSearchInput, setValueSearchInput] = useState('');
-
     const [controlePagina, setControlePagina] = useState(1);
-
-    useEffect(() => {
-        if (dbStateOptions === 'works') {
-            setInputControl(false);
-            searchAPI();
-        } else {
-            setInputControl(true);
-        }
-    }, [dbStateOptions])
-
 
     useEffect(() => {
         const handleApiCORE = async () => {
@@ -38,17 +26,34 @@ function Home() {
         handleApiCORE();
     }, []);
 
+    useEffect(() => {
+        try {
+            if (dbStateOptions === 'works') {
+                setInputControl(false);
+                searchAPI();
+            } else {
+                setInputControl(true);
+            }
+        } catch (error) {
+            console.log("Error useEffect dbStateOptions:", error);
+        }
+    }, [dbStateOptions]);
 
     useEffect(() => {
-        const listRender = dbAuthors.reduce((acc, curr) => {
-            const arr = dbFavorite.filter((e) => e._id === curr._id);
-            if (arr.length < 1) {
-                acc.push(curr);
-            }
-            return acc;
-        }, [])
-        setAuthors(listRender);
-    }, [dbFavorite])
+        try {
+            const listRender = dbAuthors.reduce((acc, curr) => {
+                const arr = dbFavorite.filter((e) => e._id === curr._id);
+                if (arr.length < 1) {
+                    acc.push(curr);
+                }
+                return acc;
+            }, []);
+            setAuthors(listRender);
+
+        } catch (error) {
+            console.log(`Erro function useEffect dbFavorite:${error}`);
+        }
+    }, [dbFavorite]);
 
 
     const initialState = () => {
@@ -60,12 +65,16 @@ function Home() {
     }
 
     const checKeyFavoriteExist = () => {
-        const responseFavorite = searchLocalStorage("Favorite");
-        if (responseFavorite === null) {
-            saveLocalStorage("Favorite", []);
-            setFavorites([]);
-        } else {
-            setFavorites(responseFavorite)
+        try {
+            const responseFavorite = searchLocalStorage("Favorite");
+            if (responseFavorite === null) {
+                saveLocalStorage("Favorite", []);
+                setFavorites([]);
+            } else {
+                setFavorites(responseFavorite)
+            }    
+        } catch (error) {
+            console.log(`Erro function checkFavoriteExist:${error}`);
         }
     }
 
@@ -78,29 +87,30 @@ function Home() {
             console.log(`Erro function searcAPI:${error}`);
         }
     }
-  
+
     const searchTitle = async (valueSearchInput, controlePagina) => {
         try {
-           
             if (valueSearchInput === "" || !valueSearchInput || valueSearchInput.length === 0) {
                 alert('Digite algo na Pesquisa');
             } else {
                 const response = await getTitle(`/title:${valueSearchInput}?page=${controlePagina}&pageSize=10&apiKey=${process.env.REACT_APP_API_KEY}`);
-                checKeyFavoriteExist();
-                console.log('Dentro da Função dbAuthors', dbAuthors);
-                if (dbAuthors === null) {
-                    setAuthors([])
+                if (response !== null) {
+                    checKeyFavoriteExist();
+                    console.log('Dentro da Função dbAuthors', dbAuthors);
+                    if (dbAuthors === null) {
+                        setAuthors([])
+                    } else {
+                        setAuthors(response);
+                    }
                 } else {
-                    setAuthors(response);
+                    alert('Não foi encontrado o item pesquisado me nossa base renderizando lista inicial');
+                    searchAPI();
                 }
             }
         } catch (error) {
             console.log(`Erro function searcTitle:${error}`);
         }
-
     }
-
-
 
     const feedInitial = () => {
         try {
@@ -129,39 +139,43 @@ function Home() {
     }
 
     const handleOptions = (evt) => {
-        const { value } = evt.target;
         try {
-            console.log('handleOptions',value);
-            console.log('typeValue',typeof(value));
+            const { value } = evt.target;
+            console.log('handleOptions', value);
+            console.log('typeValue', typeof (value));
             if (value === 'works') {
                 setStateOptions(value)
             } else {
                 setStateOptions(value);
             }
         } catch (error) {
-            console.log(`Erro function getId:${error}`);
+            console.log(`Erro function handleOptions:${error}`);
         }
     }
 
     const handleInput = (evt) => {
-        const { value } = evt.target;
-        setValueSearchInput(value);
+        try {
+            const { value } = evt.target;
+            setValueSearchInput(value);            
+        } catch (error) {
+            console.log(`Erro function handleInput:${error}`);
+        }
     }
 
     const btnNext = (valueSearchInput, controlePagina) => {
         try {
-            if(inputControlSearch && valueSearchInput){
+            if (inputControlSearch && valueSearchInput) {
                 let count = controlePagina + 1
                 setControlePagina(count)
                 searchTitle(valueSearchInput, count);
-            }else{
-                if(inputControlSearch===false && valueSearchInput===''){
+            } else {
+                if (inputControlSearch === false && valueSearchInput === '') {
                     alert('Para paginar faça uma pesquisa digite algo no input input');
                     valueSearchInput.focus();
-                }else{
+                } else {
                     alert('Preencha o campo de pesquisa')
                 }
-            }    
+            }
         } catch (error) {
             console.log(`Erro function paginationNext:${error}`);
         }
