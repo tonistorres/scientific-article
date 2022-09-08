@@ -13,6 +13,7 @@ function Home() {
     const [dbFavorite, setFavorites] = useState([]);
     const [dbStateOptions, setStateOptions] = useState('works');
     const [inputControlSearch, setInputControl] = useState(false);
+    const [valueSearchInput, setValueSearchInput] =useState('');
 
     const [itensPerPage, setItensPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(0);
@@ -85,7 +86,6 @@ function Home() {
             let response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`);
             checKeyFavoriteExist();
             setAuthors(response);
-
         } catch (error) {
             console.log(`Erro function searcAPI:${error}`);
         }
@@ -127,17 +127,39 @@ function Home() {
             return pages;
         }
     }
+
+    const handleOptions = (evt) => {
+        const {value}=evt.target;
+        setStateOptions(value);
+    }
+
+    const handleInput=(evt)=>{
+        const {value}=evt.target;
+        setValueSearchInput(value);
+    }
+
     return (
         <div>
             {!currentItens.length ? <Load /> :
                 <div className="ct-main-home">
                     <Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
                     <div className="ct-search">
-                        {inputControlSearch ? <input type="text" placeholder="type your search" /> : null}
+                        {
+                        inputControlSearch
+                         ?
+                          <input
+                          type="text"
+                          name="valueSearchInput"
+                         placeholder="type your search"
+                         onChange={handleInput}   
+                          /> 
+                          : 
+                          null
+                          }
                         <div className="ct-sub-search">
-                            <select className="select-style">
+                            <select className="select-style" onChange={handleOptions}>
                                 <option selected value="works">Works</option>
-                                {/* <option value="Authors">Authors</option> */}
+                                <option value="Authors">Authors</option>
                                 {/* <option selected value="language">Language</option>                                 */}
                             </select>
                             <button className="btn-go-search">Go</button>
