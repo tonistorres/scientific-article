@@ -12,13 +12,23 @@ function Home() {
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
     const [dbStateOptions,setStateOptions] = useState('works');
+    const [inputControlSearch, setInputControl]=useState(false);
 
-    const [itensPerPage, setItensPerPage] = useState(10)
-    const [currentPage, setCurrentPage] = useState(0)
-    const startIndex = currentPage * itensPerPage
-    const endIndex = startIndex + itensPerPage
-    console.log('Autores:',dbAuthors);
-    const currentItens = dbAuthors.slice(startIndex, endIndex)
+    const [itensPerPage, setItensPerPage] = useState(10);
+    const [currentPage, setCurrentPage] = useState(0);
+    const startIndex = currentPage * itensPerPage;
+    const endIndex = startIndex + itensPerPage;
+    const currentItens = dbAuthors.slice(startIndex, endIndex);
+
+    useEffect(() => {
+        if(dbStateOptions==='works'){
+            setInputControl(false);
+        }else{
+            setInputControl(true);
+        }
+        
+    }, [dbStateOptions])
+
 
     useEffect(() => {
         const handleApiCORE = async () => {
@@ -34,6 +44,8 @@ function Home() {
     useEffect(() => {
         setCurrentPage(0);
     }, [itensPerPage])
+
+
 
 
     useEffect(() => {
@@ -80,7 +92,6 @@ function Home() {
     }
 
     const feedInitial = () => {
-        alert('FeedInitial')
         try {
                 searchAPI();
         } catch (error) {
@@ -116,14 +127,13 @@ function Home() {
             return pages;
         }
     }
-
     return (
         <div>
             {!currentItens.length ? <Load /> :
                     <div className="ct-main-home">
                         <Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
                         <div className="ct-search">
-                            <input type="text" placeholder="type your search" />
+                            {inputControlSearch?<input type="text" placeholder="type your search" />:null}
                             <select className="select-style">
                                 <option selected value="works">Works</option>
                                 {/* <option value="Authors">Authors</option> */}
