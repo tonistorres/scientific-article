@@ -1,11 +1,11 @@
 import React from "react";
-import PaginationSelector from "../PaginationSelector/PaginationSelector";
+// import PaginationSelector from "../PaginationSelector/PaginationSelector";
 import '../../index.css';
 
-
-function Pagination({ setCurrentPage, pages, itensPerPage, setItensPerPage }) {
+function Pagination({ setCurrentPage, pages, btnNext,controlePagina,btnPrevious,valueSearchInput }) {
     return (
         <div className="ct-pagination">
+             <button onClick={(e)=>btnPrevious(valueSearchInput, controlePagina)}>⬅️</button>
             {Array.from(Array(pages), (item, index) => {
                 return <button
                     key={index}
@@ -13,12 +13,12 @@ function Pagination({ setCurrentPage, pages, itensPerPage, setItensPerPage }) {
                     value={index}
                     onClick={(e) => setCurrentPage(Number(e.target.value))}
                 >
-                    {index + 1}
+                   <span><strong>Pagina:</strong>{controlePagina}</span> 
                 </button>
             })}
-            <PaginationSelector itensPerPage={itensPerPage} setItensPerPage={setItensPerPage} />
-            
+            <button onClick={(e)=>btnNext(valueSearchInput,controlePagina)}>➡️</button>
         </div>
+
     );
 }
 
