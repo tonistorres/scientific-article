@@ -17,28 +17,6 @@ function Home() {
 
     const [controlePagina, setControlePagina] = useState(1);
 
-
-
-    const searchTitle = async (valueSearchInput, controlePagina) => {
-        try {
-            if (valueSearchInput === "" || !valueSearchInput || valueSearchInput.length === 0) {
-                alert('Digite algo na Pesquisa');
-            } else {
-                const response = await getTitle(`/title:${valueSearchInput}?page=${controlePagina}&pageSize=10&apiKey=${process.env.REACT_APP_API_KEY}`);
-                checKeyFavoriteExist();
-                console.log('Dentro da Função dbAuthors', dbAuthors);
-                if (dbAuthors === null) {
-                    setAuthors([])
-                } else {
-                    setAuthors(response);
-                }
-            }
-        } catch (error) {
-            console.log(`Erro function searcTitle:${error}`);
-        }
-
-    }
-
     useEffect(() => {
         if (dbStateOptions === 'works') {
             setInputControl(false);
@@ -69,9 +47,7 @@ function Home() {
             }
             return acc;
         }, [])
-
         setAuthors(listRender);
-
     }, [dbFavorite])
 
 
@@ -102,6 +78,28 @@ function Home() {
             console.log(`Erro function searcAPI:${error}`);
         }
     }
+  
+    const searchTitle = async (valueSearchInput, controlePagina) => {
+        try {
+           
+            if (valueSearchInput === "" || !valueSearchInput || valueSearchInput.length === 0) {
+                alert('Digite algo na Pesquisa');
+            } else {
+                const response = await getTitle(`/title:${valueSearchInput}?page=${controlePagina}&pageSize=10&apiKey=${process.env.REACT_APP_API_KEY}`);
+                checKeyFavoriteExist();
+                console.log('Dentro da Função dbAuthors', dbAuthors);
+                if (dbAuthors === null) {
+                    setAuthors([])
+                } else {
+                    setAuthors(response);
+                }
+            }
+        } catch (error) {
+            console.log(`Erro function searcTitle:${error}`);
+        }
+
+    }
+
 
 
     const feedInitial = () => {
@@ -152,13 +150,21 @@ function Home() {
 
     const btnNext = (valueSearchInput, controlePagina) => {
         try {
-            let count = controlePagina + 1
-            setControlePagina(count)
-            searchTitle(valueSearchInput, count);
+            if(inputControlSearch && valueSearchInput){
+                let count = controlePagina + 1
+                setControlePagina(count)
+                searchTitle(valueSearchInput, count);
+            }else{
+                if(inputControlSearch===false && valueSearchInput===''){
+                    alert('Para paginar faça uma pesquisa digite algo no input input');
+                    valueSearchInput.focus();
+                }else{
+                    alert('Preencha o campo de pesquisa')
+                }
+            }    
         } catch (error) {
             console.log(`Erro function paginationNext:${error}`);
         }
-
     }
 
     const btnPrevious = (valueSearchInput, controlePagina) => {
