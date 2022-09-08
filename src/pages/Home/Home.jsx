@@ -223,16 +223,17 @@ function Home() {
                         </div>
 
                     </div>
+
                     <table className="table">
                         <tr>
                             <thead className="thead-light">
                                 <tr>
-                                    <th scope="col" >Authors</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Description(s)</th>
-                                    <th scope="col">url(s)</th>
-                                    <th scope="col">Favorite</th>
+                                    <th scope="col width: 10%"  >Authors</th>
+                                    <th scope="col width: 10%" >Type</th>
+                                    <th scope="col width: 10%" >Title</th>
+                                    <th scope="col width: 10%" >Description(s)</th>
+                                    <th scope="col width: 10%">url(s)</th>
+                                    <th scope="col width: 10%">Favorite</th>
                                 </tr>
                             </thead>
                             {dbAuthors.length > 0 && dbAuthors.map((item, index) => {
@@ -263,6 +264,8 @@ function Home() {
                             })}
                         </tr>
                     </table>
+
+                    
                     <Pagination
                         controlePagina={controlePagina}
                         btnNext={btnNext}
