@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaStar } from 'react-icons/fa';
-import { getWorks } from '../../services/Api';
+import { getWorks, getTitle } from '../../services/Api';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
 import Pagination from "../../components/Pagination/Pagination";
 import Header from "../../components/Header/Header";
@@ -8,26 +8,44 @@ import Load from "../../components/Loading/Load";
 import '../../index.css';
 
 function Home() {
-    const NUMBER_PAGES_CONST = 1;
+    // const NUMBER_PAGES_CONST = 1;
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
     const [dbStateOptions, setStateOptions] = useState('works');
     const [inputControlSearch, setInputControl] = useState(false);
-    const [valueSearchInput, setValueSearchInput] =useState('');
+    const [valueSearchInput, setValueSearchInput] = useState('');
 
-    const [itensPerPage, setItensPerPage] = useState(10);
-    const [currentPage, setCurrentPage] = useState(0);
-    const startIndex = currentPage * itensPerPage;
-    const endIndex = startIndex + itensPerPage;
-    const currentItens = dbAuthors.slice(startIndex, endIndex);
+    const [controlePagina, setControlePagina] = useState(1);
+
+
+
+    const searchTitle = async (valueSearchInput, controlePagina) => {
+        try {
+            if (valueSearchInput === "" || !valueSearchInput || valueSearchInput.length === 0) {
+                alert('Digite algo na Pesquisa');
+            } else {
+                const response = await getTitle(`/title:${valueSearchInput}?page=${controlePagina}&pageSize=10&apiKey=${process.env.REACT_APP_API_KEY}`);
+                checKeyFavoriteExist();
+                console.log('Dentro da Função dbAuthors', dbAuthors);
+                if (dbAuthors === null) {
+                    setAuthors([])
+                } else {
+                    setAuthors(response);
+                }
+            }
+        } catch (error) {
+            console.log(`Erro function searcTitle:${error}`);
+        }
+
+    }
 
     useEffect(() => {
         if (dbStateOptions === 'works') {
             setInputControl(false);
+            searchAPI();
         } else {
             setInputControl(true);
         }
-
     }, [dbStateOptions])
 
 
@@ -41,12 +59,6 @@ function Home() {
         }
         handleApiCORE();
     }, []);
-
-    useEffect(() => {
-        setCurrentPage(0);
-    }, [itensPerPage])
-
-
 
 
     useEffect(() => {
@@ -83,13 +95,14 @@ function Home() {
 
     const searchAPI = async () => {
         try {
-            let response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`);
+            const response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`);
             checKeyFavoriteExist();
             setAuthors(response);
         } catch (error) {
             console.log(`Erro function searcAPI:${error}`);
         }
     }
+
 
     const feedInitial = () => {
         try {
@@ -117,53 +130,78 @@ function Home() {
         }
     }
 
-    const paginationControl = () => {
-        const checkListingResultLocalStorage = searchLocalStorage('ListResulting')
-        if (!checkListingResultLocalStorage) {
-            const pages = NUMBER_PAGES_CONST;
-            return pages;
-        } else {
-            const pages = Number(Math.ceil(dbAuthors.length / itensPerPage));
-            return pages;
+    const handleOptions = (evt) => {
+        const { value } = evt.target;
+        try {
+            console.log('handleOptions',value);
+            console.log('typeValue',typeof(value));
+            if (value === 'works') {
+                setStateOptions(value)
+            } else {
+                setStateOptions(value);
+            }
+        } catch (error) {
+            console.log(`Erro function getId:${error}`);
         }
     }
 
-    const handleOptions = (evt) => {
-        const {value}=evt.target;
-        setStateOptions(value);
+    const handleInput = (evt) => {
+        const { value } = evt.target;
+        setValueSearchInput(value);
     }
 
-    const handleInput=(evt)=>{
-        const {value}=evt.target;
-        setValueSearchInput(value);
+    const btnNext = (valueSearchInput, controlePagina) => {
+        try {
+            let count = controlePagina + 1
+            setControlePagina(count)
+            searchTitle(valueSearchInput, count);
+        } catch (error) {
+            console.log(`Erro function paginationNext:${error}`);
+        }
+
+    }
+
+    const btnPrevious = (valueSearchInput, controlePagina) => {
+        try {
+            if (controlePagina > 1) {
+                let count = controlePagina - 1;
+                setControlePagina(count);
+                searchTitle(valueSearchInput, count);
+            } else {
+                alert('Chagamos na ultima Pagina')
+            }
+        } catch (error) {
+            console.log(`Erro function paginationNext:${error}`);
+        }
     }
 
     return (
         <div>
-            {!currentItens.length ? <Load /> :
+            {!dbAuthors.length ? <Load /> :
                 <div className="ct-main-home">
                     <Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
                     <div className="ct-search">
                         {
-                        inputControlSearch
-                         ?
-                          <input
-                          type="text"
-                          name="valueSearchInput"
-                         placeholder="type your search"
-                         onChange={handleInput}   
-                          /> 
-                          : 
-                          null
-                          }
+                            inputControlSearch
+                                ?
+                                <input
+                                    type="text"
+                                    name="valueSearchInput"
+                                    placeholder="type your search"
+                                    onChange={handleInput}
+                                />
+                                :
+                                null
+                        }
+
                         <div className="ct-sub-search">
                             <select className="select-style" onChange={handleOptions}>
                                 <option selected value="works">Works</option>
-                                <option value="Authors">Authors</option>
-                                {/* <option selected value="language">Language</option>                                 */}
+                                <option value="title">Title</option>
                             </select>
-                            <button className="btn-go-search">Go</button>
+                            <button className="btn-go-search" onClick={(e) => searchTitle(valueSearchInput, controlePagina)} disabled={!inputControlSearch}>Go</button>
                         </div>
+
                     </div>
                     <table className="table">
                         <tr>
@@ -177,10 +215,10 @@ function Home() {
                                     <th scope="col">Favorite</th>
                                 </tr>
                             </thead>
-                            {currentItens.length > 0 && currentItens.map((item) => {
+                            {dbAuthors.length > 0 && dbAuthors.map((item, index) => {
                                 return (
                                     <tbody>
-                                        <tr key={item._id} scope="row">
+                                        <tr key={index + 1} scope="row">
                                             <td>{item._source.authors.map(item => <ul className="ul-none"><li>{item}</li></ul>)}</td>
                                             <td>{item._type}</td>
                                             <td>{item._source.title}</td>
@@ -206,10 +244,10 @@ function Home() {
                         </tr>
                     </table>
                     <Pagination
-                        setCurrentPage={setCurrentPage}
-                        pages={paginationControl()}
-                        itensPerPage={itensPerPage}
-                        setItensPerPage={setItensPerPage}
+                        controlePagina={controlePagina}
+                        btnNext={btnNext}
+                        btnPrevious={btnPrevious}
+                        valueSearchInput={valueSearchInput}
                     />
                 </div>
             }
