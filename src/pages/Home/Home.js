@@ -11,8 +11,8 @@ function Home() {
     const NUMBER_PAGES_CONST = 1;
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
-    const [dbStateOptions,setStateOptions] = useState('works');
-    const [inputControlSearch, setInputControl]=useState(false);
+    const [dbStateOptions, setStateOptions] = useState('works');
+    const [inputControlSearch, setInputControl] = useState(false);
 
     const [itensPerPage, setItensPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(0);
@@ -21,12 +21,12 @@ function Home() {
     const currentItens = dbAuthors.slice(startIndex, endIndex);
 
     useEffect(() => {
-        if(dbStateOptions==='works'){
+        if (dbStateOptions === 'works') {
             setInputControl(false);
-        }else{
+        } else {
             setInputControl(true);
         }
-        
+
     }, [dbStateOptions])
 
 
@@ -49,33 +49,33 @@ function Home() {
 
 
     useEffect(() => {
-        const listRender = dbAuthors.reduce((acc,curr)=>{
-            const arr=dbFavorite.filter((e)=>e._id===curr._id);
-            if(arr.length < 1){
+        const listRender = dbAuthors.reduce((acc, curr) => {
+            const arr = dbFavorite.filter((e) => e._id === curr._id);
+            if (arr.length < 1) {
                 acc.push(curr);
             }
             return acc;
-        },[])
-        
+        }, [])
+
         setAuthors(listRender);
- 
+
     }, [dbFavorite])
 
 
     const initialState = () => {
         try {
-            feedInitial();            
+            feedInitial();
         } catch (error) {
             console.log(`Erro function initialState:${error}`);
         }
     }
-    
-    const checKeyFavoriteExist=()=>{
+
+    const checKeyFavoriteExist = () => {
         const responseFavorite = searchLocalStorage("Favorite");
-        if(responseFavorite===null){
+        if (responseFavorite === null) {
             saveLocalStorage("Favorite", []);
-            setFavorites([]); 
-        }else{
+            setFavorites([]);
+        } else {
             setFavorites(responseFavorite)
         }
     }
@@ -85,7 +85,7 @@ function Home() {
             let response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`);
             checKeyFavoriteExist();
             setAuthors(response);
-            
+
         } catch (error) {
             console.log(`Erro function searcAPI:${error}`);
         }
@@ -93,13 +93,13 @@ function Home() {
 
     const feedInitial = () => {
         try {
-                searchAPI();
+            searchAPI();
         } catch (error) {
             console.log(`Erro function feedInitial:${error}`);
         }
     }
 
-     const getId = (id) => {
+    const getId = (id) => {
         try {
             const checkListFavorited = dbFavorite.some((item) => item._id === id);
             if (!checkListFavorited) {
@@ -130,10 +130,11 @@ function Home() {
     return (
         <div>
             {!currentItens.length ? <Load /> :
-                    <div className="ct-main-home">
-                        <Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
-                        <div className="ct-search">
-                            {inputControlSearch?<input type="text" placeholder="type your search" />:null}
+                <div className="ct-main-home">
+                    <Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
+                    <div className="ct-search">
+                        {inputControlSearch ? <input type="text" placeholder="type your search" /> : null}
+                        <div className="ct-sub-search">
                             <select className="select-style">
                                 <option selected value="works">Works</option>
                                 {/* <option value="Authors">Authors</option> */}
@@ -141,53 +142,54 @@ function Home() {
                             </select>
                             <button className="btn-go-search">Go</button>
                         </div>
-                        <table className="table">
-                            <tr>
-                                <thead className="thead-light">
-                                    <tr>
-                                        <th scope="col" >Authors</th>
-                                        <th scope="col">Type</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Description(s)</th>
-                                        <th scope="col">url(s)</th>
-                                        <th scope="col">Favorite</th>
-                                    </tr>
-                                </thead>
-                                {currentItens.length > 0 && currentItens.map((item) => {
-                                    return (
-                                        <tbody>
-                                            <tr key={item._id} scope="row">
-                                                <td>{item._source.authors.map(item => <ul className="ul-none"><li>{item}</li></ul>)}</td>
-                                                <td>{item._type}</td>
-                                                <td>{item._source.title}</td>
-                                                <td>{item._source.description}</td>
-                                                <td>{
-                                                    item._source.urls
-                                                        .map(item => <ul className="ul-none">
-                                                            <li><a href={item} target="_blank" rel="noreferrer" >{item}</a>
-                                                            </li>
-                                                        </ul>
-                                                        )
-                                                }
-                                                </td>
-                                                <td >
-                                                    <div className="btn-favorite">
-                                                        <button className="btn-size-favorite" onClick={() => getId(item._id)}><FaStar size={30} /></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    )
-                                })}
-                            </tr>
-                        </table>
-                        <Pagination
-                            setCurrentPage={setCurrentPage}
-                            pages={paginationControl()}
-                            itensPerPage={itensPerPage}
-                            setItensPerPage={setItensPerPage}
-                        />
                     </div>
+                    <table className="table">
+                        <tr>
+                            <thead className="thead-light">
+                                <tr>
+                                    <th scope="col" >Authors</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Description(s)</th>
+                                    <th scope="col">url(s)</th>
+                                    <th scope="col">Favorite</th>
+                                </tr>
+                            </thead>
+                            {currentItens.length > 0 && currentItens.map((item) => {
+                                return (
+                                    <tbody>
+                                        <tr key={item._id} scope="row">
+                                            <td>{item._source.authors.map(item => <ul className="ul-none"><li>{item}</li></ul>)}</td>
+                                            <td>{item._type}</td>
+                                            <td>{item._source.title}</td>
+                                            <td>{item._source.description}</td>
+                                            <td>{
+                                                item._source.urls
+                                                    .map(item => <ul className="ul-none">
+                                                        <li><a href={item} target="_blank" rel="noreferrer" >{item}</a>
+                                                        </li>
+                                                    </ul>
+                                                    )
+                                            }
+                                            </td>
+                                            <td >
+                                                <div className="btn-favorite">
+                                                    <button className="btn-size-favorite" onClick={() => getId(item._id)}><FaStar size={30} /></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                )
+                            })}
+                        </tr>
+                    </table>
+                    <Pagination
+                        setCurrentPage={setCurrentPage}
+                        pages={paginationControl()}
+                        itensPerPage={itensPerPage}
+                        setItensPerPage={setItensPerPage}
+                    />
+                </div>
             }
         </div>
     );
