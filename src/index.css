@@ -81,6 +81,15 @@ body {
   width: 64px;
 }
 
+.ct-sub-search{
+  align-items: center;
+  display: flex;
+  /* background-color:yellow; */
+
+  justify-content: space-around;
+  height: 100%;
+  width: 40%;
+}
 
 .ct-search{
   align-items: center;
@@ -145,18 +154,20 @@ width: 30%;
   background: #EAEAEA;
   box-shadow: none;
   font-size: 18px;
+  text-align: center;
   letter-spacing: 5px;
+  /* margin-left: 12px; */
   color: #212121;
   height: 90%;
-  padding: 5px 8px;
-  width: 30%;
+  /* padding: 15px 8px; */
+  width: 70%;
   -webkit-appearance: none;
 }
 
 .btn-go-search{
   border-radius: 8px;
   height: 90%;
-  width: 10%;
+  width: 20%;
 }
 
 table {
