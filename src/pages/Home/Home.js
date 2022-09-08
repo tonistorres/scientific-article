@@ -12,10 +12,12 @@ function Home() {
     const [dbAuthors, setAuthors] = useState([]);
     const [dbFavorite, setFavorites] = useState([]);
     const [dbStateOptions,setStateOptions] = useState('works');
+
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
     const startIndex = currentPage * itensPerPage
     const endIndex = startIndex + itensPerPage
+    console.log('Autores:',dbAuthors);
     const currentItens = dbAuthors.slice(startIndex, endIndex)
 
     useEffect(() => {
@@ -50,10 +52,7 @@ function Home() {
 
     const initialState = () => {
         try {
-            saveLocalStorage("Disfavor", []);
-            saveLocalStorage("DbHome", []);
-            feedInitial();
-            feedInitialFull();
+            feedInitial();            
         } catch (error) {
             console.log(`Erro function initialState:${error}`);
         }
@@ -71,7 +70,6 @@ function Home() {
 
     const searchAPI = async () => {
         try {
-            
             let response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`);
             checKeyFavoriteExist();
             setAuthors(response);
@@ -82,29 +80,15 @@ function Home() {
     }
 
     const feedInitial = () => {
+        alert('FeedInitial')
         try {
-            const dataFavorite = searchLocalStorage("Favorite");
-            if (dataFavorite === null) {
                 searchAPI();
-            }
         } catch (error) {
             console.log(`Erro function feedInitial:${error}`);
         }
     }
 
-    const feedInitialFull = () => {
-        try {
-            const dataFavorite = searchLocalStorage("Favorite");
-            if (dataFavorite.length) {
-                setFavorites(dataFavorite);
-                searchAPI();
-            }
-        } catch (error) {
-            console.log(`Erro function feedInitialFull:${error}`);
-        }
-    }
-
-    const getId = (id) => {
+     const getId = (id) => {
         try {
             const checkListFavorited = dbFavorite.some((item) => item._id === id);
             if (!checkListFavorited) {
