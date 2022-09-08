@@ -34,6 +34,20 @@ function Home() {
     }, [itensPerPage])
 
 
+    useEffect(() => {
+        const listRender = dbAuthors.reduce((acc,curr)=>{
+            const arr=dbFavorite.filter((e)=>e._id===curr._id);
+            if(arr.length < 1){
+                acc.push(curr);
+            }
+            return acc;
+        },[])
+        
+        setAuthors(listRender);
+ 
+    }, [dbFavorite])
+
+
     const initialState = () => {
         try {
             saveLocalStorage("Disfavor", []);
@@ -45,25 +59,23 @@ function Home() {
         }
     }
     
+    const checKeyFavoriteExist=()=>{
+        const responseFavorite = searchLocalStorage("Favorite");
+        if(responseFavorite===null){
+            saveLocalStorage("Favorite", []);
+            setFavorites([]); 
+        }else{
+            setFavorites(responseFavorite)
+        }
+    }
+
     const searchAPI = async () => {
         try {
-            let response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`)
-            const responseFavorite = searchLocalStorage("Favorite");
-            if(responseFavorite==null){
-                saveLocalStorage("Favorite", []);
-                setFavorites([]);            }
-            else{
-                const listRender = response.reduce((acc,curr)=>{
-                    const arr=responseFavorite.filter((e)=>e._id===curr._id);
-                    if(arr.length < 1){
-                        acc.push(curr);
-                    }
-                    return acc;
-                },[])
-                
-                setAuthors(listRender);
-            }
-             
+            
+            let response = await getWorks(`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`);
+            checKeyFavoriteExist();
+            setAuthors(response);
+            
         } catch (error) {
             console.log(`Erro function searcAPI:${error}`);
         }
