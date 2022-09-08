@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import Header from '../../components/Header/Header';
 import { FaStar } from 'react-icons/fa';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
-import Pagination from "../../components/Pagination/Pagination";
+import Pagination from "./Pagination";
 import '../../index.css';
 
 
 function Favorite() {
 
     const [pageCurrent, setPageCurrent] = useState('Favorite');
-    const [dbFavorite, setDbFavorite] = useState([]); 
+    const [dbFavorite, setDbFavorite] = useState([]);
     const [itensPerPage, setItensPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(0)
     const pages = Math.ceil(dbFavorite.length / itensPerPage)
@@ -19,8 +19,7 @@ function Favorite() {
 
     useEffect(() => {
         try {
-            initialState()  
-
+            initialState()
         } catch (error) {
             console.log(`Erro useEffect Favorite:${error}`);
         }
@@ -28,35 +27,31 @@ function Favorite() {
 
 
 
-    const initialState = async () => {
+    const initialState = () => {
         try {
-            const checkDbFavorite = await searchLocalStorage("Favorite");
-            const checkDisfavor = await searchLocalStorage("Disfavor");
-            if (checkDbFavorite.length && !checkDisfavor.length) {
-                setDbFavorite(checkDbFavorite)
-                saveLocalStorage("DbHome", checkDbFavorite)
-            }else{
-                setDbFavorite(checkDbFavorite)
-            const feedingFavoriteList = await searchLocalStorage("Favorite")
-            setDbFavorite([...feedingFavoriteList])
-            
-            }
+            const responseFavorite = searchLocalStorage("Favorite");
+            if (responseFavorite === null) {
+                saveLocalStorage("Favorite", []);
+                setDbFavorite([]);
+            } else {
+                setDbFavorite(responseFavorite)
+            }    
         } catch (error) {
-            console.log(`Erro function initialState:${error}`);
+            console.log(`Erro function checkFavoriteExist:${error}`);
         }
     }
 
 
-    const renderPageFavorite = (arrayFavorite, arrayDisfavor) => {
-        return arrayFavorite.filter(function (item) {
-            return !arrayDisfavor.includes(item)
-        })
-    }
+    // const renderPageFavorite = (arrayFavorite, arrayDisfavor) => {
+    //     return arrayFavorite.filter(function (item) {
+    //         return !arrayDisfavor.includes(item)
+    //     })
+    // }
 
     const getId = (id) => {
         const listFilter = dbFavorite.filter((item) => item._id !== id);
         setDbFavorite(listFilter);
-        saveLocalStorage("Favorite",[...listFilter]); 
+        saveLocalStorage("Favorite", [...listFilter]);
     }
 
 
@@ -77,7 +72,7 @@ function Favorite() {
                     dbFavorite={dbFavorite}
                     pageCurrent={pageCurrent}
                 />
-                  <table className="table">
+                <table className="table">
                     <tr>
                         <thead className="thead-light">
                             <tr>
@@ -120,9 +115,7 @@ function Favorite() {
 
                 <Pagination
                     setCurrentPage={setCurrentPage}
-                    pages={pages}
-                    itensPerPage={itensPerPage}
-                    setItensPerPage={setItensPerPage}
+                    pages={pages}                   
                 />
             </div>
         </div>
