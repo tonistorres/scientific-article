@@ -216,8 +216,8 @@ function Home() {
 
                         <div className="ct-sub-search">
                             <select className="select-style" onChange={handleOptions}>
-                                <option selected value="works">Works</option>
-                                <option value="title">Title</option>
+                                <option value="works" selected>Works</option>
+                                <option value="title" >Title</option>
                             </select>
                             <button className="btn-go-search" onClick={(e) => searchTitle(valueSearchInput, controlePagina)} disabled={!inputControlSearch}>Go</button>
                         </div>
