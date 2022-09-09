@@ -25,7 +25,8 @@ que a janela do navegador seja fechada e aberta novamente;</li>
 </ol>
 
 
-![Projeto Mezzer](./telaPrincipal.png)
+![Projeto Mezzer](./tela1.png)
+
 #### Research Source:
 <details>
 <summary><strong>🔗 Links Importantes</strong></summary><br />

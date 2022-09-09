@@ -209,7 +209,6 @@ function Home() {
                                         ?
                                         <div className="ct-sub-input-text">
                                             <input
-                                                // className="input-search"
                                                 type="text"
                                                 name="valueSearchInput"
                                                 placeholder="type your search"
@@ -229,15 +228,15 @@ function Home() {
                                 <button className="btn-go-search" onClick={(e) => searchTitle(valueSearchInput, controlePagina)} disabled={!inputControlSearch}>Go</button>
                             </div>
                         </div>
-                        
+
                     </div>
                     <TableArticle dbAuthors={dbAuthors} getId={getId} />
-                        <Pagination
-                            controlePagina={controlePagina}
-                            btnNext={btnNext}
-                            btnPrevious={btnPrevious}
-                            valueSearchInput={valueSearchInput}
-                        />
+                    <Pagination
+                        controlePagina={controlePagina}
+                        btnNext={btnNext}
+                        btnPrevious={btnPrevious}
+                        valueSearchInput={valueSearchInput}
+                    />
                 </div>)
 
 
