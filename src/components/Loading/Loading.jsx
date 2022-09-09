@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import HeaderLoad from './HeaderLoad';
-import Fotter from "../Fotter/Fotter";
+// import HeaderLoad from './HeaderLoad';
+// import Fotter from "../Fotter/Fotter";
 import './Loading.css';
+import boy from '../../assets/boy.gif';
 
 function Loading() {
     const navigate = useNavigate()
@@ -20,7 +21,7 @@ function Loading() {
             try {
                 setTimeout(() => {
                     return setRemoveLoading(true);
-                }, 5000);
+                }, 3000);
 
             } catch (error) {
                 console.log("Erro useEffect handleStateRedirect: ", error);
@@ -34,8 +35,10 @@ function Loading() {
     return (
         <div>
             <div className="lodad-main">
-            <HeaderLoad />
-            <Fotter />
+                <div className='ct-oroganization'>
+                    <div><img src={boy} alt="logo Mettzer Boy" className='img-boy' /></div>
+                    <div><h3>Mettzer</h3></div>
+                </div>
             </div>
         </div>
     );
