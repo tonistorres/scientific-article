@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header/Header';
 import { FaStar } from 'react-icons/fa';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
@@ -10,7 +11,7 @@ import './Favorite.css';
 
 
 function Favorite() {
-
+    const navigate = useNavigate();
     const [pageCurrent, setPageCurrent] = useState('Favorite');
     const [dbFavorite, setDbFavorite] = useState([]);
     const [itensPerPage, setItensPerPage] = useState(10)
@@ -49,10 +50,32 @@ function Favorite() {
             const listFilter = dbFavorite.filter((item) => item._id !== id);
             setDbFavorite(listFilter);
             saveLocalStorage("Favorite", [...listFilter]);
+            checkRedirect();
         } catch (error) {
             console.log(`Erro function getId:${error}`);
         }
 
+    }
+
+    const handleClickHome = () => {
+        navigate('/home')
+    }
+    
+    const checkRedirect = () => {
+        try {
+            const responseFavorite = searchLocalStorage("Favorite");
+            if (responseFavorite === null) {
+               handleClickHome();
+            } else {
+                if(responseFavorite.length===0){
+                    handleClickHome();
+                    
+                }
+                
+            }
+        } catch (error) {
+            console.log(`Erro function checkFavoriteExist:${error}`);
+        }
     }
 
     useEffect(() => {
