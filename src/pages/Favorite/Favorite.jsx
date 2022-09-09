@@ -4,9 +4,6 @@ import Header from '../../components/Header/Header';
 import { FaStar } from 'react-icons/fa';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
 import Pagination from "./Pagination";
-// import '../../index.css';
-// import '../../components/Table/Table.css';
-
 import './Favorite.css';
 
 
@@ -23,7 +20,7 @@ function Favorite() {
 
     useEffect(() => {
         try {
-            initialState()
+            initialState();
         } catch (error) {
             console.log(`Erro useEffect Favorite:${error}`);
         }
@@ -58,7 +55,7 @@ function Favorite() {
     }
 
     const handleClickHome = () => {
-        navigate('/home')
+        navigate('/home');
     }
     
     const checkRedirect = () => {
