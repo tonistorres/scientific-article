@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import imgMettzer from '../../assets/metzzerTop.png';
 import './Header.css';
-import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
+import { searchLocalStorage } from '../../util/LocalStorage';
 
 function Header({ dbFavorite, pageCurrent, dbAuthors }) {
 
@@ -12,17 +12,17 @@ function Header({ dbFavorite, pageCurrent, dbAuthors }) {
         try {
             const responseFavorite = searchLocalStorage("Favorite");
             if (responseFavorite === null) {
-                alert('Clave Favorite inexistente no LocalHistorage')
+                alert('Clave Favorite inexistente no LocalHistorage');
             } else {
                 if(responseFavorite.length===0){
-                    alert('Não existe dados Favoritados')
+                    alert('Não existe dados Favoritados');
                 }else{
-                    handleClickFavorites()
+                    handleClickFavorites();
                 }
                 
             }
         } catch (error) {
-            console.log(`Erro function checkFavoriteExist:${error}`);
+            console.log(`Erro function checkRedirect:${error}`);
         }
     }
 
@@ -31,7 +31,7 @@ function Header({ dbFavorite, pageCurrent, dbAuthors }) {
     }
 
     const handleClickHome = () => {
-        navigate('/home')
+        navigate('/home');
     }
     
     return (
