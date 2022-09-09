@@ -3,7 +3,10 @@ import Header from '../../components/Header/Header';
 import { FaStar } from 'react-icons/fa';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
 import Pagination from "./Pagination";
-import '../../index.css';
+// import '../../index.css';
+// import '../../components/Table/Table.css';
+
+import './Favorite.css';
 
 
 function Favorite() {
@@ -35,25 +38,22 @@ function Favorite() {
                 setDbFavorite([]);
             } else {
                 setDbFavorite(responseFavorite)
-            }    
+            }
         } catch (error) {
             console.log(`Erro function checkFavoriteExist:${error}`);
         }
     }
 
-
-    // const renderPageFavorite = (arrayFavorite, arrayDisfavor) => {
-    //     return arrayFavorite.filter(function (item) {
-    //         return !arrayDisfavor.includes(item)
-    //     })
-    // }
-
     const getId = (id) => {
-        const listFilter = dbFavorite.filter((item) => item._id !== id);
-        setDbFavorite(listFilter);
-        saveLocalStorage("Favorite", [...listFilter]);
-    }
+        try {
+            const listFilter = dbFavorite.filter((item) => item._id !== id);
+            setDbFavorite(listFilter);
+            saveLocalStorage("Favorite", [...listFilter]);
+        } catch (error) {
+            console.log(`Erro function getId:${error}`);
+        }
 
+    }
 
     useEffect(() => {
         try {
@@ -64,38 +64,42 @@ function Favorite() {
     }, [itensPerPage])
 
     return (
-        <div>
-            <div className="ct-main-home">
-                <Header
+        <div className="main-favorite">
+            <Header
                     favoriteItems={dbFavorite.length}
                     dbAuthors={currentItens.length}
                     dbFavorite={dbFavorite}
                     pageCurrent={pageCurrent}
                 />
-                <table className="table">
-                    <tr>
+            <div className="ct-sub-main-favorite">
+                <div className="ct-table-fluid">
+                <div className="table overflow-auto table-max-width">
+                    <table >
+                        <tr>
                         <thead className="thead-light">
-                            <tr>
-                                <th scope="col" >Authors</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Description(s)</th>
-                                <th scope="col">url(s)</th>
-                                <th scope="col">Favorite</th>
-                            </tr>
-                        </thead>
+                                        <tr>
+                                            <th scope="col" >Authors</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Description(s)</th>
+                                            <th scope="col">url(s)</th>
+                                            <th scope="col">Favorite</th>
+                                        </tr>
+                                    </thead>
+
                         {currentItens.length > 0 && currentItens.map((item) => {
                             return (
                                 <tbody>
+                                 
                                     <tr key={item._id} scope="row">
                                         <td>{item._source.authors.map(item => <ul className="ul-none"><li>{item}</li></ul>)}</td>
                                         <td>{item._type}</td>
                                         <td>{item._source.title}</td>
-                                        <td>{item._source.description}</td>
+                                        <td>{`${item._source.description}`.substring(0,150)+'...'}</td>
                                         <td>{
                                             item._source.urls
                                                 .map(item => <ul className="ul-none">
-                                                    <li><a href={item} target="_blank" rel="noreferrer" >{item}</a>
+                                                    <li><a href={item} target="_blank" rel="noreferrer" >Link</a>
                                                     </li>
                                                 </ul>
                                                 )
@@ -110,15 +114,17 @@ function Favorite() {
                                 </tbody>
                             )
                         })}
-                    </tr>
-                </table>
-
-                <Pagination
-                    setCurrentPage={setCurrentPage}
-                    pages={pages}                   
-                />
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+               
             </div>
-        </div>
+            <Pagination
+                    setCurrentPage={setCurrentPage}
+                    pages={pages}
+                />
+         </div>
     );
 }
 
