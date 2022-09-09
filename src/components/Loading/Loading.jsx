@@ -1,8 +1,6 @@
 
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import HeaderLoad from './HeaderLoad';
-// import Fotter from "../Fotter/Fotter";
 import './Loading.css';
 import boy from '../../assets/boy.gif';
 
@@ -10,11 +8,9 @@ function Loading() {
     const navigate = useNavigate()
     const [removeLoading, setRemoveLoading] = useState(false);
 
-
     const handleClickFavorites = () => {
-        navigate('/home')
+        navigate('/home');
     }
-
 
     useEffect(() => {
         const handleStateRedirect = async () => {
@@ -30,6 +26,7 @@ function Loading() {
         handleStateRedirect();
     }, []);
 
+    
     if (removeLoading) return handleClickFavorites();
 
     return (
