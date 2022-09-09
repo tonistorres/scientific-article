@@ -1,0 +1,13 @@
+.ct-pagination {
+    align-items: center;
+    /* border: 5px solid red; */
+    background-color: #212121;
+    border-radius: 12px;
+    bottom: 0;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    position: absolute;
+    width: 99.5%;
+  }
+  
