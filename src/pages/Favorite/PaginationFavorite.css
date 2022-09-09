@@ -1,0 +1,26 @@
+.ct-pagination-favorite{
+    align-items: center;
+    /* border: 5px solid yellow; */
+    background-color: #212121;
+    border-radius: 12px;
+    bottom: 0;
+    display: flex;
+    height: 80px;
+    justify-content: start;
+    position: absolute;
+    width: 99.5%;
+  }
+  
+  .ct-butons{
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-left: 10%;
+    width:50%;
+  }
+
+  .btn-pagination{
+    margin-left: 15px;
+  }
+
