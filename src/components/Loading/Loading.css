@@ -1,29 +1,15 @@
 .lodad-main {
-    align-items: start;
-    /* border-radius: 15px; */
-    /* background-color: #E9ECEF; */
+    align-items: center;
     display: flex;
-    height: 40vh;
+    height: 100vh;
     justify-content: center;
     width: 100vw;
 }
 
-
-h3 {
-    /* border: 1px solid red; */
-    font-size: 172px;
-    font-weight: 400;
-    letter-spacing: 25px;
-    width: 98%;
-}
-
 .ct-oroganization {
-    /* border: 1px solid black; */
-    /* border-radius: 50%; */
-    /* background-color: white; */
+    align-items: start;
     display: flex;
     height: auto;
-    align-items: start;
     justify-content: space-between;
     width: 57%;
 }
@@ -38,12 +24,10 @@ h3 {
 
 .load-render {
     align-items: center;
-    /* border: 2px solid black; */
     justify-content: center;
-    background-color:white;
     display: flex;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
 }
 
 .img-logo-load {
@@ -52,3 +36,29 @@ h3 {
     height: 50%;
     width: 50%;
 }
+
+h3 {
+    font-size: 172px;
+    font-weight: 400;
+    letter-spacing: 25px;
+    width: 98%;
+}
+
+/* Se a janela do navegador for de 800px ou menor */
+@media only screen and (max-width: 800px) {
+    .ct-oroganization {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        justify-content: space-between;
+        width: 100%;
+    }
+    h3{
+        font-size: 122px;
+        font-weight: 300;
+        letter-spacing: 25px;
+        width: 98%; 
+    }
+    
+  }

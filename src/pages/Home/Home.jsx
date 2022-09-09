@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { FaStar } from 'react-icons/fa';
 import { getWorks, getTitle } from '../../services/Api';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
 import Pagination from "../../components/Pagination/Pagination";
 import Header from "../../components/Header/Header";
 import Load from "../../components/Loading/Load";
-import '../../index.css';
+import TableArticle from "../../components/Table/TableCustom";
+import './Home.css';
+
 
 function Home() {
     const [dbAuthors, setAuthors] = useState([]);
@@ -72,7 +73,7 @@ function Home() {
                 setFavorites([]);
             } else {
                 setFavorites(responseFavorite)
-            }    
+            }
         } catch (error) {
             console.log(`Erro function checkFavoriteExist:${error}`);
         }
@@ -156,7 +157,7 @@ function Home() {
     const handleInput = (evt) => {
         try {
             const { value } = evt.target;
-            setValueSearchInput(value);            
+            setValueSearchInput(value);
         } catch (error) {
             console.log(`Erro function handleInput:${error}`);
         }
@@ -196,82 +197,54 @@ function Home() {
     }
 
     return (
-        <div>
-            {!dbAuthors.length ? <Load /> :
-                <div className="ct-main-home">
+        <div className="main-home" >
+            {!dbAuthors.length ? <Load /> : (
+                <div className="main-home-sub-header">
                     <Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
-                    <div className="ct-search">
-                        {
-                            inputControlSearch
-                                ?
-                                <input
-                                    type="text"
-                                    name="valueSearchInput"
-                                    placeholder="type your search"
-                                    onChange={handleInput}
-                                />
-                                :
-                                null
-                        }
+                    <div className="main-group-component-main">
+                        <div className="ct-group-searc">
+                            <div className="ct-input-text">
+                                {
+                                    inputControlSearch
+                                        ?
+                                        <div className="ct-sub-input-text">
+                                            <input
+                                                // className="input-search"
+                                                type="text"
+                                                name="valueSearchInput"
+                                                placeholder="type your search"
+                                                onChange={handleInput}
+                                            />
+                                        </div>
+                                        :
+                                        null
+                                }
+                            </div>
+                            <div className="ct-select-button">
 
-                        <div className="ct-sub-search">
-                            <select className="select-style" onChange={handleOptions}>
-                                <option value="works" selected>Works</option>
-                                <option value="title" >Title</option>
-                            </select>
-                            <button className="btn-go-search" onClick={(e) => searchTitle(valueSearchInput, controlePagina)} disabled={!inputControlSearch}>Go</button>
+                                <select className="select-style" onChange={handleOptions}>
+                                    <option value="works" selected>Works</option>
+                                    <option value="title" >Title</option>
+                                </select>
+                                <button className="btn-go-search" onClick={(e) => searchTitle(valueSearchInput, controlePagina)} disabled={!inputControlSearch}>Go</button>
+                            </div>
                         </div>
-
+                        
                     </div>
-                    <table className="table">
-                        <tr>
-                            <thead className="thead-light">
-                                <tr>
-                                    <th scope="col" >Authors</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Description(s)</th>
-                                    <th scope="col">url(s)</th>
-                                    <th scope="col">Favorite</th>
-                                </tr>
-                            </thead>
-                            {dbAuthors.length > 0 && dbAuthors.map((item, index) => {
-                                return (
-                                    <tbody>
-                                        <tr key={index + 1} scope="row">
-                                            <td>{item._source.authors.map(item => <ul className="ul-none"><li>{item}</li></ul>)}</td>
-                                            <td>{item._type}</td>
-                                            <td>{item._source.title}</td>
-                                            <td>{item._source.description}</td>
-                                            <td>{
-                                                item._source.urls
-                                                    .map(item => <ul className="ul-none">
-                                                        <li><a href={item} target="_blank" rel="noreferrer" >{item}</a>
-                                                        </li>
-                                                    </ul>
-                                                    )
-                                            }
-                                            </td>
-                                            <td >
-                                                <div className="btn-favorite">
-                                                    <button className="btn-size-favorite" onClick={() => getId(item._id)}><FaStar size={30} /></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                )
-                            })}
-                        </tr>
-                    </table>
-                    <Pagination
-                        controlePagina={controlePagina}
-                        btnNext={btnNext}
-                        btnPrevious={btnPrevious}
-                        valueSearchInput={valueSearchInput}
-                    />
-                </div>
+                    <TableArticle dbAuthors={dbAuthors} getId={getId} />
+                        <Pagination
+                            controlePagina={controlePagina}
+                            btnNext={btnNext}
+                            btnPrevious={btnPrevious}
+                            valueSearchInput={valueSearchInput}
+                        />
+                </div>)
+
+
             }
+
         </div>
+
     );
 }
 
