@@ -1,6 +1,5 @@
 import React from "react";
-// import PaginationSelector from "../PaginationSelector/PaginationSelector";
-import '../../index.css';
+import './Pagination.css';
 
 function Pagination({ setCurrentPage, pages, btnNext,controlePagina,btnPrevious,valueSearchInput }) {
     return (
