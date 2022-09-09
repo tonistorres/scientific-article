@@ -9,7 +9,7 @@ function TableArticle({ dbAuthors, getId }) {
             <table className="rTable">
             
                 <tbody>
-                <thead lassName="thead-light">
+                <thead className="thead-light">
                         <tr>
                             <th scope="col">Authors</th>
                             <th scope="col">Type</th>
