@@ -1,6 +1,5 @@
 .ct-pagination-favorite{
     align-items: center;
-    /* border: 5px solid yellow; */
     background-color: #212121;
     border-radius: 12px;
     bottom: 0;
@@ -12,7 +11,6 @@
   }
   
   .ct-butons{
-    /* border: 2px solid red; */
     display: flex;
     align-items: center;
     justify-content: start;
