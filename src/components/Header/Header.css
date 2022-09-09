@@ -1,0 +1,35 @@
+
+.navbar {
+  align-items: center;
+  background-color: #212121;
+  border-radius: 12px;
+  display: flex; 
+  height: 80px;
+  justify-content: space-around;
+  overflow: hidden;
+  position: fixed;
+  top: 0; 
+  width: 99.5%;
+}
+
+.logo-mettzer {
+  /* border: 2px solid red; */
+  height: 70px;
+  width: 210px;
+}
+
+button{
+  /* border: 2px solid red; */
+  background-color: #66B175;
+  color: #00020A;
+  border-radius: 12px;
+  height: 65px;
+  width: 125px;
+}
+
+span{
+  color: whitesmoke;
+  font-size: 32px;
+  font-weight: 400;
+}
+
