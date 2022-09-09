@@ -1,6 +1,5 @@
 .ct-pagination {
     align-items: center;
-    border: 5px solid red;
     background-color: #212121;
     border-radius: 12px;
     bottom: 0;
@@ -13,10 +12,10 @@
   
   .ct-buttons{
     align-items: cneter;
-    border: 3px solid white;
     display: flex;
     height:100% ;
     justify-content: space-around;
+    min-width: 40%;
     width: 40%;
   }
 
@@ -35,10 +34,36 @@
   }
 
 .div-pagination{
-  /* border: 1px solid wheat; */
+  align-items: center;
   background-color: #212121;
   display: flex;
-  align-items: center;
   justify-content: center;
   width: 30%;
 }
+
+
+  /* Se a janela do navegador for de 922px ou menor */
+  @media only screen and (max-width: 922px) {
+    .ct-buttons{
+      align-items: cneter;
+      display: flex;
+      height:100% ;
+      justify-content: space-around;
+      min-width: 40%;
+      width: 50%;
+    }
+    
+  }
+
+  /* Se a janela do navegador for de 922px ou menor */
+  @media only screen and (max-width: 837px) {
+    .ct-buttons{
+      align-items: cneter;
+      display: flex;
+      height:100% ;
+      justify-content: space-around;
+      min-width: 40%;
+      width: 60%;
+    }
+    
+  }
