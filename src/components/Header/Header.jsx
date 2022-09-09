@@ -2,10 +2,29 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import imgMettzer from '../../assets/metzzerTop.png';
 import './Header.css';
+import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
 
 function Header({ dbFavorite, pageCurrent, dbAuthors }) {
 
     const navigate = useNavigate();
+
+    const checkRedirect = () => {
+        try {
+            const responseFavorite = searchLocalStorage("Favorite");
+            if (responseFavorite === null) {
+                alert('Clave Favorite inexistente no LocalHistorage')
+            } else {
+                if(responseFavorite.length===0){
+                    alert('Não existe dados Favoritados')
+                }else{
+                    handleClickFavorites()
+                }
+                
+            }
+        } catch (error) {
+            console.log(`Erro function checkFavoriteExist:${error}`);
+        }
+    }
 
     const handleClickFavorites = () => {
         navigate('/favorite');
@@ -14,11 +33,10 @@ function Header({ dbFavorite, pageCurrent, dbAuthors }) {
     const handleClickHome = () => {
         navigate('/home')
     }
+    
     return (
-
         <div className="navbar">
             <img src={imgMettzer} alt="logo Mettzer" className="logo-mettzer" />
-            {/* <div ><span>Article</span></div> */}
             {dbFavorite.length > 0 ? <span > Favorited ⭐{dbFavorite.length}</span> : null}
             <div >
                 {
@@ -29,7 +47,7 @@ function Header({ dbFavorite, pageCurrent, dbAuthors }) {
                         <div>
                             <button
                                 className="btn-ir-favorite"
-                                onClick={handleClickFavorites}
+                                onClick={checkRedirect}
                             >
                                 <p>go Favorites</p>
                             </button>
