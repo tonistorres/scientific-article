@@ -27,12 +27,6 @@
     ],
     "rules": {
 
-    },
-	"no-unused-vars": [
-        "error",
-        {
-            "varsIgnorePattern": "^h$"
-        }
-    ],
+    }
 }
 
