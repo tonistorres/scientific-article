@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { getWorks, getTitle } from '../../services/Api';
+import { getTitle } from '../../services/Api';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
 import Pagination from '../../components/Pagination/Pagination';
 import Header from '../../components/Header/Header';
-import Load from '../../components/Loading/Load';
 import TableArticle from '../../components/Table/TableCustom';
+import ScreenSearch from './ScreenSearch';
 import './Home.css';
 
 function Home() {
@@ -78,12 +78,7 @@ function Home() {
 
 	const searchAPI = async () => {
 		try {
-			const response = await getWorks(
-				// eslint-disable-next-line no-undef
-				`/${dbStateOptions}?apiKey=${process.env.REACT_APP_API_KEY}`,
-			);
 			checKeyFavoriteExist();
-			setAuthors(response);
 		} catch (error) {
 			console.log(`Erro function searcAPI:${error}`);
 		}
@@ -156,8 +151,6 @@ function Home() {
 	const handleOptions = evt => {
 		try {
 			const { value } = evt.target;
-			console.log('handleOptions', value);
-			console.log('typeValue', typeof value);
 			if (value === 'works') {
 				setStateOptions(value);
 			} else {
@@ -214,55 +207,51 @@ function Home() {
 
 	return (
 		<div className='main-home'>
-			{!dbAuthors.length ? (
-				<Load />
-			) : (
-				<div className='main-home-sub-header'>
-					<Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
-					<div className='main-group-component-main'>
-						<div className='ct-group-searc'>
-							<div className='ct-input-text'>
-								{inputControlSearch ? (
-									<div className='ct-sub-input-text'>
-										<input
-											type='text'
-											name='valueSearchInput'
-											placeholder='type your search'
-											onChange={handleInput}
-										/>
-									</div>
-								) : null}
-							</div>
-							<div className='ct-select-button'>
-								<select
-									className='select-style'
-									onChange={handleOptions}
-								>
-									<option value='works' selected>
-										Works
-									</option>
-									<option value='title'>Title</option>
-								</select>
-								<button
-									className='btn-go-search'
-									// eslint-disable-next-line prettier/prettier, no-unused-vars
-                  onClick={(e) => searchTitle(valueSearchInput, controlePagina)}
-									disabled={!inputControlSearch}
-								>
-									Go
-								</button>
+			<div className='main-home-sub-header'>
+				<Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
+				<div className='main-group-component-main'>
+					<div className='ct-group-searc'>
+						<div className='ct-input-text'>
+							<div className='ct-sub-input-text'>
+								<input
+									type='text'
+									name='valueSearchInput'
+									placeholder='type your search'
+									onChange={handleInput}
+								/>
 							</div>
 						</div>
+						<div className='ct-select-button'>
+							<select
+								className='select-style'
+								onFocus={handleOptions}
+							>
+								<option value='title' selected>
+									Title
+								</option>
+							</select>
+							<button
+								className='btn-go-search'
+								// eslint-disable-next-line prettier/prettier, no-unused-vars
+                  onClick={(e) => searchTitle(valueSearchInput, controlePagina)}>
+								Go
+							</button>
+						</div>
 					</div>
-					<TableArticle dbAuthors={dbAuthors} getId={getId} />
-					<Pagination
-						controlePagina={controlePagina}
-						btnNext={btnNext}
-						btnPrevious={btnPrevious}
-						valueSearchInput={valueSearchInput}
-					/>
 				</div>
-			)}
+				{dbAuthors.length === 0 ? (
+					<ScreenSearch />
+				) : (
+					<TableArticle dbAuthors={dbAuthors} getId={getId} />
+				)}
+
+				<Pagination
+					controlePagina={controlePagina}
+					btnNext={btnNext}
+					btnPrevious={btnPrevious}
+					valueSearchInput={valueSearchInput}
+				/>
+			</div>
 		</div>
 	);
 }
