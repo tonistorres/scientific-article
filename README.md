@@ -27,7 +27,7 @@ que a janela do navegador seja fechada e aberta novamente;</li>
 
 ![Projeto Mezzer](./tela1.png)
 
-#### Research Source:
+#### Fonte de pesquisa:
 <details>
 <summary><strong>🔗 Links Importantes</strong></summary><br />
 
@@ -51,10 +51,35 @@ que a janela do navegador seja fechada e aberta novamente;</li>
 
 </details>
 
+#### Imagem das Telas:
+<details>
+<summary><strong>💁‍♂️ Click/Estender</strong></summary><br />
+
+- [x] - Tela de Apresentação (Splash)
+
+![Apresentação Mezzer](./src/assets/apresentacao.png)
+
+- [x] - Tela de Carregamento (Load)
+
+![Load Mezzer](./src/assets/load.png)
+
+- [x] - Tela de Home/Principal
+
+![Tela Principal](./src/assets/telaPrincipal.png)
+
+
+- [x] - Tela de Favorite/Favoritos
+
+![Tela Principal](./src/assets/TelaFavorite.png)
+
+
+</details>
+
+
+
+
 #### Rodar Projeto Localmente:
 <details>
-<summary><strong>🧞‍♂️ Resumo:</strong></summary><br />
-
 <ul>
        <li>
             <h4>Baixe o projeto para sua máquina:</h4>
