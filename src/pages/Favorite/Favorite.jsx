@@ -8,6 +8,8 @@ import './Favorite.css';
 
 function Favorite() {
 	const navigate = useNavigate();
+	const SET_FAVORITE = 'Favorite';
+	const MAX_REGISTER_PER_PAGE = 10;
 	const [pageCurrent, setPageCurrent] = useState('Favorite');
 	const [dbFavorite, setDbFavorite] = useState([]);
 	const [itensPerPage, setItensPerPage] = useState(10);
@@ -27,6 +29,8 @@ function Favorite() {
 
 	const initialState = () => {
 		try {
+			setPageCurrent(SET_FAVORITE);
+			setItensPerPage(MAX_REGISTER_PER_PAGE);
 			const responseFavorite = searchLocalStorage('Favorite');
 			if (responseFavorite === null) {
 				saveLocalStorage('Favorite', []);
