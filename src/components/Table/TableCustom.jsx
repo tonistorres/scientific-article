@@ -59,7 +59,8 @@ function TableArticle({ dbAuthors, getId }) {
 										<div className='btn-favorite'>
 											<button
 												className='btn-size-favorite'
-												onClick={() => getId(item._id)}
+												// eslint-disable-next-line prettier/prettier, no-unused-vars
+												onClick={(e) => getId(item._id)}
 											>
 												<FaStar size={30} />
 											</button>
