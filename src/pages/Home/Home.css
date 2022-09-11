@@ -80,7 +80,7 @@
 .ct-sub-input-text{
     align-items: center;
     display: flex;
-    height: 90%; 
+    height: 90%;
     justify-content: center;
     width: 100%;
 }
@@ -98,17 +98,24 @@ input[type=text] {
   width: 100%;
   padding: 6px 6px;
   box-sizing: border-box;
-} 
+}
 
 .btn-go-search{
     height: 65px;
     width: 105px;
   }
-  
+
+  .ct-search-title-boy{
+	align-items: center;
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  }
 
   /* Se a janela do navegador for de 922px ou menor */
 @media only screen and (max-width: 922px) {
-  
+
     .btn-go-search{
         height: 65px;
         width: 105px;
@@ -136,7 +143,7 @@ input[type=text] {
         width: 60%;
         -webkit-appearance: none;
     }
-    
+
     .ct-input-text {
         align-items: center;
         display: flex;
@@ -145,6 +152,6 @@ input[type=text] {
         min-width: 300px;
         width: 30%;
     }
-      
-    
+
+
   }
