@@ -14,7 +14,7 @@ function Favorite() {
 	// eslint-disable-next-line no-unused-vars
 	const [itensPerPage, setItensPerPage] = useState(10);
 	const [currentPage, setCurrentPage] = useState(0);
-	const pages = Math.ceil(dbFavorite.length / itensPerPage);
+	const pages = Number(Math.ceil(dbFavorite.length / itensPerPage));
 	const startIndex = currentPage * itensPerPage;
 	const endIndex = startIndex + itensPerPage;
 	const currentItens = dbFavorite.slice(startIndex, endIndex);
