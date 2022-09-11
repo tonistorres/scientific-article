@@ -49,6 +49,8 @@ que a janela do navegador seja fechada e aberta novamente;</li>
 
 <a href="https://www.youtube.com/watch?v=g42RRTPJFNg">Adicionando ao Array Hooks</a>
 
+<a href="https://stackoverflow.com/questions/42541559/eslint-with-react-gives-no-unused-vars-errors"> Configurando .eslintrc.json regra quando uma variável não usada </a>
+
 </details>
 
 #### Imagem das Telas:
