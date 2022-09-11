@@ -8,10 +8,9 @@ import './Favorite.css';
 
 function Favorite() {
 	const navigate = useNavigate();
-	// eslint-disable-next-line no-unused-vars
+
 	const [pageCurrent, setPageCurrent] = useState('Favorite');
 	const [dbFavorite, setDbFavorite] = useState([]);
-	// eslint-disable-next-line no-unused-vars
 	const [itensPerPage, setItensPerPage] = useState(10);
 	const [currentPage, setCurrentPage] = useState(0);
 	const pages = Number(Math.ceil(dbFavorite.length / itensPerPage));
