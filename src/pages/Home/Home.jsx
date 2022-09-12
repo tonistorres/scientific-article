@@ -183,7 +183,9 @@ function Home() {
 					);
 					valueSearchInput.focus();
 				} else {
-					alert('Preencha o campo de pesquisa');
+					let count = controlePagina + 1;
+					setControlePagina(count);
+					searchTitle(valueSearchInput, count);
 				}
 			}
 		} catch (error) {
@@ -198,7 +200,7 @@ function Home() {
 				setControlePagina(count);
 				searchTitle(valueSearchInput, count);
 			} else {
-				alert('Chagamos na ultima Pagina');
+				alert('Chagamos à pagina inicial');
 			}
 		} catch (error) {
 			console.log(`Erro function paginationNext:${error}`);
