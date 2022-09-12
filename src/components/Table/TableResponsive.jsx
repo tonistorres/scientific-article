@@ -11,8 +11,12 @@ function TableResponsive({ dbAuthors, getId }) {
 					<thead>
 						<tr>
 							<th scope='col'>Authors</th>
-							<th scope='col'>Type</th>
-							<th scope='col'>Title</th>
+							<th scope='col' className='line-break-type'>
+								Type
+							</th>
+							<th scope='col' className='line-break-title'>
+								Title
+							</th>
 							<th scope='col'>Description(s)</th>
 							<th scope='col'>url(s)</th>
 							<th scope='col'>Favorite</th>
@@ -22,27 +26,38 @@ function TableResponsive({ dbAuthors, getId }) {
 						dbAuthors.map((item, index) => {
 							return (
 								<tbody key={index + 1}>
-									<td width='180'>
+									<td className='line-break-authors'>
 										{item._source.authors.map(
 											(item, index) => (
 												<ul
 													className='ul-none'
 													key={index + 1}
 												>
-													<li>{item}</li>
+													<li>
+														{`${item}`.substring(
+															0,
+															50,
+														) + '...'}
+													</li>
 												</ul>
 											),
 										)}
 									</td>
-									<td width='160'>{item._type}</td>
-									<td width='390'>{item._source.title}</td>
-									<td width='490'>
+									<td className='line-break-type'>
+										{`${item._type}`.substring(0, 20) +
+											'...'}
+									</td>
+									<td className='line-break-title'>
+										{`${item._source.title}
+										`.substring(0, 150)}
+									</td>
+									<td className='line-break-description'>
 										{`${item._source.description}`.substring(
 											0,
-											50,
-										) + '...'}
+											150,
+										)}
 									</td>
-									<td width='100'>
+									<td className='line-break-link'>
 										{item._source.urls.map(
 											(item, index) => (
 												<ul
@@ -54,7 +69,12 @@ function TableResponsive({ dbAuthors, getId }) {
 															href={item}
 															target='_blank'
 															rel='noreferrer'
-														>{`Link`}</a>
+														>
+															{`${item}`.substring(
+																0,
+																20,
+															) + '...'}
+														</a>
 													</li>
 												</ul>
 											),
