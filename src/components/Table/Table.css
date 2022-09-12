@@ -18,23 +18,23 @@ table {
 
 .btn-favorite{
   align-items: center;
-  background-color: #212121;
+  background-color: #66B175;
   border-radius: 12px;
   display: flex;
   height: 10vh;
   min-height: 10vh;
   justify-content: center;
-  width: 100%;
+  width: 90%;
 }
 
 .btn-size-favorite{
   background-color: whitesmoke;
-  width: 80%;
-  height: 50%;
+  width: 70%;
+  height: 70%;
 }
 
 
-.rTable{    
+.rTable{
 text-align: center;
 width: 100%;
 }

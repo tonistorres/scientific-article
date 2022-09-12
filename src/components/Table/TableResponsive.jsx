@@ -3,12 +3,12 @@ import { FaStar } from 'react-icons/fa';
 import './Table.css';
 import PropTypes from 'prop-types';
 
-function TableArticle({ dbAuthors, getId }) {
+function TableResponsive({ dbAuthors, getId }) {
 	return (
-		<div className='table overflow-auto table-max-width'>
-			<table className='rTable'>
-				<tbody>
-					<thead className='thead-light'>
+		<div className='ct-table-fluid'>
+			<table className='table table-sm'>
+				<tr>
+					<thead>
 						<tr>
 							<th scope='col'>Authors</th>
 							<th scope='col'>Type</th>
@@ -18,18 +18,21 @@ function TableArticle({ dbAuthors, getId }) {
 							<th scope='col'>Favorite</th>
 						</tr>
 					</thead>
-
 					{dbAuthors.length > 0 &&
-						dbAuthors.map(item => {
+						dbAuthors.map((item, index) => {
 							return (
-								<tr key={item._id} scope='row'>
+								<tbody key={index + 1}>
 									<td width='180'>
-										{item._source.authors.map(item => (
-											// eslint-disable-next-line react/jsx-key
-											<ul className='ul-none'>
-												<li>{item}</li>
-											</ul>
-										))}
+										{item._source.authors.map(
+											(item, index) => (
+												<ul
+													className='ul-none'
+													key={index + 1}
+												>
+													<li>{item}</li>
+												</ul>
+											),
+										)}
 									</td>
 									<td width='160'>{item._type}</td>
 									<td width='390'>{item._source.title}</td>
@@ -40,42 +43,45 @@ function TableArticle({ dbAuthors, getId }) {
 										) + '...'}
 									</td>
 									<td width='100'>
-										{item._source.urls.map(item => (
-											// eslint-disable-next-line react/jsx-key
-											<ul className='ul-none'>
-												<li>
-													<a
-														href={item}
-														target='_blank'
-														rel='noreferrer'
-													>{`Link`}</a>
-												</li>
-											</ul>
-										))}
+										{item._source.urls.map(
+											(item, index) => (
+												<ul
+													className='ul-none'
+													key={index + 1}
+												>
+													<li>
+														<a
+															href={item}
+															target='_blank'
+															rel='noreferrer'
+														>{`Link`}</a>
+													</li>
+												</ul>
+											),
+										)}
 									</td>
 									<td width='100'>
 										<div className='btn-favorite'>
 											<button
 												className='btn-size-favorite'
-												// eslint-disable-next-line prettier/prettier, no-unused-vars
-												onClick={(e) => getId(item._id)}
+												onClick={() => getId(item._id)}
 											>
 												<FaStar size={30} />
 											</button>
 										</div>
 									</td>
-								</tr>
+								</tbody>
 							);
 						})}
-				</tbody>
+				</tr>
 			</table>
 		</div>
 	);
 }
 
-TableArticle.propTypes = {
+TableResponsive.propTypes = {
 	dbAuthors: PropTypes.array,
 	getId: PropTypes.func,
 };
 
-export default TableArticle;
+export default TableResponsive;

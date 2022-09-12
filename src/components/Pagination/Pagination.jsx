@@ -13,30 +13,18 @@ function Pagination({
 		<div className='ct-pagination'>
 			<div className='ct-buttons'>
 				<button
-					// eslint-disable-next-line prettier/prettier, no-unused-vars
-          onClick={(e) => btnPrevious(valueSearchInput, controlePagina)}
+					onClick={e => btnPrevious(valueSearchInput, controlePagina)}
 					className='btn-pagination'
 				>
 					Previous
 				</button>
 
-				{Array.from(Array(), (item, index) => {
-					return (
-						<div
-							key={index}
-							className='div-pagination'
-							value={index}
-							// eslint-disable-next-line prettier/prettier
-              onClick={(e) => setCurrentPage(Number(e.target.value))}
-						>
-							<span>pg:{controlePagina}</span>
-						</div>
-					);
-				})}
+				<div className='div-pagination'>
+					<span>Page:{controlePagina}</span>
+				</div>
 
 				<button
-					// eslint-disable-next-line prettier/prettier, no-unused-vars
-          onClick={(e) => btnNext(valueSearchInput, controlePagina)}
+					onClick={e => btnNext(valueSearchInput, controlePagina)}
 					className='btn-next'
 				>
 					Next
