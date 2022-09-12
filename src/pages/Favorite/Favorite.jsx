@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
 import Pagination from './Pagination';
 import './Favorite.css';
+import { isElementType } from '@testing-library/user-event/dist/utils';
 
 function Favorite() {
 	const navigate = useNavigate();
@@ -89,11 +90,10 @@ function Favorite() {
 			/>
 			<div className='ct-sub-main-favorite'>
 				<div className='ct-table-fluid'>
-					<div className='table overflow-autoo '>
-						<table>
-							{/* <caption>Table Content API</caption> */}
+					<div className='table overflow-auto'>
+						<table className='table-responsive'>
 							<tr>
-								<thead className='thead-light'>
+								<thead className='thead-dark'>
 									<tr>
 										<th scope='col'>Authors</th>
 										<th scope='col'>Type</th>
@@ -105,14 +105,15 @@ function Favorite() {
 								</thead>
 								{currentItens.length > 0 &&
 									currentItens.map(item => (
-										// eslint-disable-next-line react/jsx-key
-										<tbody>
-											<tr key={item._id} scope='row'>
+										<tbody key={isElementType._id}>
+											<tr scope='row'>
 												<td width='180'>
 													{item._source.authors.map(
-														item => (
-															// eslint-disable-next-line react/jsx-key
-															<ul className='ul-none'>
+														(item, index) => (
+															<ul
+																className='ul-none'
+																key={index + 1}
+															>
 																<li>{item}</li>
 															</ul>
 														),
@@ -126,13 +127,15 @@ function Favorite() {
 												</td>
 												<td width='490'>{`${`${item._source.description}`.substring(
 													0,
-													150,
+													490,
 												)}...`}</td>
 												<td width='100'>
 													{item._source.urls.map(
-														item => (
-															// eslint-disable-next-line react/jsx-key
-															<ul className='ul-none'>
+														(item, index) => (
+															<ul
+																className='ul-none'
+																key={index + 1}
+															>
 																<li>
 																	<a
 																		href={
