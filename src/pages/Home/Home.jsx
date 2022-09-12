@@ -3,7 +3,7 @@ import { getTitle } from '../../services/Api';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
 import Pagination from '../../components/Pagination/Pagination';
 import Header from '../../components/Header/Header';
-import TableArticle from '../../components/Table/TableCustom';
+import TableResponsive from '../../components/Table/TableResponsive';
 import ScreenSearch from './ScreenSearch';
 import './Home.css';
 
@@ -244,7 +244,7 @@ function Home() {
 				{dbAuthors.length === 0 ? (
 					<ScreenSearch />
 				) : (
-					<TableArticle dbAuthors={dbAuthors} getId={getId} />
+					<TableResponsive dbAuthors={dbAuthors} getId={getId} />
 				)}
 
 				<Pagination
