@@ -23,7 +23,7 @@ function TableArticle({ dbAuthors, getId }) {
 						dbAuthors.map(item => {
 							return (
 								<tr key={item._id} scope='row'>
-									<td className='td-mw-authors'>
+									<td width='180'>
 										{item._source.authors.map(item => (
 											// eslint-disable-next-line react/jsx-key
 											<ul className='ul-none'>
@@ -31,17 +31,15 @@ function TableArticle({ dbAuthors, getId }) {
 											</ul>
 										))}
 									</td>
-									<td className='td-mw-type'>{item._type}</td>
-									<td className='td-mw-title'>
-										{item._source.title}
-									</td>
-									<td className='td-mw-descrip'>
+									<td width='160'>{item._type}</td>
+									<td width='390'>{item._source.title}</td>
+									<td width='490'>
 										{`${item._source.description}`.substring(
 											0,
 											50,
 										) + '...'}
 									</td>
-									<td className='td-mw-url'>
+									<td width='100'>
 										{item._source.urls.map(item => (
 											// eslint-disable-next-line react/jsx-key
 											<ul className='ul-none'>
@@ -55,7 +53,7 @@ function TableArticle({ dbAuthors, getId }) {
 											</ul>
 										))}
 									</td>
-									<td className='td-mw-button'>
+									<td width='100'>
 										<div className='btn-favorite'>
 											<button
 												className='btn-size-favorite'
