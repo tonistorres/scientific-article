@@ -24,12 +24,16 @@ function TableArticle({ dbAuthors, getId }) {
 							return (
 								<tr key={item._id} scope='row'>
 									<td width='180'>
-										{item._source.authors.map(item => (
-											// eslint-disable-next-line react/jsx-key
-											<ul className='ul-none'>
-												<li>{item}</li>
-											</ul>
-										))}
+										{item._source.authors.map(
+											(item, index) => (
+												<ul
+													className='ul-none'
+													key={index + 1}
+												>
+													<li>{item}</li>
+												</ul>
+											),
+										)}
 									</td>
 									<td width='160'>{item._type}</td>
 									<td width='390'>{item._source.title}</td>
@@ -40,18 +44,22 @@ function TableArticle({ dbAuthors, getId }) {
 										) + '...'}
 									</td>
 									<td width='100'>
-										{item._source.urls.map(item => (
-											// eslint-disable-next-line react/jsx-key
-											<ul className='ul-none'>
-												<li>
-													<a
-														href={item}
-														target='_blank'
-														rel='noreferrer'
-													>{`Link`}</a>
-												</li>
-											</ul>
-										))}
+										{item._source.urls.map(
+											(item, index) => (
+												<ul
+													className='ul-none'
+													key={index + 1}
+												>
+													<li>
+														<a
+															href={item}
+															target='_blank'
+															rel='noreferrer'
+														>{`Link`}</a>
+													</li>
+												</ul>
+											),
+										)}
 									</td>
 									<td width='100'>
 										<div className='btn-favorite'>
