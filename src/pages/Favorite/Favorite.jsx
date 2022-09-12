@@ -89,8 +89,9 @@ function Favorite() {
 			/>
 			<div className='ct-sub-main-favorite'>
 				<div className='ct-table-fluid'>
-					<div className='table overflow-auto table-max-width'>
+					<div className='table overflow-autoo '>
 						<table>
+							{/* <caption>Table Content API</caption> */}
 							<tr>
 								<thead className='thead-light'>
 									<tr>
@@ -102,13 +103,12 @@ function Favorite() {
 										<th scope='col'>Favorite</th>
 									</tr>
 								</thead>
-
 								{currentItens.length > 0 &&
 									currentItens.map(item => (
 										// eslint-disable-next-line react/jsx-key
 										<tbody>
 											<tr key={item._id} scope='row'>
-												<td>
+												<td width='180'>
 													{item._source.authors.map(
 														item => (
 															// eslint-disable-next-line react/jsx-key
@@ -118,13 +118,17 @@ function Favorite() {
 														),
 													)}
 												</td>
-												<td>{item._type}</td>
-												<td>{item._source.title}</td>
-												<td>{`${`${item._source.description}`.substring(
+												<td width='160'>
+													{item._type}
+												</td>
+												<td width='390'>
+													{item._source.title}
+												</td>
+												<td width='490'>{`${`${item._source.description}`.substring(
 													0,
 													150,
 												)}...`}</td>
-												<td>
+												<td width='100'>
 													{item._source.urls.map(
 														item => (
 															// eslint-disable-next-line react/jsx-key
@@ -144,7 +148,7 @@ function Favorite() {
 														),
 													)}
 												</td>
-												<td>
+												<td width='100'>
 													<div className='btn-favorite'>
 														<button
 															className='btn-size-favorite'
