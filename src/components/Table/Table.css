@@ -1,44 +1,106 @@
-.content{
-  display: flex;
-  height: 100%;
-  padding: 5px;
-  overflow: auto;
-  width: 100%;
+.content {
+	display: flex;
+	height: 100%;
+	padding: 5px;
+	overflow: auto;
+	width: 100%;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  overflow-x: auto;
-  width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	overflow-x: auto;
+	width: 100%;
 }
 
-.btn-favorite{
-  align-items: center;
-  background-color: #66B175;
-  border-radius: 12px;
-  display: flex;
-  height: 10vh;
-  min-height: 10vh;
-  justify-content: center;
-  width: 90%;
+.btn-favorite {
+	align-items: center;
+	background-color: #66B175;
+	border-radius: 12px;
+	display: flex;
+	height: 10vh;
+	min-height: 10vh;
+	justify-content: center;
+	width: 90%;
 }
 
-.btn-size-favorite{
-  background-color: whitesmoke;
-  width: 70%;
-  height: 70%;
+.btn-size-favorite {
+	background-color: whitesmoke;
+	width: 70%;
+	height: 70%;
 }
 
 
-.rTable{
-text-align: center;
-width: 100%;
+.rTable {
+	text-align: center;
+	width: 100%;
 }
 
 tr:nth-child(even) {
-    background-color: #D3D3D3;
+	background-color: #D3D3D3;
+}
+
+.line-break-authors{
+	background: #E8F0FE;
+	max-width: 250px;
+	min-width: 100px;
+	text-align: justify;
+	word-wrap: break-word;
+}
+
+
+.line-break-title {
+	background: #E8F0FE;
+	max-width: 390px;
+	min-width: 120px;
+	text-align: justify;
+	word-wrap: break-word;
+}
+
+.line-break-description {
+	max-width: 450px;
+	min-width: 200px;
+	text-align: justify;
+}
+
+.line-break-link{
+
+	background: #E8F0FE;
+	max-width: 250px;
+	min-width: 150px;
+	text-align: center;
+	vertical-align: middle;
+	word-wrap: break-word;
+}
+
+.line-break-type{
+	max-width: 100px;
+	min-width: 100px;
+	text-align: justify;
+}
+
+  /* Se a janela do navegador for de 922px ou menor */
+  @media only screen and (max-width: 885px) {
+
+	.line-break-type{
+		/* background-color: red; */
+		display: none;
+		max-width: 100px;
+		min-width: 100px;
+		text-align: justify;
+	}
+
+
+.line-break-title {
+	background: #E8F0FE;
+	display: none;
+	max-width: 390px;
+	min-width: 120px;
+	text-align: justify;
+	word-wrap: break-word;
+}
+
   }
