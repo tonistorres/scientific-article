@@ -114,7 +114,12 @@ function Favorite() {
 																className='ul-none'
 																key={index + 1}
 															>
-																<li>{item}</li>
+																<li>
+																	{`${item}`.substring(
+																		0,
+																		50,
+																	) + '...'}
+																</li>
 															</ul>
 														),
 													)}
@@ -123,12 +128,17 @@ function Favorite() {
 													{item._type}
 												</td>
 												<td width='390'>
-													{item._source.title}
+													{`${item._source.title}`.substring(
+														0,
+														40,
+													)}
 												</td>
-												<td width='490'>{`${`${item._source.description}`.substring(
-													0,
-													490,
-												)}...`}</td>
+												<td width='490'>
+													{`${`${item._source.description}`.substring(
+														0,
+														490,
+													)}...`}
+												</td>
 												<td width='100'>
 													{item._source.urls.map(
 														(item, index) => (
