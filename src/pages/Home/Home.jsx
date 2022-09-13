@@ -234,8 +234,13 @@ function Home() {
 							</select>
 							<button
 								className='btn-go-search'
-								// eslint-disable-next-line prettier/prettier, no-unused-vars
-                  onClick={(e) => searchTitle(valueSearchInput, controlePagina)}>
+								onClick={e =>
+									searchTitle(
+										valueSearchInput,
+										controlePagina,
+									)
+								}
+							>
 								Go
 							</button>
 						</div>
