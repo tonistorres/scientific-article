@@ -44,16 +44,20 @@ tr:nth-child(even) {
 }
 
 .line-break-authors{
-	background: #E8F0FE;
 	max-width: 250px;
 	min-width: 100px;
 	text-align: justify;
+	text-transform: capitalize;
 	word-wrap: break-word;
 }
 
 
+.line-break-authors li{
+	text-transform: capitalize;
+
+}
+
 .line-break-title {
-	background: #E8F0FE;
 	max-width: 390px;
 	min-width: 120px;
 	text-align: justify;
@@ -67,8 +71,6 @@ tr:nth-child(even) {
 }
 
 .line-break-link{
-
-	background: #E8F0FE;
 	max-width: 250px;
 	min-width: 150px;
 	text-align: center;
@@ -86,7 +88,6 @@ tr:nth-child(even) {
   @media only screen and (max-width: 885px) {
 
 	.line-break-type{
-		/* background-color: red; */
 		display: none;
 		max-width: 100px;
 		min-width: 100px;
