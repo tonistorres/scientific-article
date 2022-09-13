@@ -21,6 +21,7 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
+	"ignorePatterns": ["*.test.js"],
     "plugins": [
         "react",
         "prettier"

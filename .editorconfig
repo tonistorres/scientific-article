@@ -13,4 +13,3 @@ charset = utf-8
 trim_trailing_whitespace = true
 # inserir uma linha no final
 insert_final_newline = true
-
