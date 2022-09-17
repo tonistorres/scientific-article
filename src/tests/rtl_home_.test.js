@@ -1,10 +1,8 @@
-import { render, screen,  fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Home from '../pages/Home/Home';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-
-describe('Switch Teste Render Component Home',()=>{
-
+describe('Switch Teste Render Component Home', () => {
 	test('checking the existence of the components screen ', () => {
 		render(
 			<Router>
@@ -20,7 +18,7 @@ describe('Switch Teste Render Component Home',()=>{
 		expect(imgRender).toBeInTheDocument();
 
 		const imgLogoBoy = screen.getByRole('img', {
-			name: /logo boy/i
+			name: /logo boy/i,
 		});
 
 		expect(imgLogoBoy).toBeInTheDocument();
@@ -32,20 +30,18 @@ describe('Switch Teste Render Component Home',()=>{
 		expect(inputText).toBeInTheDocument();
 
 		const btnNext = screen.getByRole('button', {
-			name: /next/i
+			name: /next/i,
 		});
 
 		expect(btnNext).toBeInTheDocument();
 
 		const btnPrevious = screen.getByRole('button', {
-			name: /previous/i
+			name: /previous/i,
 		});
 
 		expect(btnPrevious).toBeInTheDocument();
 
 		const displayPage = screen.getByText(/page:/i);
 		expect(displayPage).toBeInTheDocument();
-
 	});
 });
-

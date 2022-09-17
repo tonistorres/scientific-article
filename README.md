@@ -1,4 +1,3 @@
-
 <h3> Projeto: Artigos Científicos</h3>
 
 <p>Implementar uma aplicação utilizando frameworks JS, que oferece uma interface web</p>
@@ -24,10 +23,10 @@ que a janela do navegador seja fechada e aberta novamente;</li>
       <li>Criatividade;</li>
 </ol>
 
-
 ![Projeto Mezzer](./tela1.png)
 
 #### Fonte de pesquisa:
+
 <details>
 <summary><strong>🔗 Links Importantes</strong></summary><br />
 
@@ -54,33 +53,30 @@ que a janela do navegador seja fechada e aberta novamente;</li>
 </details>
 
 #### Imagem das Telas:
+
 <details>
 <summary><strong>💁‍♂️ Click/Estender</strong></summary><br />
 
-- [x] - Tela de Apresentação (Splash)
+-   [x] -   Tela de Apresentação (Splash)
 
 ![Apresentação Mezzer](./src/assets/apresentacao.png)
 
-- [x] - Tela de Carregamento (Load)
+-   [x] -   Tela de Carregamento (Load)
 
 ![Load Mezzer](./src/assets/load.png)
 
-- [x] - Tela de Home/Principal
+-   [x] -   Tela de Home/Principal
 
 ![Tela Principal](./src/assets/telaPrincipal.png)
 
-
-- [x] - Tela de Favorite/Favoritos
+-   [x] -   Tela de Favorite/Favoritos
 
 ![Tela Principal](./src/assets/TelaFavorite.png)
 
-
 </details>
 
-
-
-
 #### Rodar Projeto Localmente:
+
 <details>
 <ul>
        <li>
