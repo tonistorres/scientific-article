@@ -2,6 +2,7 @@
 import React from 'react';
 import imgLoading from '../../assets/loading.gif';
 import './Modal.css';
+import PropTypes from 'prop-types';
 
 function Modal({ valueClass }) {
 	return (
@@ -18,4 +19,7 @@ function Modal({ valueClass }) {
 	);
 }
 
+Modal.propTypes = {
+	valueClass: PropTypes.bool,
+};
 export default Modal;
