@@ -3,7 +3,6 @@ import './Pagination.css';
 import PropTypes from 'prop-types';
 
 function Pagination({
-	setCurrentPage,
 	btnNext,
 	controlePagina,
 	btnPrevious,
@@ -35,7 +34,6 @@ function Pagination({
 }
 
 Pagination.propTypes = {
-	setCurrentPage: PropTypes.number,
 	valueSearchInput: PropTypes.string,
 	btnPrevious: PropTypes.func,
 	btnNext: PropTypes.func,
