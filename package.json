@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
 	"name": "app-scientific-article",
 	"version": "0.1.0",
 	"private": true,
@@ -21,12 +20,11 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"test": "react-scripts test",
+		"test": "react-scripts test --coverage --watchAll=false",
 		"eject": "react-scripts eject",
-		"format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-		"lint:fix": "eslint ./ --fix",
 		"lint:styles": "npx stylelint '**/*.css'",
-		"lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx"
+		"lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
+		"test:debug": "react-scripts --inspect test --runInBand --no-cache"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -34,7 +32,13 @@
 			"react-app/jest"
 		]
 	},
-	"jest": {"collectCoverageFrom": ["**/*.{js,jsx}","!src/index.js","!src/serviceWorker.js"]},
+	"jest": {
+		"collectCoverageFrom": [
+			"**/*.{js,jsx}",
+			"!src/index.js",
+			"!src/serviceWorker.js"
+		]
+	},
 	"browserslist": {
 		"production": [
 			">0.2%",
@@ -47,7 +51,24 @@
 			"last 1 safari version"
 		]
 	},
+	"babel": {
+		"presets": [
+			"@babel/preset-env",
+			"@babel/preset-react"
+		],
+		"plugins": [
+			"@babel/plugin-proposal-class-properties"
+		]
+	},
 	"devDependencies": {
+		"@babel/core": "^7.19.0",
+		"@babel/preset-env": "^7.19.0",
+		"@babel/preset-flow": "^7.18.6",
+		"@babel/preset-react": "^7.18.6",
+		"@stryker-mutator/core": "^3.3.1",
+		"@stryker-mutator/javascript-mutator": "^3.3.1",
+		"@stryker-mutator/jest-runner": "^3.3.1",
+		"babel-jest": "^29.0.3",
 		"eslint": "^8.23.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
@@ -55,78 +76,5 @@
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"prettier": "2.7.1"
 	}
-=======
-  "name": "app-scientific-article",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.27.2",
-    "bootstrap": "^4.6.2",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.5.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.4.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "reactstrap": "^9.1.4",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --coverage --watchAll=false",
-    "eject": "react-scripts eject",
-    "lint:styles": "npx stylelint '**/*.css'",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
-	"test:debug": "react-scripts --inspect test --runInBand --no-cache"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "babel": {
-	"presets": [
-		"@babel/preset-env",
-		"@babel/preset-react"
-	],
-	"plugins": [
-		"@babel/plugin-proposal-class-properties"
-	]
-},
 
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.19.0",
-    "@babel/preset-env": "^7.19.0",
-    "@babel/preset-flow": "^7.18.6",
-    "@babel/preset-react": "^7.18.6",
-    "@stryker-mutator/core": "^3.3.1",
-    "@stryker-mutator/javascript-mutator": "^3.3.1",
-    "@stryker-mutator/jest-runner": "^3.3.1",
-    "babel-jest": "^29.0.3",
-    "eslint": "^8.23.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.8",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "2.7.1"
-  }
->>>>>>> master
 }
