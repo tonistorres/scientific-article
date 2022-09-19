@@ -20,7 +20,19 @@ function Home() {
 		modalValue,
 		btnNext,
 		btnPrevious,
+		initialState,
 	} = useContext(ContextHome);
+
+	useEffect(() => {
+		const handleApiCORE = async () => {
+			try {
+				initialState();
+			} catch (error) {
+				console.log('Error useEffect in Home:', error);
+			}
+		};
+		handleApiCORE();
+	}, []);
 
 	return (
 		<div className='main-home'>

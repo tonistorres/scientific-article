@@ -13,16 +13,6 @@ function HomeProvider({ children }) {
 	const [controlePagina, setControlePagina] = useState(1);
 	const [modalValue, setModalValue] = useState(false);
 
-	useEffect(() => {
-		const handleApiCORE = async () => {
-			try {
-				initialState();
-			} catch (error) {
-				console.log('Error useEffect in Home:', error);
-			}
-		};
-		handleApiCORE();
-	}, []);
 
 	useEffect(() => {
 		try {
@@ -220,6 +210,7 @@ function HomeProvider({ children }) {
 				modalValue,
 				btnNext,
 				btnPrevious,
+				initialState,
 			}}
 		>
 			{children}

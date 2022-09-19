@@ -5,16 +5,19 @@ import Loading from './components/Loading/Loading';
 import Home from './pages/Home/Home';
 import Favorite from './pages/Favorite/Favorite';
 import ProviderHome from '../src/components/ContexMetzzer/ProviderHome';
+import ProviderFavorite from './components/ContexMetzzer/ProviderFavorite';
 
 function App() {
 	return (
 		<div className='ct-main-home'>
 			<ProviderHome>
-				<Routes>
-					<Route path='/home' element={<Home />} />
-					<Route path='/favorite' element={<Favorite />} />
-					<Route exact path='/' element={<Loading />} />
-				</Routes>
+				<ProviderFavorite>
+					<Routes>
+						<Route path='/home' element={<Home />} />
+						<Route path='/favorite' element={<Favorite />} />
+						<Route exact path='/' element={<Loading />} />
+					</Routes>
+				</ProviderFavorite>
 			</ProviderHome>
 		</div>
 	);
