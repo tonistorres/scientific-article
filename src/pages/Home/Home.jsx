@@ -49,12 +49,8 @@ function Home() {
 							</select>
 							<button
 								className='btn-go-search'
-<<<<<<< HEAD
 								// eslint-disable-next-line prettier/prettier, no-unused-vars
 									onClick={e =>
-=======
-								onClick={e =>
->>>>>>> master
 									searchTitle(
 										valueSearchInput,
 										controlePagina,

@@ -9,23 +9,13 @@ import ProviderHome from '../src/components/ContexMetzzer/ProviderHome';
 function App() {
 	return (
 		<div className='ct-main-home'>
-<<<<<<< HEAD
 			<ProviderHome>
-				<BrowserRouter>
-					<Routes>
-						<Route path='/home' element={<Home />} />
-						<Route path='/favorite' element={<Favorite />} />
-						<Route exact path='/' element={<Loading />} />
-					</Routes>
-				</BrowserRouter>
+				<Routes>
+					<Route path='/home' element={<Home />} />
+					<Route path='/favorite' element={<Favorite />} />
+					<Route exact path='/' element={<Loading />} />
+				</Routes>
 			</ProviderHome>
-=======
-			<Routes>
-				<Route path='/home' element={<Home />} />
-				<Route path='/favorite' element={<Favorite />} />
-				<Route exact path='/' element={<Loading />} />
-			</Routes>
->>>>>>> master
 		</div>
 	);
 }
