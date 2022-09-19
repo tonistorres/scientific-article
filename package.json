@@ -33,6 +33,7 @@
 			"react-app/jest"
 		]
 	},
+	"jest": {"collectCoverageFrom": ["**/*.{js,jsx}","!src/index.js","!src/serviceWorker.js"]},
 	"browserslist": {
 		"production": [
 			">0.2%",
