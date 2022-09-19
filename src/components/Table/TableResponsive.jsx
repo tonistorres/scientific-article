@@ -4,6 +4,16 @@ import './Table.css';
 import PropTypes from 'prop-types';
 
 function TableResponsive({ dbAuthors, getId }) {
+	function capitalize(word) {
+		return word
+		  .split('')
+		  .map((letter, index) =>
+			index ? letter.toLowerCase() : letter.toUpperCase(),
+		  )
+		  .join('');
+	  }
+
+	  console.log('Aqui inicia a saga',capitalize('tonis alberto torres ferreira'));
 	return (
 		<div className='ct-table-fluid'>
 			<table className='table table-sm'>
@@ -34,22 +44,22 @@ function TableResponsive({ dbAuthors, getId }) {
 													key={index + 1}
 												>
 													<li>
-														{`${item}`.substring(
+														{capitalize(`${item}`.substring(
 															0,
 															50,
-														) + '...'}
+														) + '...')}
 													</li>
 												</ul>
 											),
 										)}
 									</td>
 									<td className='line-break-type'>
-										{`${item._type}`.substring(0, 20) +
-											'...'}
+										{capitalize(`${item._type}`.substring(0, 20) +
+											'...')}
 									</td>
 									<td className='line-break-title'>
-										{`${item._source.title}
-										`.substring(0, 150)}
+										{capitalize(`${item._source.title}
+										`.substring(0, 150))}
 									</td>
 									<td className='line-break-description'>
 										{`${item._source.description}`.substring(
