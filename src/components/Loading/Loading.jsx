@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaConfluence } from 'react-icons/fa';
 import './Loading.css';
 import boy from '../../assets/boy.gif';
 
@@ -38,7 +39,7 @@ function Loading() {
 						/>
 					</div>
 					<div>
-						<h3>Mettzer</h3>
+						<h3><FaConfluence size={28} color="white"/><strong>Dev:T</strong></h3>
 					</div>
 				</div>
 			</div>
