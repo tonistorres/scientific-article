@@ -3,13 +3,26 @@
   align-items: center;
   background-color: #212121;
   border-radius: 12px;
-  display: flex; 
+  display: flex;
   height: 80px;
-  justify-content: space-around;
+  justify-content: space-between;
   overflow: hidden;
   position: fixed;
-  top: 0; 
+  top: 0;
   width: 99.5%;
+}
+
+.navbar strong{
+	color: #e1e1e1e1;
+	font-size: 32px;
+}
+
+.container-logo{
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	height: 100%;
+	width: 7%;
 }
 
 .logo-mettzer {
@@ -19,8 +32,8 @@
 
 button{
   background-color: #66B175;
-  color: #00020A;
   border-radius: 12px;
+  color: #00020A;
   height: 65px;
   width: 125px;
 }

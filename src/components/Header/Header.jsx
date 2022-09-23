@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import imgMettzer from '../../assets/metzzerTop.png';
+import { FaConfluence } from 'react-icons/fa';
 import './Header.css';
 import { searchLocalStorage } from '../../util/LocalStorage';
 
@@ -35,7 +35,7 @@ function Header({ dbFavorite, pageCurrent }) {
 
 	return (
 		<div className='navbar'>
-			<img src={imgMettzer} alt='logo Mettzer' className='logo-mettzer' />
+			<div className='container-logo'><FaConfluence size={28} color="white"/><strong>Dev:T</strong></div>
 			{dbFavorite.length > 0 ? (
 				<span> Favorited ⭐{dbFavorite.length}</span>
 			) : null}
