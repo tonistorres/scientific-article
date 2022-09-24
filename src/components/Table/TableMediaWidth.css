@@ -1,0 +1,18 @@
+
+  /* Se a janela do navegador for de 1484px ou menor */
+  @media only screen and (max-width: 1484px) {
+	.line-break-description {display: none;}
+	.line-break-decription-th{display: none;}
+  }
+
+    /* Se a janela do navegador for de 1109px ou menor */
+  @media only screen and (max-width: 1109px) {
+	.line-break-title-th {display: none;}
+	.line-break-title-td{display: none;}
+  }
+
+/* Se a janela do navegador for de 948px ou menor
+CONTINUAR DAQUI */
+  @media only screen and (max-width: 948px) {
+
+  }
