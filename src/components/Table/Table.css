@@ -1,16 +1,18 @@
 .content-main{
-	/* border: 8px solid orangered; */
+	border: 8px solid orangered;
     display: flex;
     height: 72vh;
 	margin-top: 5px;
-    overflow: auto;
-    width: 88%;
+    /* overflow: auto; */
+    width: 99%;
 }
 
 table {
+	border: 5px solid blue;
 	border-collapse: collapse;
 	border-spacing: 0;
 	display: flex;
+	height: 100%;
 	justify-content: center;
 	padding: 10px;
 	overflow-x: auto;
@@ -48,37 +50,52 @@ tr:nth-child(even) {
 }
 
 .line-break-authors{
-	max-width: 250px;
-	min-width: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	height: 90px;
+	max-height: 90px;
+	min-height: 90px;
+	max-width: 290px;
+	min-width: 290px;
 	text-align: justify;
 	text-transform: capitalize;
-	word-wrap: break-word;
+
 }
 
 
+.line-break-description {
+	align-items: center;
+	/* border: 2px solid red; */
+	display: flex;
+	flex-wrap: wrap;
+	height: 90px;
+	justify-content: start;
+	max-height: 90px;
+	min-height: 90px;
+	max-width: 450px;
+	min-width: 450px;
+	margin-top: 6px;
+	padding: 4px 4px ;
+	text-align: justify;
+	width: 450px;
+}
 .line-break-authors li{
 	text-transform: capitalize;
 
 }
 
-.line-break-title {
+.line-break-title-th {
 	max-width: 390px;
 	min-width: 120px;
 	text-align: justify;
 	word-wrap: break-word;
 }
 
-.line-break-description {
-	align-items: center;
-	border: 2px solid red;
-	display: flex;
-	height: 100px;
-	justify-content: start;
-	margin-top: 6px;
-	padding: 4px 4px ;
-	max-width: 450px;
-	min-width: 450px;
+.line-break-title-td{
+	max-width: 390px;
+	min-width: 120px;
 	text-align: justify;
+	word-wrap: break-word;
 }
 
 .line-break-link{
@@ -94,25 +111,3 @@ tr:nth-child(even) {
 	min-width: 100px;
 	text-align: justify;
 }
-
-  /* Se a janela do navegador for de 922px ou menor */
-  @media only screen and (max-width: 885px) {
-
-	.line-break-type{
-		display: none;
-		max-width: 100px;
-		min-width: 100px;
-		text-align: justify;
-	}
-
-
-.line-break-title {
-	background: #E8F0FE;
-	display: none;
-	max-width: 390px;
-	min-width: 120px;
-	text-align: justify;
-	word-wrap: break-word;
-}
-
-  }
