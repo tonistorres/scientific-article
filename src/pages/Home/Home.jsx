@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import ContextHome from '../../components/ContexMetzzer/ContextHome';
 import Header from '../../components/Header/Header';
 import TableResponsive from '../../components/Table/TableResponsive';
-import ScreenSearch from './ScreenSearch';
+import ScreenSearch from '../../components/ScreenSearch/ScreenSearch';
 import Modal from '../../components/Modal/Modal';
 import Pagination from '../../components/Pagination/Pagination';
 import { SearchInput } from './SearchInput';

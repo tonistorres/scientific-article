@@ -1,17 +1,27 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
-import './Table.css';
+import { NotContent } from './NotContent/NotContent';
 import PropTypes from 'prop-types';
+import './Table.css';
+import './ScrollBar.css';
 
 function TableResponsive({ dbAuthors, getId }) {
 	function capitalize(word) {
 		return word
-		  .split('')
-		  .map((letter, index) =>
-			index ? letter.toLowerCase() : letter.toUpperCase(),
-		  )
-		  .join('');
-	  }
+			.split('')
+			.map((letter, index) =>
+				index ? letter.toLowerCase() : letter.toUpperCase(),
+			)
+			.join('');
+	}
+
+	function treatingResult(str) {
+		if (str === 'null') {
+			return <NotContent/>;
+		} else {
+			return str;
+		}
+	}
 
 	return (
 		<div className='content-main'>
@@ -61,10 +71,10 @@ function TableResponsive({ dbAuthors, getId }) {
 										`.substring(0, 150))}
 									</td>
 									<td className='line-break-description'>
-										{`${item._source.description}`.substring(
+										{treatingResult(`${item._source.description}`.substring(
 											0,
 											150,
-										)}
+										))}
 									</td>
 									<td className='line-break-link'>
 										{item._source.urls.map(

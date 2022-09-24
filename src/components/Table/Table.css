@@ -1,5 +1,5 @@
 .content-main{
-	border: 8px solid orangered;
+	/* border: 8px solid orangered; */
     display: flex;
     height: 72vh;
 	margin-top: 5px;
@@ -18,7 +18,7 @@ table {
 }
 
 .btn-favorite {
-	border: 3px solid orange;
+	/* border: 3px solid orange; */
 	align-items: center;
 	background-color: #66B175;
 	border-radius: 12px;
@@ -69,8 +69,15 @@ tr:nth-child(even) {
 }
 
 .line-break-description {
+	align-items: center;
+	border: 2px solid red;
+	display: flex;
+	height: 100px;
+	justify-content: start;
+	margin-top: 6px;
+	padding: 4px 4px ;
 	max-width: 450px;
-	min-width: 200px;
+	min-width: 450px;
 	text-align: justify;
 }
 
