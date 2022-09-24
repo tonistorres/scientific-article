@@ -1,9 +1,10 @@
-.content {
-	display: flex;
-	height: 100%;
-	padding: 5px;
-	overflow: auto;
-	width: 100%;
+.content-main{
+	border: 8px solid orangered;
+    display: flex;
+    height: 72vh;
+	margin-top: 5px;
+    overflow: auto;
+    width: 88%;
 }
 
 table {
@@ -17,18 +18,21 @@ table {
 }
 
 .btn-favorite {
+	border: 3px solid orange;
 	align-items: center;
 	background-color: #66B175;
 	border-radius: 12px;
 	display: flex;
-	height: 10vh;
-	min-height: 10vh;
+	height: 8vh;
+	min-height: 100px;
 	justify-content: center;
-	width: 90%;
+	min-width: 80px;
+	width: 80px;
 }
 
 .btn-size-favorite {
 	background-color: whitesmoke;
+	border: none;
 	width: 70%;
 	height: 70%;
 }
