@@ -1,5 +1,6 @@
 import React from 'react';
 import './Pagination.css';
+import './PaginationHeight.css';
 import PropTypes from 'prop-types';
 
 function Pagination({
