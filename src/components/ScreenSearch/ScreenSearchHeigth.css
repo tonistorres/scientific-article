@@ -1,0 +1,7 @@
+/* Se a janela do navegador for de 477px ou menor */
+@media only screen and (max-height: 477px) {
+	.ct-search-title-boy img {
+		display: none;
+	}
+}
+
