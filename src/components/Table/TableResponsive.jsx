@@ -13,9 +13,8 @@ function TableResponsive({ dbAuthors, getId }) {
 		  .join('');
 	  }
 
-	  console.log('Aqui inicia a saga',capitalize('tonis alberto torres ferreira'));
 	return (
-		<div className='ct-table-fluid'>
+		<div className='content-main'>
 			<table className='table table-sm'>
 				<tr>
 					<thead>
