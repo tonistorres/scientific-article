@@ -1,0 +1,40 @@
+/* Se a janela do navegador for de 1485px ou menor */
+@media only screen and (max-width: 1485px) {
+	.navbar {
+		border: none;
+	}
+	.container-logo {
+		border: 2px solid yellow;
+		width: 14%;
+	}
+}
+
+/* Se a janela do navegador for de 1269px ou menor */
+@media only screen and (max-width: 1269px) {
+	.navbar {
+		border: none;
+	}
+	.container-logo {
+		border: 2px solid red;
+		width: 18%;
+	}
+}
+
+
+/* Se a janela do navegador for de 994px ou menor */
+@media only screen and (max-width: 994px) {
+	.navbar {
+		border: none;
+	}
+	.container-logo {
+		border: 2px solid red;
+		width: 22%;
+	}
+}
+
+
+/* Se a janela do navegador for de 994px ou menor
+CONTINUAR DAQUI */
+@media only screen and (max-width: 948px) {
+
+}

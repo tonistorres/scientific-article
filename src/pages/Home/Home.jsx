@@ -47,18 +47,18 @@ function Home() {
 				controlePagina={controlePagina}
 			/>
 
-			{/* {dbAuthors.length === 0 ? (
+			{dbAuthors.length === 0 ? (
 				<ScreenSearch />
 			) : (
 				<TableResponsive dbAuthors={dbAuthors} getId={getId} />
 			)}
-			<Modal valueClass={modalValue} /> */}
-			{/* <Pagination
+			<Modal valueClass={modalValue} />
+			<Pagination
 				controlePagina={controlePagina}
 				btnNext={btnNext}
 				btnPrevious={btnPrevious}
 				valueSearchInput={valueSearchInput}
-			/> */}
+			/>
 		</div>
 	);
 }

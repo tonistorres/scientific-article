@@ -8,6 +8,7 @@
     justify-content: start;
     margin-top: 25px;
     height: 90vh;
+	min-height: 100px;
 	width: 97vw;
 }
 /*

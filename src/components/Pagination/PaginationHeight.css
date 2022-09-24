@@ -1,0 +1,8 @@
+/*Qdo janela menor ou igual a 263 execute*/
+@media only screen and (max-height: 263px) {
+	.ct-pagination {
+		display: none;
+	}
+
+
+}
