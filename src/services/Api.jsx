@@ -9,5 +9,6 @@ export const getWorks = async endpoint => {
 
 export const getTitle = async endpoint => {
 	const data = await API.get(endpoint).then(response => response.data.data);
+	console.log('service:',data);
 	return data;
 };
