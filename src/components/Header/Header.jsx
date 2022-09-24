@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { FaConfluence } from 'react-icons/fa';
 import './Header.css';
+import './HeaderMediaWidth.css';
+
 import { searchLocalStorage } from '../../util/LocalStorage';
 
 function Header({ dbFavorite, pageCurrent }) {
