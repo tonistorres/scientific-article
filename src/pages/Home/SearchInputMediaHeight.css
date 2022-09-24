@@ -1,0 +1,53 @@
+
+/* Se a janela do navegador for de 798px ou menor */
+@media only screen and (max-height: 798px) {
+	.main-group-component-main {
+		margin-top: 2px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 750px ou menor */
+@media only screen and (max-height: 750px) {
+	.main-group-component-main {
+		margin-top: 6px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 665px ou menor */
+@media only screen and (max-height: 665px) {
+	.main-group-component-main {
+		margin-top: 8px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 476px ou menor */
+@media only screen and (max-height: 476px) {
+	.main-group-component-main {
+		margin-top: 16px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 384px ou menor */
+@media only screen and (max-height: 384px) {
+	.main-group-component-main {
+		margin-top: 20px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 329px ou menor */
+@media only screen and (max-height: 329px) {
+	.main-group-component-main {
+		margin-top: 28px;
+	}
+}
+

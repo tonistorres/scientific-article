@@ -35,7 +35,7 @@ function Header({ dbFavorite, pageCurrent }) {
 
 	return (
 		<div className='navbar'>
-			<div className='container-logo'><FaConfluence size={28} color="white"/><strong>Dev:T</strong></div>
+			<div className='container-logo'><FaConfluence size={28} color="white"/><strong>{`Dev:<T>`}</strong></div>
 			{dbFavorite.length > 0 ? (
 				<span> Favorited ⭐{dbFavorite.length}</span>
 			) : null}
