@@ -1,8 +1,9 @@
-.main-group-component-main {
+.main-group-component {
 	align-items: center;
 	background-color: #1e1e1e;
 	border-radius: 12px;
 	display: flex;
+	flex-direction: row;
 	min-height: 80px;
 	height: 80px;
 	justify-content:space-around;

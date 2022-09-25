@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './SearchInputMediaHeight.css';
 import './SearchInput.css';
+import './SearchInputMediaHeight.css';
+import './SearchInputMediaWidth.css';
 
 export const SearchInput = ({
 	handleInput,
@@ -11,7 +12,7 @@ export const SearchInput = ({
 	controlePagina,
 }) => {
 	return (
-		<div className='main-group-component-main'>
+		<div className='main-group-component'>
 			<input
 				type='text'
 				name='valueSearchInput'

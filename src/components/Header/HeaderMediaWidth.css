@@ -33,8 +33,11 @@
 }
 
 
-/* Se a janela do navegador for de 994px ou menor
+/* Se a janela do navegador for de 817px ou menor
 CONTINUAR DAQUI */
-@media only screen and (max-width: 948px) {
-
+@media only screen and (max-width: 817px) {
+	.container-logo {
+		border: 2px solid red;
+		width: 35%;
+	}
 }
