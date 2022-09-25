@@ -3,9 +3,9 @@ import ContextHome from '../../components/ContexMetzzer/ContextHome';
 import Header from '../../components/Header/Header';
 import TableResponsive from '../../components/Table/TableResponsive';
 import ScreenSearch from '../../components/ScreenSearch/ScreenSearch';
+import { SearchInput } from '../../components/SearchInput/SearchInput';
 import Modal from '../../components/Modal/Modal';
 import Pagination from '../../components/Pagination/Pagination';
-import { SearchInput } from './SearchInput';
 import '../../index.css';
 import './Home.css';
 
