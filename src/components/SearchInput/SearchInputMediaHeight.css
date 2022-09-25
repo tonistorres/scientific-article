@@ -1,0 +1,77 @@
+
+/* Se a janela do navegador for de 798px ou menor */
+@media only screen and (max-height: 798px) {
+	.main-group-component {
+		margin-top: 2px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 750px ou menor */
+@media only screen and (max-height: 750px) {
+	.main-group-component {
+		margin-top: 4px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 665px ou menor */
+@media only screen and (max-height: 665px) {
+	.main-group-component {
+		margin-top: 6px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 606px ou menor */
+@media only screen and (max-height: 606px) {
+	.main-group-component {
+		margin-top: 8px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 606px ou menor */
+@media only screen and (max-height: 551px) {
+	.main-group-component {
+		margin-top: 10px;
+	}
+}
+
+
+/* Se a janela do navegador for de 606px ou menor */
+@media only screen and (max-height: 502px) {
+	.main-group-component {
+		margin-top: 12px;
+	}
+}
+
+/* Se a janela do navegador for de 476px ou menor */
+@media only screen and (max-height: 476px) {
+	.main-group-component {
+		margin-top: 16px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 384px ou menor */
+@media only screen and (max-height: 384px) {
+	.main-group-component {
+		margin-top: 20px;
+	}
+}
+
+
+
+/* Se a janela do navegador for de 329px ou menor */
+@media only screen and (max-height: 329px) {
+	.main-group-component {
+		margin-top: 24px;
+	}
+}
+
