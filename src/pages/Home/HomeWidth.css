@@ -1,3 +1,16 @@
+
+/* Se a janela do navegador for de 1485px ou menor*/
+@media only screen and (max-width: 2500px) {
+	.ct-main-home {
+		border: none;
+
+	}
+
+}
+
+
+
+
 /* Se a janela do navegador for de 950px ou menor*/
 
 @media only screen and (max-width: 950px) {

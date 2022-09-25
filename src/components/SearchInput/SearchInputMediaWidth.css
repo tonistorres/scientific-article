@@ -1,3 +1,16 @@
+@media only screen and (max-width: 2500px) {
+	.main-group-component {
+	border:none;
+	margin-top: 8px;
+	}
+	.ct-select-button {
+		border: none;
+
+	}
+}
+
+
+
 /* Se a janela do navegador for de 952px ou menor */
 @media only screen and (max-width: 950px) {
 
@@ -7,7 +20,7 @@
 		background: #1e1e1e;
 		flex-direction: column;
 		height: 260px;
-		margin-top: 10px;
+		margin-top: 5px;
 		margin-bottom: 5px;
 		min-width: 420px;
 		padding-top: 25px;

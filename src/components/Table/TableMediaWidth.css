@@ -1,12 +1,127 @@
 /* Se a janela do navegador for de 1484px ou menor */
-@media only screen and (max-width: 1484px) {
-	.line-break-description {
-		display: none;
+@media only screen and (max-width: 2500px) {
+	.content-main{
+		border: none;
+		height: 70vh;
+
 	}
 
-	.line-break-decription-th {
-		display: none;
+
+	.btn-favorite {
+		align-items: center;
+		background-color: #1e1e1e;
+		border-radius: 12px;
+		display: flex;
+		height: 8vh;
+		min-height: 100px;
+		justify-content: center;
+		min-width: 80px;
+		width: 80px;
 	}
+
+	.btn-size-favorite {
+		background-color: whitesmoke;
+		border: none;
+		width: 70%;
+		height: 70%;
+	}
+
+
+	.line-break-authors-th {
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
+	.line-break-authors-td {
+		max-width: 280px;
+		min-width: 280px;
+		width: 280px;
+	}
+
+	.line-break-type-th{
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+
+	}
+
+	.line-break-type-td{}
+
+	.line-break-title-th{
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
+	.line-break-title-td{}
+
+	.line-break-decription-th {
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+
+	}
+
+	.line-break-decription-td {}
+
+	.line-break-url-th {
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
+	.line-break-url-td {
+		max-width: 350px;
+		min-width: 350px;
+		text-align: justify;
+	}.btn-favorite {
+		align-items: center;
+		background-color: #1e1e1e;
+		border-radius: 12px;
+		display: flex;
+		height: 8vh;
+		min-height: 100px;
+		justify-content: center;
+		min-width: 80px;
+		width: 80px;
+	}
+
+	.btn-size-favorite {
+		background-color: whitesmoke;
+		border: none;
+		width: 70%;
+		height: 70%;
+	}
+
+
+
+	.line-break-favorite-th {
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
+	.line-break-favorite-td {
+		display: flex;
+		justify-content: center;
+		width: 120px;
+	}
+
+
+
 }
 
 /* Se a janela do navegador for de 1109px ou menor */
