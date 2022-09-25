@@ -1,0 +1,9 @@
+/* Se a janela do navegador for de 950px ou menor*/
+
+@media only screen and (max-width: 950px) {
+	.ct-main-home {
+		border: none;
+
+	}
+
+}
