@@ -63,22 +63,13 @@ tr:nth-child(even) {
 }
 
 
-.line-break-description {
-	align-items: center;
-	/* border: 2px solid red; */
-	display: flex;
-	flex-wrap: wrap;
-	height: 90px;
-	justify-content: start;
-	max-height: 90px;
-	min-height: 90px;
+
+/* .line-break-decription-td {
 	max-width: 450px;
 	min-width: 450px;
-	margin-top: 6px;
-	padding: 4px 4px ;
-	text-align: justify;
 	width: 450px;
-}
+} */
+
 .line-break-authors li{
 	text-transform: capitalize;
 
