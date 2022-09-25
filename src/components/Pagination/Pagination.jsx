@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Pagination.css';
 import './PaginationHeight.css';
-import PropTypes from 'prop-types';
+import './PaginationWidth.css';
 
 function Pagination({
 	btnNext,
