@@ -1,12 +1,16 @@
 /* Se a janela do navegador for de 952px ou menor */
 @media only screen and (max-width: 950px) {
+
 	.main-group-component {
 		display: flex;
+		/* border: 2px solid red; */
 		background: #1e1e1e;
 		flex-direction: column;
 		height: 260px;
-		padding-top: 25px;
+		margin-top: 10px;
+		margin-bottom: 5px;
 		min-width: 420px;
+		padding-top: 25px;
 	}
 
 	.ct-select-button {
@@ -19,7 +23,6 @@
 
 	}
 
-
 	.select-style {
 		/* border: 2px solid orangered; */
 		height: 65px;
@@ -28,20 +31,18 @@
 	}
 
 	input[type=text] {
-		height: 65px;
+		height: 70px;
 		width: 400px;
 
 	}
 
-
-.btn-go-search {
-	color: #e1e1e1;
-	font-size: 18px;
-	font-weight: 500;
-	height: 63px;
-	letter-spacing: 10px;
-	width: 400px;
-}
-
+	.btn-go-search {
+		color: #e1e1e1;
+		font-size: 18px;
+		font-weight: 500;
+		height: 63px;
+		letter-spacing: 10px;
+		width: 400px;
+	}
 
 }

@@ -1,0 +1,214 @@
+
+/* Se a janela do navegador for de 1200px ou menor */
+@media only screen and (max-width: 1200px) {
+	.ct-buttons {
+		/* border: 10px solid red; */
+		min-width: 40%;
+		width: 40%;
+	}
+}
+
+
+/* Se a janela do navegador for de 1131px ou menor */
+@media only screen and (max-width: 1131px) {
+	.ct-buttons {
+		/* border: 10px solid yellow; */
+		min-width: 40%;
+		width: 42%;
+	}
+}
+
+
+/* Se a janela do navegador for de 1089px ou menor */
+@media only screen and (max-width: 1089px) {
+	.ct-buttons {
+		/* border: 10px solid green; */
+		min-width: 40%;
+		width: 46%;
+	}
+}
+
+/* Se a janela do navegador for de 1005px ou menor */
+@media only screen and (max-width: 1005px) {
+	.ct-buttons {
+		/* border: 10px solid blue; */
+		min-width: 40%;
+		width: 48%;
+	}
+}
+
+/* Se a janela do navegador for de 922px ou menor */
+@media only screen and (max-width: 922px) {
+	.ct-buttons {
+		/* border: 10px solid goldenrod; */
+		min-width: 40%;
+		width: 50%;
+	}
+
+}
+
+
+/* Se a janela do navegador for de 885px ou menor */
+@media only screen and (max-width: 885px) {
+	.ct-buttons {
+		/* border: 10px solid greenyellow; */
+		min-width: 40%;
+		width: 55%;
+	}
+
+}
+
+
+/* Se a janela do navegador for de 800px ou menor */
+@media only screen and (max-width: 800px) {
+	.ct-buttons {
+		/* border: 10px solid blueviolet; */
+		min-width: 40%;
+		width: 58%;
+	}
+
+}
+
+
+/* Se a janela do navegador for de 750px ou menor */
+@media only screen and (max-width: 750px) {
+	.ct-buttons {
+		/* border: 10px solid wheat; */
+		min-width: 40%;
+		width: 65%;
+	}
+
+}
+
+
+/* Se a janela do navegador for de 675px ou menor */
+@media only screen and (max-width: 675px) {
+	.ct-buttons {
+		/* border: 10px solid black; */
+		min-width: 40%;
+		width: 70%;
+	}
+
+}
+
+
+/* Se a janela do navegador for de 640px ou menor */
+@media only screen and (max-width: 640px) {
+
+	.ct-pagination {
+		/* background-color: yellowgreen; */
+		left: 10px;
+	}
+
+	.ct-buttons {
+		/* border: 10px solid black; */
+		min-width: 40%;
+		width: 74%;
+	}
+
+}
+
+
+
+/* Se a janela do navegador for de 603px ou menor */
+@media only screen and (max-width: 603px) {
+
+	.ct-pagination {
+		/* background-color: yellow; */
+		left: 12px;
+	}
+
+
+	.ct-buttons {
+		/* border: 10px solid black; */
+		min-width: 500px;
+		width: 77%;
+	}
+
+}
+
+/* Se a janela do navegador for de 603px ou menor */
+@media only screen and (max-width: 585px) {
+
+	.ct-pagination {
+		/* background-color: yellow; */
+		left: 15px;
+	}
+
+
+}
+
+
+/* Se a janela do navegador for de 603px ou menor */
+@media only screen and (max-width: 545px) {
+
+	.ct-pagination {
+		/* background-color: yellow; */
+		left: 22px;
+	}
+
+
+}
+
+
+/* Se a janela do navegador for de 603px ou menor */
+@media only screen and (max-width: 521px) {
+
+	.ct-pagination {
+		/* background-color: blue; */
+		left: 12px;
+		width: 107%;
+	}
+
+
+}
+
+/* Se a janela do navegador for de 603px ou menor */
+@media only screen and (max-width: 487px) {
+
+	.ct-pagination {
+		/* background-color: green; */
+		left: 24px;
+		width: 118%;
+	}
+
+
+}
+
+
+/* Se a janela do navegador for de 603px ou menor */
+@media only screen and (max-width: 400px) {
+
+	.ct-pagination {
+		/* background-color: green; */
+		left: 24px;
+		width: 120%;
+	}
+
+
+}
+
+
+/* Se a janela do navegador for de 603px ou menor */
+@media only screen and (max-width: 385px) {
+
+	.ct-pagination {
+		/* background-color: green; */
+		left: 30px;
+		width: 120%;
+	}
+
+
+}
+
+/* Se a janela do navegador for de 603px ou menor */
+@media only screen and (max-width: 369px) {
+
+	.ct-pagination {
+		/* background-color: black; */
+		left: 30px;
+		width: 122%;
+	}
+
+
+}

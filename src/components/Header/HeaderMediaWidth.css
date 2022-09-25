@@ -32,7 +32,32 @@
 	}
 }
 
+@media only screen and (max-width: 950px) {
 
+.navbar {
+	border: none;
+  }
+
+  .navbar strong{
+	  color: #ffffff;
+	  font-size: 32px;
+	  padding: 2px 8px;
+  }
+
+.container-logo{
+	border: none;
+	width: 28%;
+}
+
+button{
+	border: none;
+}
+
+span{
+	border: none;
+  color: #e1e1e1;
+}
+}
 /* Se a janela do navegador for de 817px ou menor
 CONTINUAR DAQUI */
 @media only screen and (max-width: 817px) {

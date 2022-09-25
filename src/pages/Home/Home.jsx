@@ -8,6 +8,7 @@ import Modal from '../../components/Modal/Modal';
 import Pagination from '../../components/Pagination/Pagination';
 import '../../index.css';
 import './Home.css';
+import './HomeWidth.css';
 
 function Home() {
 	const {

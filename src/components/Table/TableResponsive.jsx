@@ -39,25 +39,24 @@ function TableResponsive({ dbAuthors, getId }) {
 				<tr>
 					<thead>
 						<tr>
-							<th scope='col'>Authors</th>
-							<th scope='col' className='line-break-type'>
+							<th scope='col' className='line-break-authors-th'>Authors</th>
+							<th scope='col' className='line-break-type-th'>
 								Type
 							</th>
 							<th scope='col' className='line-break-title-th'>
 								Title
 							</th>
 							<th scope='col' className='line-break-decription-th'>Description(s)</th>
-							<th scope='col'>url(s)</th>
-							<th scope='col'>Favorite</th>
+							<th scope='col' className='line-break-url-th'>url(s)</th>
+							<th scope='col' className='line-break-favorite-th'>Favorite</th>
 						</tr>
 					</thead>
 					{dbAuthors.length > 0 &&
 						dbAuthors.map((item, index) => {
 							return (
 								<tbody key={index + 1}>
-									<td className='line-break-authors'>
-										{console.log('Assumiu qual valor:', item._source.authors.length)}
-										{item._source.authors.length > 0 ? item._source.authors.slice(0,2).map(
+									<td className='line-break-authors-td'>
+									{item._source.authors.length > 0 ? item._source.authors.slice(0,2).map(
 											(item, index) => (
 												<ul
 													className='ul-none'
@@ -80,7 +79,7 @@ function TableResponsive({ dbAuthors, getId }) {
 
 										}
 									</td>
-									<td className='line-break-type'>
+									<td className='line-break-type-td'>
 										{capitalize(`${item._type}`.substring(0, 20) +
 											'...')}
 									</td>
@@ -94,7 +93,7 @@ function TableResponsive({ dbAuthors, getId }) {
 											150,
 										))}
 									</td>
-									<td className='line-break-link'>
+									<td className='line-break-url-td'>
 										{item._source.urls.map(
 											(item, index) => (
 												<ul
@@ -117,7 +116,7 @@ function TableResponsive({ dbAuthors, getId }) {
 											),
 										)}
 									</td>
-									<td width='100'>
+									<td width='100' className='line-break-favorite-td'>
 										<div className='btn-favorite'>
 											<button
 												className='btn-size-favorite'

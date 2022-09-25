@@ -1,18 +1,179 @@
+/* Se a janela do navegador for de 1484px ou menor */
+@media only screen and (max-width: 1484px) {
+	.line-break-description {
+		display: none;
+	}
 
-  /* Se a janela do navegador for de 1484px ou menor */
-  @media only screen and (max-width: 1484px) {
-	.line-break-description {display: none;}
-	.line-break-decription-th{display: none;}
-  }
+	.line-break-decription-th {
+		display: none;
+	}
+}
 
-    /* Se a janela do navegador for de 1109px ou menor */
-  @media only screen and (max-width: 1109px) {
-	.line-break-title-th {display: none;}
-	.line-break-title-td{display: none;}
-  }
+/* Se a janela do navegador for de 1109px ou menor */
+@media only screen and (max-width: 1109px) {
+	.line-break-title-th {
+		display: none;
+	}
 
-/* Se a janela do navegador for de 948px ou menor
-CONTINUAR DAQUI */
-  @media only screen and (max-width: 948px) {
+	.line-break-title-td {
+		display: none;
+	}
+}
 
-  }
+/* Se a janela do navegador for de 950px ou menor*/
+@media only screen and (max-width: 950px) {
+
+/*Relacionado ao arquivo Table.css sobrescrevendo propriedades*/
+	.content-main {
+		border: none;
+		border-radius: 20px;
+		background-color: #e1e1e1;
+		display: flex;
+		height: 53vh;
+		margin-top: 10px;
+		width: 96%;
+	}
+
+
+	.btn-favorite {
+		align-items: center;
+		background-color: #1e1e1e;
+		border-radius: 12px;
+		display: flex;
+		height: 8vh;
+		min-height: 100px;
+		justify-content: center;
+		min-width: 80px;
+		width: 80px;
+	}
+
+	.btn-size-favorite {
+		background-color: whitesmoke;
+		border: none;
+		width: 70%;
+		height: 70%;
+	}
+
+
+	.line-break-type-th {
+		display: none;
+	}
+
+	.line-break-type-td {
+		display: none;
+	}
+
+	.line-break-url-th {
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
+	.line-break-url-td {
+		max-width: 350px;
+		min-width: 350px;
+		text-align: justify;
+	}
+
+	.line-break-authors-th {
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
+	.line-break-authors-td {
+		max-width: 280px;
+		min-width: 280px;
+		width: 280px;
+	}
+
+	.line-break-favorite-th {
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
+	.line-break-favorite-td {
+		display: flex;
+		justify-content: center;
+		width: 120px;
+	}
+
+
+}
+
+
+/* Se a janela do navegador for de 950px ou menor*/
+@media only screen and (max-width: 0px) {
+	.line-break-type-th {
+		display: none;
+	}
+
+	.line-break-type-td {
+		display: none;
+	}
+
+	.content-main {
+		/* border: 1px solid #1e1e1e; */
+		background-color: #ffffff;
+		border-radius: 15px 155px 5px;
+		display: flex;
+		height: 53vh;
+		margin-top: 10px;
+		/* overflow: auto; */
+		width: 99%;
+	}
+
+	.line-break-url-th {
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
+	.line-break-url-td {
+		/* background-color: aqua; */
+		max-width: 250px;
+		min-width: 250px;
+		text-align: justify;
+	}
+
+	.line-break-authors-th {
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
+	.line-break-authors-td {
+		background-color: greenyellow;
+		max-width: 250px;
+		min-width: 250px;
+		width: 250px;
+	}
+
+	.line-break-favorite-th {
+		background-color: #1e1e1e;
+		color: #e1e1e1;
+		border-radius: 8px;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
+	.line-break-favorite-td {
+		background-color: aquamarine;
+		display: flex;
+		justify-content: center;
+		width: 120px;
+	}
+
+
+}
