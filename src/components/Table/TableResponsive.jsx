@@ -87,7 +87,7 @@ function TableResponsive({ dbAuthors, getId }) {
 										{capitalize(`${item._source.title}
 										`.substring(0, 150))}
 									</td>
-									<td className='line-break-description-td'>
+									<td className='line-break-decription-td'>
 										{treatingResultDescription(`${item._source.description}`.substring(
 											0,
 											150,
