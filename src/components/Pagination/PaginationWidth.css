@@ -1,6 +1,6 @@
 
 /* Se a janela do navegador for de 1200px ou menor */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1920px) {
 	.ct-buttons {
 		/* border: 10px solid red; */
 		min-width: 40%;

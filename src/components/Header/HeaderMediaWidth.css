@@ -1,5 +1,5 @@
-/* Se a janela do navegador for de 1485px ou menor */
-@media only screen and (max-width: 2500px) {
+/* Se a janela do navegador for de 1920px ou menor */
+@media only screen and (max-width: 1920px) {
 
 	.navbar {
 		background-color: #212121;
@@ -18,13 +18,50 @@
 	}
 
 	button {
-		border:none;
+		border: none;
 		background-color: #66B175;
 		border-radius: 12px;
 		color: #1e1e1e;
 		font-size: 20px;
 		font-weight: 600;
 		/* padding-top: 12px; */
+	}
+
+	span {
+		border: none;
+		color: #e1e1e1;
+		font-size: 32px;
+		font-weight: 400;
+	}
+
+}
+
+/* Se a janela do navegador for de 14442px ou menor */
+@media only screen and (max-width: 1442px) {
+
+	.navbar {
+		border: none;
+	}
+
+	.navbar strong {
+		color: #ffffff;
+		font-size: 32px;
+		padding: 2px 8px;
+	}
+
+	.container-logo {
+		/* border: 8px solid brown; */
+		color: #e1e1e1;
+		width: 22%;
+	}
+
+	button {
+		border: none;
+		background-color: #66B175;
+		border-radius: 12px;
+		color: #1e1e1e;
+		font-size: 20px;
+		font-weight: 600;
 	}
 
 	span {
