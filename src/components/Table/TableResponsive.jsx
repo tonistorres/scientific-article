@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import './Table.css';
 import './ScrollBar.css';
 import './TableMediaWidth.css';
+import './TableMediaHeight.css';
+
 
 
 function TableResponsive({ dbAuthors, getId }) {
