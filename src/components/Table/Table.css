@@ -1,9 +1,7 @@
 .content-main{
-	border: 8px solid orangered;
-    display: flex;
+	display: flex;
     height: 72vh;
 	margin-top: 5px;
-    /* overflow: auto; */
     width: 99%;
 }
 
@@ -62,13 +60,6 @@ tr:nth-child(even) {
 
 }
 
-
-
-/* .line-break-decription-td {
-	max-width: 450px;
-	min-width: 450px;
-	width: 450px;
-} */
 
 .line-break-authors li{
 	text-transform: capitalize;
