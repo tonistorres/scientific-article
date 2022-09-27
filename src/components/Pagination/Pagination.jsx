@@ -21,7 +21,7 @@ function Pagination({
 				</button>
 
 				<div className='div-pagination'>
-					<span>Page:{controlePagina}</span>
+					<span>Pg:{controlePagina}</span>
 				</div>
 
 				<button

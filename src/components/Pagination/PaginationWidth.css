@@ -144,7 +144,7 @@
 
 	.ct-pagination {
 		/* background-color: yellow; */
-		left: 22px;
+		left: 5px;
 	}
 
 
@@ -153,12 +153,23 @@
 
 /* Se a janela do navegador for de 603px ou menor */
 @media only screen and (max-width: 521px) {
-
 	.ct-pagination {
-		/* background-color: blue; */
-		left: 12px;
-		width: 107%;
+		align-items: center;
+		/* background-color: whitesmoke; */
+		border-radius: 12px;
+		bottom: 0;
+		display: flex;
+		height: 80px;
+		justify-content: space-around;
+		position: fixed;
+		width: 100vw;
 	}
+
+	.div-pagination{
+		background-color: red;
+		width: 30%;
+	}
+
 
 
 }
@@ -167,9 +178,21 @@
 @media only screen and (max-width: 487px) {
 
 	.ct-pagination {
-		/* background-color: green; */
-		left: 24px;
-		width: 118%;
+		align-items: center;
+		/* background-color: whitesmoke; */
+		border-radius: 12px;
+		bottom: 0;
+		display: flex;
+		height: 80px;
+		justify-content: space-around;
+		position: fixed;
+		width: 100vw;
+	}
+
+
+	.div-pagination{
+		background-color: red;
+		width: 20%;
 	}
 
 
