@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { FaConfluence } from 'react-icons/fa';
 import './Header.css';
 import './HeaderMediaWidth.css';
-
 import { searchLocalStorage } from '../../util/LocalStorage';
 
 function Header({ dbFavorite, pageCurrent }) {
@@ -39,7 +38,7 @@ function Header({ dbFavorite, pageCurrent }) {
 		<div className='navbar'>
 			<div className='container-logo'><FaConfluence size={28} color="white"/><strong>{`Dev:<T>`}</strong></div>
 			{dbFavorite.length > 0 ? (
-				<span> Favorited ⭐{dbFavorite.length}</span>
+				<span> ⭐{dbFavorite.length}</span>
 			) : null}
 			<div>
 				{pageCurrent === 'Favorite' ? (
