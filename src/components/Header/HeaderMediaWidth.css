@@ -81,7 +81,7 @@
 	}
 
 	.container-logo {
-		border: 2px solid red;
+		/* border: 2px solid red; */
 		width: 22%;
 	}
 }
@@ -117,7 +117,92 @@
 CONTINUAR DAQUI */
 @media only screen and (max-width: 817px) {
 	.container-logo {
-		border: 2px solid red;
+		/* border: 2px solid red; */
 		width: 35%;
 	}
 }
+
+@media only screen and (max-width: 737px) {
+	.container-logo {
+		/* border: 2px solid red; */
+
+		width: 35%;
+	}
+	span {
+		/* border: 5px solid blue; */
+		font-size: 32px;
+		font-weight: 500;
+		color: #e1e1e1;
+	}
+
+}
+
+@media only screen and (max-width: 513px) {
+	.container-logo {
+		border: 2px solid red;
+
+		width: 40%;
+	}
+	span {
+		border: 5px solid blue;
+		font-size: 32px;
+		font-weight: 500;
+		color: #e1e1e1;
+	}
+
+}
+
+@media only screen and (max-width: 499px) {
+
+	.navbar span{
+		display: none;
+	}
+
+	.container-logo {
+		border: 2px solid red;
+		width: 40%;
+	}
+
+
+	span {
+		border: 5px solid blue;
+		font-size: 32px;
+		font-weight: 500;
+		color: #e1e1e1;
+	}
+
+
+}
+
+
+
+@media only screen and (max-width: 450px) {
+
+.navbar {
+	align-items: center;
+	background-color: #212121;
+	border: 5px solid yellow;
+	border-radius: 12px;
+	display: flex;
+	height: 90px;
+	justify-content: space-between;
+	margin-left: 40px;
+	position: fixed;
+	top: 1px;
+	width: 110vw;
+  }
+
+	.container-logo {
+		border: 2px solid red;
+
+		width: 45%;
+	}
+	span {
+		/* border: 5px solid blue; */
+		font-size: 32px;
+		font-weight: 500;
+		color: #e1e1e1;
+	}
+
+}
+
