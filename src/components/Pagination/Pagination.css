@@ -14,7 +14,7 @@
 .ct-buttons {
 	align-items: center;
 	border-radius: 15px;
-	background-color: #1e1e1e;
+	background-color: #000;
 	display: flex;
 	height: 100%;
 	justify-content: space-around;
@@ -24,33 +24,56 @@
 
 .btn-pagination {
 	border: none;
-	background-color: whitesmoke;
-	color: #212121;
-	font-size: 22px;
-	font-weight: 400;
+	border-radius: 12px;
+	background-color:#66B175;
+	color: #e1e1e1;
+	font-size: 25px;
+	font-weight: 700;
+	height: 55px;
+	width: 130px;
+}
+
+
+.btn-pagination:hover{
+	border-radius: 5px 105px 55px;
+	background: #e1e1e1;
+	color: #66B175;
 }
 
 .btn-next {
 	border: none;
-	background-color: whitesmoke;
-	font-size: 22px;
-	font-weight: 400;
-	color: #212121;
+	border-radius: 12px;
+	background-color: #66B175;
+
+	font-size: 25px;
+	font-weight: 700;
+	color: #e1e1e1;
+	height: 55px;
+	width: 130px;
 }
+
+.btn-next:hover{
+	border-radius: 5px 105px 55px;
+	background: #e1e1e1;
+	color: #66B175;
+}
+
+
 
 .div-pagination {
 	align-items: center;
-	background-color: #EAEAEA;
+	background-color: #66B175;
 	border-radius: 12px;
 	display: flex;
 	justify-content: center;
-	height: 80%;
-	width: 30%;
+	height: 55px;
+	width: 130px;
 }
 
 .div-pagination span {
 	border: none;
-	color: #212121;
-	font-size: 22px;
-	font-weight: 400;
+	color: #e1e1e1;
+	font-size: 25px;
+	font-weight: 700;
+
 }
