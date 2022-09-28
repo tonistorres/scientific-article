@@ -84,7 +84,11 @@
 		max-width: 350px;
 		min-width: 350px;
 		text-align: justify;
-	}.btn-favorite {
+	}
+
+
+
+	.btn-favorite {
 		align-items: center;
 		background-color: #1e1e1e;
 		border-radius: 12px;

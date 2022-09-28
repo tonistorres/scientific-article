@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ContextHome from '../../components/ContexMetzzer/ContextHome';
-import Header from '../../components/Header/Header';
+// import Header from '../../components/Header/Header';
+import { Navbar } from '../../components/Navbar/Navbar';
 import TableResponsive from '../../components/Table/TableResponsive';
 import ScreenSearch from '../../components/ScreenSearch/ScreenSearch';
 import { SearchInput } from '../../components/SearchInput/SearchInput';
@@ -39,7 +40,8 @@ function Home() {
 
 	return (
 		<div className='ct-main-home'>
-			<Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} />
+			{/* <Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} /> */}
+			<Navbar dbFavorite={dbFavorite} />
 			<SearchInput
 				handleInput={handleInput}
 				handleOptions={handleOptions}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { FaStar } from 'react-icons/fa';
-import Header from '../../components/Header/Header';
+import { Navbar } from '../../components/Navbar/Navbar';
 import ContextFavorite from '../../components/ContexMetzzer/ContextFavorite';
 import Pagination from './Pagination';
 import './Favorite.css';
@@ -25,11 +25,11 @@ function Favorite() {
 
 	return (
 		<div className='main-favorite'>
-			<Header
-				favoriteItems={dbFavorite.length}
-				dbAuthors={currentItens.length}
+			<Navbar
+				// favoriteItems={dbFavorite.length}
+				// dbAuthors={currentItens.length}
 				dbFavorite={dbFavorite}
-				pageCurrent={pageCurrent}
+				// pageCurrent={pageCurrent}
 			/>
 			<div className='ct-sub-main-favorite'>
 				<div className='ct-table-fluid'>

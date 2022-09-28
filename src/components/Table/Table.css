@@ -1,8 +1,8 @@
-.content-main{
+.content-main {
 	display: flex;
-    height: 72vh;
+	height: 72vh;
 	margin-top: 5px;
-    width: 99%;
+	width: 99%;
 }
 
 table {
@@ -47,7 +47,7 @@ tr:nth-child(even) {
 	background-color: #D3D3D3;
 }
 
-.line-break-authors-td{
+.line-break-authors-td {
 	display: flex;
 	flex-wrap: wrap;
 	height: 90px;
@@ -61,7 +61,7 @@ tr:nth-child(even) {
 }
 
 
-.line-break-authors li{
+.line-break-authors li {
 	text-transform: capitalize;
 
 }
@@ -74,14 +74,14 @@ tr:nth-child(even) {
 }
 
 
-.line-break-title-td{
+.line-break-title-td {
 	max-width: 390px;
 	min-width: 120px;
 	text-align: justify;
 	word-wrap: break-word;
 }
 
-.line-break-link{
+.line-break-link {
 	max-width: 250px;
 	min-width: 150px;
 	text-align: center;
@@ -89,15 +89,67 @@ tr:nth-child(even) {
 	word-wrap: break-word;
 }
 
-.line-break-type-th{
+.line-break-type-th {
 	max-width: 100px;
 	min-width: 100px;
 	text-align: justify;
 }
 
 
-.line-break-type-td{
+.line-break-type-td {
 	max-width: 100px;
 	min-width: 100px;
 	text-align: justify;
 }
+
+.ul-none {
+	max-width: 350px;
+	min-width: 350px;
+}
+
+
+
+a:link {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	border-radius: 8px;
+	border: 3px solid #1e1e1e;
+	background-color: white;
+	color: #66B175;
+	padding: 8px 8px;
+	text-decoration: none;
+
+  }
+
+  a:visited {
+
+	color: #66B175;
+	padding: 8px 8px;
+	background-color: #1e1e1e;
+	text-decoration: none;
+  }
+
+  a:hover {
+	border-radius: 8px;
+	background-color: white;
+	color: #66B175;
+	padding: 8px 8px;
+	text-decoration: none;
+	opacity: 1;
+  }
+
+  a::before {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 2px;
+	background-color: aliceblue;
+	transition: all .45s;
+
+  }
+
+  a:hover::before {
+	width: 100%;
+  }

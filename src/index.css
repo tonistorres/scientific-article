@@ -27,3 +27,14 @@ code {
 }
 
 
+
+@media only screen and (max-width: 700px) {
+	body {
+		border: 5px solid green;
+		width: 98vw;
+
+	}
+
+}
+
+
