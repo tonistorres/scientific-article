@@ -2,6 +2,7 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { NotContent } from './NotContent/NotContent';
 import { NotContentAuthors } from './NotContent/NotContentAuthors';
+import { LinkBroken } from './LinkBroken/LinkBroken';
 import PropTypes from 'prop-types';
 import './Table.css';
 import './ScrollBar.css';
@@ -96,7 +97,7 @@ function TableResponsive({ dbAuthors, getId }) {
 										))}
 									</td>
 									<td className='line-break-url-td'>
-										{item._source.urls.map(
+										{item._source.urls.length ? item._source.urls.map(
 											(item, index) => (
 												<ul
 													className='ul-none'
@@ -116,7 +117,11 @@ function TableResponsive({ dbAuthors, getId }) {
 													</li>
 												</ul>
 											),
-										)}
+										):(
+											<LinkBroken/>
+										)
+
+										}
 									</td>
 									<td width='100' className='line-break-favorite-td'>
 										<div className='btn-favorite'>

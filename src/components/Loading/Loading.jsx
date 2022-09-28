@@ -28,7 +28,7 @@ function Loading() {
 	if (removeLoading) return handleClickFavorites();
 
 	return (
-		<div>
+
 			<div className='lodad-main'>
 				<div className='ct-oroganization'>
 					<div>
@@ -39,11 +39,11 @@ function Loading() {
 						/>
 					</div>
 					<div>
-						<h3><FaConfluence size={28} color="white"/><strong>Dev:T</strong></h3>
+						<h3><FaConfluence size={182} color="#1e1e1e"/><strong>Dev:T</strong></h3>
 					</div>
 				</div>
 			</div>
-		</div>
+
 	);
 }
 
