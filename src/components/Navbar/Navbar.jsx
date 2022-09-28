@@ -5,22 +5,26 @@ import { FaConfluence } from 'react-icons/fa';
 import { searchLocalStorage } from '../../util/LocalStorage';
 import './Navbar.css';
 import './NavbarMediaQuery.css'
+import ModalNotFavorite from '../Modal/ModalNotFavorite';
+
 // https://www.youtube.com/watch?v=ctiDWDq7C8E
 
 
 
-export const Navbar = ({ dbFavorite,favoriteItems,dbAuthors,pageCurrent }) => {
+export const Navbar = ({ dbFavorite, favoriteItems, dbAuthors, pageCurrent, handleModalNotFavorite }) => {
 	const navigate = useNavigate();
 	const [isOpen, setIsOpen] = useState(false);
+	const [modalValue, setModalValue] = useState(false);
+
 
 	const checkRedirect = () => {
 		try {
 			const responseFavorite = searchLocalStorage('Favorite');
 			if (responseFavorite === null) {
-				alert('Clave Favorite inexistente no LocalHistorage');
+				alert('Chave Favorite inexistente no LocalHistorage');
 			} else {
 				if (responseFavorite.length === 0) {
-					alert('Não existe dados Favoritados');
+					handleModalNotFavorite();
 				} else {
 					handleClickFavorites();
 				}
@@ -49,7 +53,9 @@ export const Navbar = ({ dbFavorite,favoriteItems,dbAuthors,pageCurrent }) => {
 				<FaConfluence size={45} /> <span>Dev:T</span>
 			</div>
 			<div className='ct-favorite-nav'>
-				<span> ⭐   {dbFavorite.length}</span>
+				{
+					dbFavorite.length > 0 ? (<span> ⭐   {dbFavorite.length}</span>) : null
+				}
 			</div>
 			<div className={`nav-links ${isOpen && 'open'}`}>
 				<button className='button-link-nav' onClick={handleClickHome}>Home</button>
@@ -70,7 +76,8 @@ export const Navbar = ({ dbFavorite,favoriteItems,dbAuthors,pageCurrent }) => {
 Navbar.propTypes = {
 	dbFavorite: PropTypes.array,
 	pageCurrent: PropTypes.string,
-	favoriteItems:PropTypes.array,
+	favoriteItems: PropTypes.array,
 	dbAuthors: PropTypes.array,
+	handleModalNotFavorite: PropTypes.func,
 
 };
