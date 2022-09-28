@@ -15,6 +15,7 @@ function Home() {
 	const {
 		dbFavorite,
 		handleInput,
+		flagMsg,
 		handleOptions,
 		searchTitle,
 		valueSearchInput,
@@ -61,7 +62,7 @@ function Home() {
 				<TableResponsive dbAuthors={dbAuthors} getId={getId} />
 			)}
 			<Modal valueClass={modalValue} />
-			<ModalNotFavorite valueClass={modalValueNot} />
+			<ModalNotFavorite valueClass={modalValueNot} flagMsg={flagMsg} />
 			<Pagination
 				controlePagina={controlePagina}
 				btnNext={btnNext}

@@ -13,7 +13,7 @@ function HomeProvider({ children }) {
 	const [controlePagina, setControlePagina] = useState(1);
 	const [modalValue, setModalValue] = useState(false);
 	const [modalValueNot, setModalValueNot] = useState(false);
-
+	const [flagMsg, setFlagMsg] = useState('');
 
 	useEffect(() => {
 		try {
@@ -51,12 +51,16 @@ function HomeProvider({ children }) {
 		}
 	};
 
+
 	const handleModalNotFavorite=()=>{
 		setModalValueNot(true);
+		setFlagMsg('notfavorite');
 		setTimeout(() => {
-			return setModalValueNot(false);
-		}, 5000);
+		 return setModalValueNot(false);
+		}, 2000);
 	}
+
+
 
 	const feedInitial = () => {
 		try {
@@ -88,6 +92,14 @@ function HomeProvider({ children }) {
 		}
 	};
 
+	const handleModalSearch=()=>{
+		setModalValueNot(true);
+		setFlagMsg('searchDigite');
+		setTimeout(() => {
+		 return setModalValueNot(false);
+		}, 2000);
+	}
+
 	const searchTitle = async (valueSearchInput, controlePagina) => {
 		try {
 			if (
@@ -95,7 +107,7 @@ function HomeProvider({ children }) {
 				!valueSearchInput ||
 				valueSearchInput.length === 0
 			) {
-				alert('Digite algo na Pesquisa');
+				handleModalSearch();
 			} else {
 				setModalValue(true);
 				const response = await getTitle(
@@ -167,6 +179,15 @@ function HomeProvider({ children }) {
 		}
 	};
 
+	const handleModalBtnNext=()=>{
+		setModalValueNot(true);
+		setFlagMsg('btnnextsearch');
+		setTimeout(() => {
+		 return setModalValueNot(false);
+		}, 2000);
+	}
+
+
 	const btnNext = (valueSearchInput, controlePagina) => {
 		try {
 			if (inputControlSearch && valueSearchInput) {
@@ -175,9 +196,7 @@ function HomeProvider({ children }) {
 				searchTitle(valueSearchInput, count);
 			} else {
 				if (inputControlSearch === false && valueSearchInput === '') {
-					alert(
-						'Para paginar faça uma pesquisa digite algo no input input',
-					);
+					handleModalBtnNext();
 					valueSearchInput.focus();
 				} else {
 					let count = controlePagina + 1;
@@ -190,6 +209,17 @@ function HomeProvider({ children }) {
 		}
 	};
 
+
+
+	const handleModalBtnPrevious=()=>{
+		setModalValueNot(true);
+		setFlagMsg('btnprevious');
+		setTimeout(() => {
+		 return setModalValueNot(false);
+		}, 2000);
+	}
+
+
 	const btnPrevious = (valueSearchInput, controlePagina) => {
 		try {
 			if (controlePagina > 1) {
@@ -197,7 +227,7 @@ function HomeProvider({ children }) {
 				setControlePagina(count);
 				searchTitle(valueSearchInput, count);
 			} else {
-				alert('Chagamos à pagina inicial');
+				handleModalBtnPrevious();
 			}
 		} catch (error) {
 			console.log(`Erro function paginationNext:${error}`);
@@ -208,6 +238,7 @@ function HomeProvider({ children }) {
 		<ContextHome.Provider
 			value={{
 				dbFavorite,
+				flagMsg,
 				handleInput,
 				handleOptions,
 				searchTitle,
@@ -221,6 +252,7 @@ function HomeProvider({ children }) {
 				btnPrevious,
 				initialState,
 				handleModalNotFavorite,
+
 			}}
 		>
 			{children}
