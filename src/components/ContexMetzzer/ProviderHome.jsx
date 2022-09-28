@@ -12,6 +12,7 @@ function HomeProvider({ children }) {
 	const [valueSearchInput, setValueSearchInput] = useState('');
 	const [controlePagina, setControlePagina] = useState(1);
 	const [modalValue, setModalValue] = useState(false);
+	const [modalValueNot, setModalValueNot] = useState(false);
 
 
 	useEffect(() => {
@@ -49,6 +50,13 @@ function HomeProvider({ children }) {
 			console.log(`Erro function initialState:${error}`);
 		}
 	};
+
+	const handleModalNotFavorite=()=>{
+		setModalValueNot(true);
+		setTimeout(() => {
+			return setModalValueNot(false);
+		}, 5000);
+	}
 
 	const feedInitial = () => {
 		try {
@@ -208,9 +216,11 @@ function HomeProvider({ children }) {
 				dbAuthors,
 				getId,
 				modalValue,
+				modalValueNot,
 				btnNext,
 				btnPrevious,
 				initialState,
+				handleModalNotFavorite,
 			}}
 		>
 			{children}
