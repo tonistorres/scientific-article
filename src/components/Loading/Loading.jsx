@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaConfluence } from 'react-icons/fa';
-import './Loading.css';
-import boy from '../../assets/boy.gif';
+// import '../../index.css';
+import './LoadingIPhoneSE.css';
+import boy from '../../assets/loading.gif';
 
 function Loading() {
 	const navigate = useNavigate();
@@ -17,7 +18,7 @@ function Loading() {
 			try {
 				setTimeout(() => {
 					return setRemoveLoading(true);
-				}, 3000);
+				}, 8000);
 			} catch (error) {
 				console.log('Erro useEffect handleStateRedirect: ', error);
 			}
@@ -29,20 +30,19 @@ function Loading() {
 
 	return (
 
-			<div className='lodad-main'>
-				<div className='ct-oroganization'>
-					<div>
-						<img
-							src={boy}
-							alt='logo Mettzer Boy'
-							className='img-boy'
-						/>
-					</div>
-					<div>
-						<h3><FaConfluence size={182} color="#1e1e1e"/><strong>Dev:T</strong></h3>
-					</div>
+		<div className='lodad-main'>
+			<div className='ct-oroganization'>
+
+				<div>
+					<img
+						src={boy}
+						alt='logo Mettzer Boy'
+						className='img-logo'
+					/>
+					<h3><FaConfluence size={52} color="#66B175" /><strong>Dev:T</strong></h3>
 				</div>
 			</div>
+		</div>
 
 	);
 }
