@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './SearchInput.css';
-import './SearchInputMediaHeight.css';
-import './SearchInputMediaWidth.css';
+// import './SearchInput.css';
+// import './SearchInputMediaHeight.css';
+// import './SearchInputMediaWidth.css';
+import './SearchIPhoneSE.css';
 
 export const SearchInput = ({
 	handleInput,
@@ -29,7 +30,7 @@ export const SearchInput = ({
 					className='btn-go-search'
 					onClick={e => searchTitle(valueSearchInput, controlePagina)}
 				>
-					Go
+					Search
 				</button>
 			</div>
 		</div>
