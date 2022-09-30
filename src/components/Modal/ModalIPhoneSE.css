@@ -1,0 +1,52 @@
+@media screen and (width: 375px) and (height: 667px) {
+
+.modal-ct-main-none {
+	display: none;
+	align-items:
+	center;
+	background: rgba(0, 0, 0, .5);
+	justify-content: center;
+	/* border: 10px solid red; */
+	height: 100vh;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	z-index: 2000;
+}
+
+.modal-ct-main-visible {
+	display: flex;
+	align-items:center;
+	/* border-radius: 50%; */
+	/* background: rgba(0, 0, 0, .5); */
+	justify-content: center;
+	/* border: 10px solid red; */
+	height: 50vh;
+	position: fixed;
+	top: 250px;
+	right: 7px;
+	width: 90vw;
+	z-index: 2000;
+}
+
+.modal-content {
+	align-items: center;
+	/* border-radius: 50%; */
+	border-radius: 5px 500px 1px;
+	background: rgba(10, 180, 100, .5);
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	width: 100%;
+}
+
+
+
+.img-loading {
+	border-radius: 5px 500px 1px;
+	height: 200px;
+	width: 200px;
+
+}
+}
