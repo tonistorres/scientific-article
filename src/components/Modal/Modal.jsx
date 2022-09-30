@@ -1,8 +1,8 @@
 // https://www.youtube.com/watch?v=fu-enUG2VEE
 import React from 'react';
 import imgLoading from '../../assets/loading.gif';
-import './Modal.css';
 import PropTypes from 'prop-types';
+import './ModalIPhoneSE.css';
 
 function Modal({ valueClass }) {
 	return (
