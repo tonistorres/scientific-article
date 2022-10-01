@@ -19,3 +19,17 @@
 
 
 }
+
+
+@media screen and (width: 667px) and (height: 375px) {
+	.ct-search-title-boy  {
+		display: none;
+	}
+	.ct-search-title-boy img {
+		display: none;
+	}
+
+
+
+}
+
