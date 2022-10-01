@@ -29,3 +29,36 @@
 		letter-spacing: 2px;
 	}
 	}
+
+
+	@media screen and (width: 667px) and (height: 375px) {
+		.modal-ct-main-none {
+			display: none;
+		}
+
+
+		.modal-ct-main-visible {
+			display: flex;
+			border-radius: 5px 185px 5px;
+			background: rgba(10, 180, 100, .5);
+			align-items: center;
+			justify-content: center;
+			z-index: 2000;
+			height: 50hv;
+			width: 50vw;
+		}
+
+
+		.modal-content {
+			border-radius: 5px 185px 5px;
+			height: 50hv;
+			width: 50vw;
+		}
+
+		.modal-content p {
+			font-size: 20px;
+			font-weight: 700;
+			color: #1e1e1e;
+			letter-spacing: 2px;
+		}
+		}
