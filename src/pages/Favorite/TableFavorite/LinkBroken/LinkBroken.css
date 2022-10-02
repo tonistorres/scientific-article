@@ -1,0 +1,12 @@
+.link-content-main{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.link-content-main img{
+	height: 35px;
+	width: 35px;
+	margin: 5px 5px;
+}
