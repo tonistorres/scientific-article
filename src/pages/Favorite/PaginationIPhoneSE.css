@@ -1,0 +1,30 @@
+@media screen and (width: 375px) and (height: 667px) {
+
+.ct-pagination-favorite{
+	/* border: 5px solid red; */
+    align-items: center;
+    background-color: #66B175;
+    border-radius: 12px;
+    bottom: 0;
+	color: #1e1e1e;
+    display: flex;
+    height: 60px;
+    justify-content: start;
+    position: absolute;
+    width: 99.5%;
+  }
+
+  .ct-butons{
+	/* border: 5px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-left: 10%;
+    width:80px;
+  }
+
+  .btn-pagination{
+    /* margin-left: 15px; */
+  }
+
+}
