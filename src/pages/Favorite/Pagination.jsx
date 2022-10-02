@@ -1,5 +1,5 @@
 import React from 'react';
-import './PaginationFavorite.css';
+import './PaginationIPhoneSE.css';
 import PropTypes from 'prop-types';
 
 function Pagination({ setCurrentPage, pages }) {
@@ -22,7 +22,7 @@ function Pagination({ setCurrentPage, pages }) {
 }
 
 Pagination.propTypes = {
-	setCurrentPage: PropTypes.number,
+	setCurrentPage: PropTypes.func,
 	pages: PropTypes.number,
 };
 
