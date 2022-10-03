@@ -45,10 +45,10 @@ function TableFavorite({ currentItens, getId }) {
 							>
 								Description(s)
 							</th>
-							<th scope='col' className='line-break-url-th'>
+							<th scope='col' id='line-break-url-th'>
 								url(s)
 							</th>
-							<th scope='col' className='line-break-favorite-th'>
+							<th scope='col' id='line-break-favorite-th'>
 								Favorite
 							</th>
 						</tr>
@@ -101,7 +101,7 @@ function TableFavorite({ currentItens, getId }) {
 										),
 									)}
 								</td>
-								<td className='line-break-url-td'>
+								<td id='line-break-url-td'>
 									{item._source.urls.length ? (
 										item._source.urls.map((item, index) => (
 											<ul
@@ -130,12 +130,12 @@ function TableFavorite({ currentItens, getId }) {
 									width='100'
 									className='line-break-favorite-td'
 								>
-									<div className='btn-favorite'>
+									<div className='div-btn-favorite'>
 										<button
-											className='btn-size-favorite'
+											id='btn-favorite'
 											onClick={() => getId(item._id)}
 										>
-											<FaStar size={30} />
+											<FaStar size={30} color='#66B175' />
 										</button>
 									</div>
 								</td>
