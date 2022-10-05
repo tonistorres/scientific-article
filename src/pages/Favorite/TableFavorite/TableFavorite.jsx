@@ -53,95 +53,101 @@ function TableFavorite({ currentItens, getId }) {
 							</th>
 						</tr>
 					</thead>
-					{currentItens.map((item, index) => {
-						return (
-							<tbody key={index + 1}>
-								<td className='line-break-authors-td'>
-									{item._source.authors.length > 0 ? (
-										item._source.authors
-											.slice(0, 2)
-											.map((item, index) => (
-												<ul
-													className='ul-none'
-													key={index + 1}
-												>
-													<li>
-														{`${item}`.substring(
-															0,
-															50,
-														) + '...'}
-													</li>
-												</ul>
-											))
-									) : (
-										<ul>
-											<li>
-												<NotContentAuthors />
-											</li>
-										</ul>
-									)}
-								</td>
-								<td className='line-break-type-td'>
-									{capitalize(
-										`${item._type}`.substring(0, 20) +
-											'...',
-									)}
-								</td>
-								<td className='line-break-title-td'>
-									{capitalize(
-										`${item._source.title}
-										`.substring(0, 150),
-									)}
-								</td>
-								<td className='line-break-decription-td'>
-									{treatingResultDescription(
-										`${item._source.description}`.substring(
-											0,
-											150,
-										),
-									)}
-								</td>
-								<td id='line-break-url-td'>
-									{item._source.urls.length ? (
-										item._source.urls.map((item, index) => (
-											<ul
-												className='ul-none'
-												key={index + 1}
-											>
-												<li>
-													<a
-														href={item}
-														target='_blank'
-														rel='noreferrer'
+					{currentItens.length > 0 &&
+						currentItens.map((item, index) => {
+							return (
+								<tbody key={index + 1}>
+									<td className='line-break-authors-td'>
+										{item._source.authors.length > 0 ? (
+											item._source.authors
+												.slice(0, 2)
+												.map((item, index) => (
+													<ul
+														className='ul-none'
+														key={index + 1}
 													>
-														{`${item}`.substring(
-															0,
-															20,
-														) + '...'}
-													</a>
+														<li>
+															{`${item}`.substring(
+																0,
+																50,
+															) + '...'}
+														</li>
+													</ul>
+												))
+										) : (
+											<ul>
+												<li>
+													<NotContentAuthors />
 												</li>
 											</ul>
-										))
-									) : (
-										<LinkBroken />
-									)}
-								</td>
-								<td
-									width='100'
-									className='line-break-favorite-td'
-								>
-									<div className='div-btn-favorite'>
-										<button
-											id='btn-favorite'
-											onClick={() => getId(item._id)}
-										>
-											<FaStar size={30} color='#66B175' />
-										</button>
-									</div>
-								</td>
-							</tbody>
-						);
-					})}
+										)}
+									</td>
+									<td className='line-break-type-td'>
+										{capitalize(
+											`${item._type}`.substring(0, 20) +
+												'...',
+										)}
+									</td>
+									<td className='line-break-title-td'>
+										{capitalize(
+											`${item._source.title}
+										`.substring(0, 150),
+										)}
+									</td>
+									<td className='line-break-decription-td'>
+										{treatingResultDescription(
+											`${item._source.description}`.substring(
+												0,
+												150,
+											),
+										)}
+									</td>
+									<td id='line-break-url-td'>
+										{item._source.urls.length ? (
+											item._source.urls.map(
+												(item, index) => (
+													<ul
+														className='ul-none'
+														key={index + 1}
+													>
+														<li>
+															<a
+																href={item}
+																target='_blank'
+																rel='noreferrer'
+															>
+																{`${item}`.substring(
+																	0,
+																	20,
+																) + '...'}
+															</a>
+														</li>
+													</ul>
+												),
+											)
+										) : (
+											<LinkBroken />
+										)}
+									</td>
+									<td
+										width='100'
+										className='line-break-favorite-td'
+									>
+										<div className='div-btn-favorite'>
+											<button
+												id='btn-favorite'
+												onClick={() => getId(item._id)}
+											>
+												<FaStar
+													size={30}
+													color='#66B175'
+												/>
+											</button>
+										</div>
+									</td>
+								</tbody>
+							);
+						})}
 				</tr>
 			</table>
 		</div>
