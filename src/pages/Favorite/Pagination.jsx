@@ -10,7 +10,7 @@ function Pagination({ setCurrentPage, pages }) {
 					<button
 						key={index}
 						className='btn-pagination'
-						value={index}
+						value={index + 1}
 						onClick={e => setCurrentPage(Number(e.target.value))}
 					>
 						<strong>{index + 1}</strong>
