@@ -79,8 +79,8 @@ export const Navbar = ({ dbFavorite, favoriteItems, dbAuthors, pageCurrent, hand
 Navbar.propTypes = {
 	dbFavorite: PropTypes.array,
 	pageCurrent: PropTypes.string,
-	favoriteItems: PropTypes.array,
-	dbAuthors: PropTypes.array,
+	favoriteItems: PropTypes.number,
+	dbAuthors: PropTypes.number,
 	handleModalNotFavorite: PropTypes.func,
 
 };
