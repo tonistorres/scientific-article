@@ -10,7 +10,7 @@ function Pagination({ setCurrentPage, pages }) {
 					<button
 						key={index}
 						className='btn-pagination'
-						value={index + 1}
+						value={index}
 						onClick={e => setCurrentPage(Number(e.target.value))}
 					>
 						<strong>{index + 1}</strong>
@@ -22,7 +22,7 @@ function Pagination({ setCurrentPage, pages }) {
 }
 
 Pagination.propTypes = {
-	setCurrentPage: PropTypes.func,
+	setCurrentPage: PropTypes.number,
 	pages: PropTypes.number,
 };
 
