@@ -18,9 +18,9 @@
 	/* border: 5px solid red; */
     display: flex;
     align-items: center;
-    justify-content:center;
-    margin-left: 10%;
-    width:80px;
+    justify-content:space-around;
+    margin-left: 3%;
+    width:500px;
   }
 
   .btn-pagination{
@@ -35,7 +35,7 @@
 		/* border: 5px solid red; */
 		align-items: center;
 		background-color: #66B175;
-		border-radius: 12px;
+		/* border-radius: 12px; */
 		bottom: 0;
 		color: #1e1e1e;
 		display: flex;
@@ -49,9 +49,9 @@
 		/* border: 5px solid red; */
 		display: flex;
 		align-items: center;
-		justify-content:center;
+		justify-content:space-around;
 		margin-left: 10%;
-		width:80px;
+		width:500px;
 	  }
 
 	  .btn-pagination{
