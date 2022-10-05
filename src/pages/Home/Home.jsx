@@ -7,7 +7,6 @@ import ScreenSearch from '../../components/ScreenSearch/ScreenSearch';
 import { SearchInput } from '../../components/SearchInput/SearchInput';
 import Modal from '../../components/Modal/Modal';
 import Pagination from '../../components/Pagination/Pagination';
-// import './HomeWidth.css';
 import './HomeIPhoneSE.css';
 
 function Home() {
