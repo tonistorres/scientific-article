@@ -1,30 +1,30 @@
-@media (max-width: 1335px) {
+@media (min-width: 1335px) {
 	.nav-links {
 		width: 50vw;
 	}
 }
 
-@media (max-width: 1112px) {
+@media (min-width: 1112px) {
 	.nav-links {
 		width: 55vw;
 	}
 }
 
 
-@media (max-width: 980px) {
+@media (min-width: 980px) {
 	.nav-links {
 		width: 60vw;
 	}
 }
 
 
-@media (max-width: 854px) {
+@media (min-width: 854px) {
 	.nav-links {
 		width: 65vw;
 	}
 }
 
-@media (max-width: 792px) {
+@media (min-width: 792px) {
 	.nav-links {
 		width: 75vw;
 	}
@@ -32,7 +32,7 @@
 
 
 
-@media (max-width: 700px) {
+@media (min-width: 719px) {
 	.Navbar {
 		align-items: center;
 		background-color: #1e1e1e;
