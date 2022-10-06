@@ -1,199 +1,202 @@
+/*
 
-/* Se a janela do navegador for de 1200px ou menor */
-@media only screen and (max-width: 1920px) {
-	.ct-buttons {
-		/* border: 10px solid red; */
-		min-width: 40%;
-		width: 40%;
-	}
-}
+	375px 													1614px(min-width)
+	|--------------------------------------------------------|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
 
+*/
 
-/* Se a janela do navegador for de 1131px ou menor */
-@media only screen and (max-width: 1131px) {
-	.ct-buttons {
-		/* border: 10px solid yellow; */
-		min-width: 40%;
-		width: 42%;
-	}
-}
-
-
-/* Se a janela do navegador for de 1089px ou menor */
-@media only screen and (max-width: 1089px) {
-	.ct-buttons {
-		/* border: 10px solid green; */
-		min-width: 40%;
-		width: 46%;
-	}
-}
-
-/* Se a janela do navegador for de 1005px ou menor */
-@media only screen and (max-width: 1005px) {
-	.ct-buttons {
-		/* border: 10px solid blue; */
-		min-width: 40%;
-		width: 48%;
-	}
-}
-
-/* Se a janela do navegador for de 922px ou menor */
-@media only screen and (max-width: 922px) {
-	.ct-buttons {
-		/* border: 10px solid goldenrod; */
-		min-width: 40%;
-		width: 50%;
-	}
-
-}
-
-
-/* Se a janela do navegador for de 885px ou menor */
-@media only screen and (max-width: 885px) {
-	.ct-buttons {
-		/* border: 10px solid greenyellow; */
-		min-width: 40%;
-		width: 55%;
-	}
-
-}
-
-
-/* Se a janela do navegador for de 800px ou menor */
-@media only screen and (max-width: 800px) {
-	.ct-buttons {
-		/* border: 10px solid blueviolet; */
-		min-width: 40%;
-		width: 58%;
-	}
-
-}
-
-
-/* Se a janela do navegador for de 750px ou menor */
-@media only screen and (max-width: 750px) {
-	.ct-buttons {
-		/* border: 10px solid wheat; */
-		min-width: 40%;
-		width: 65%;
-	}
-
-}
-
-
-/* Se a janela do navegador for de 675px ou menor */
-@media only screen and (max-width: 675px) {
-	.ct-buttons {
-		/* border: 10px solid black; */
-		min-width: 40%;
-		width: 70%;
-	}
-
-}
-
-
-/* Se a janela do navegador for de 640px ou menor */
-@media only screen and (max-width: 640px) {
-
-	.ct-pagination {
-		/* background-color: yellowgreen; */
-		left: 10px;
-	}
-
-	.ct-buttons {
-		/* border: 10px solid black; */
-		min-width: 40%;
-		width: 74%;
-	}
-
-}
-
-
-
-/* Se a janela do navegador for de 603px ou menor */
-@media only screen and (max-width: 603px) {
-
-	.ct-pagination {
-		/* background-color: yellow; */
-		left: 12px;
-	}
-
-
-	.ct-buttons {
-		/* border: 10px solid black; */
-		min-width: 500px;
-		width: 77%;
-	}
-
-}
-
-/* Se a janela do navegador for de 603px ou menor */
-@media only screen and (max-width: 585px) {
-
-	.ct-pagination {
-		/* background-color: yellow; */
-		left: 15px;
-	}
-
-
-}
-
-
-/* Se a janela do navegador for de 603px ou menor */
-@media only screen and (max-width: 545px) {
-
-	.ct-pagination {
-		/* background-color: yellow; */
-		left: 5px;
-	}
-
-
-}
-
-
-/* Se a janela do navegador for de 603px ou menor */
-@media only screen and (max-width: 521px) {
-	.ct-pagination {
-		align-items: center;
-		/* background-color: whitesmoke; */
-		border-radius: 12px;
-		bottom: 0;
-		display: flex;
-		height: 80px;
-		justify-content: space-around;
-		position: fixed;
-		width: 100vw;
-	}
-
-	.div-pagination{
-		/* background-color: red; */
-		width: 30%;
-	}
-
-
-
-}
-
-/* Se a janela do navegador for de 603px ou menor */
-@media only screen and (max-width: 487px) {
+/* https://www.youtube.com/watch?v=ctiDWDq7C8E */
+@media only screen and (min-width: 1614px) {
 
 	.ct-pagination {
 		align-items: center;
-		/* background-color: whitesmoke; */
-		border-radius: 12px;
+		/* border: 5px solid orange; */
+		border-radius: 2px;
 		bottom: 0;
 		display: flex;
-		height: 80px;
+		height: 60px;
 		justify-content: space-around;
 		position: fixed;
-		width: 100vw;
+		width: 50vw;
+	}
+
+	.ct-buttons {
+		align-items: center;
+		border-radius: 8px;
+		background-color: #66B175;
+		display: flex;
+		height: 100%;
+		justify-content: space-around;
+		min-width: 100%;
+		width: 100%;
 	}
 
 
-	.div-pagination{
-		/* background-color: red; */
+	.btn-pagination {
+		border: none;
+		border-radius: 12px;
+		background-color: #1e1e1e;
+		color: #66B175;
+		font-size: 20px;
+		font-weight: 700;
+		height: 45px;
+		width: 110px;
+	}
+
+
+	.btn-next {
+		border: none;
+		border-radius: 12px;
+		background-color: #1e1e1e;
+		font-size: 20px;
+		font-weight: 700;
+		color: #66B175;
+		height: 45px;
+		width: 110px;
+	}
+
+	.div-pagination {
+		align-items: center;
+		border-radius: 8px;
+		display: flex;
+		justify-content: center;
+		background-color: #1e1e1e;
+		height: 45px;
 		width: 20%;
 	}
 
+	.div-pagination span{
+		color: #66B175;
+		font-size: 20px;
+		font-weight: 700;
+	}
+}
+
+
+
+/*
+
+	375px 											1614px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+												1613px(max-width)
+*/
+
+@media (max-width: 1613px) {
+
+	.ct-pagination {
+		align-items: center;
+		/* border: 5px solid orange; */
+		border-radius: 2px;
+		bottom: 0;
+		display: flex;
+		height: 60px;
+		justify-content: space-around;
+		position: fixed;
+		width: 50vw;
+		min-width: 375px;/*Fixando o menor valor aceito para pagination IPhoneSE*/
+	}
+
+	.ct-buttons {
+		align-items: center;
+		border-radius: 8px;
+		background-color: #66B175;
+		display: flex;
+		height: 100%;
+		justify-content: space-around;
+		min-width: 100%;
+		width: 100%;
+	}
+
+
+	.btn-pagination {
+		border: none;
+		border-radius: 12px;
+		background-color: #1e1e1e;
+		color: #66B175;
+		font-size: 20px;
+		font-weight: 700;
+		height: 45px;
+		width: 110px;
+	}
+
+
+	.btn-next {
+		border: none;
+		border-radius: 12px;
+		background-color: #1e1e1e;
+		font-size: 20px;
+		font-weight: 700;
+		color: #66B175;
+		height: 45px;
+		width: 110px;
+	}
+
+	.div-pagination {
+		align-items: center;
+		border-radius: 8px;
+		display: flex;
+		justify-content: center;
+		background-color: #1e1e1e;
+		height: 45px;
+		width: 20%;
+	}
+
+	.div-pagination span{
+		color: #66B175;
+		font-size: 20px;
+		font-weight: 700;
+	}
+}
+
+
+/*
+
+	375px 											1614px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+												1613px(max-width)
+*/
+
+@media (max-width: 960px) {
+
+
+	.ct-pagination {
+		/* border: 5px solid orange; */
+		width: 70vw;
+	}
 
 }
+
+
+/*
+
+	375px 											1614px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+												1613px(max-width)
+*/
+
+@media (max-width: 650px) {
+
+
+	.ct-pagination {
+		/* border: 5px solid orange; */
+		width: 85vw;
+	}
+
+}
+
+
+
+/*
+
+	375px 											1614px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+												1613px(max-width)
+*/
+
+@media (max-width: 450px) {
+	.ct-pagination {
+		/* border: 5px solid orange; */
+		width: 95vw;
+	}
+}
+
