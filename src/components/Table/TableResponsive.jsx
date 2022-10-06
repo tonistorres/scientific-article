@@ -4,10 +4,10 @@ import { NotContent } from './NotContent/NotContent';
 import { NotContentAuthors } from './NotContent/NotContentAuthors';
 import { LinkBroken } from './LinkBroken/LinkBroken';
 import PropTypes from 'prop-types';
-import './Table.css';
-import './ScrollBar.css';
-import './TableMediaWidth.css';
-import './TableMediaHeight.css';
+// import './Table.css';
+// import './ScrollBar.css';
+// import './TableMediaWidth.css';
+import './TableIPhoneSE.css';
 
 
 
@@ -37,7 +37,7 @@ function TableResponsive({ dbAuthors, getId }) {
 
 
 	return (
-		<div className='content-main'>
+		<div className='content-main-home'>
 			<table className='table table-sm'>
 				<tr>
 					<thead>
@@ -51,7 +51,7 @@ function TableResponsive({ dbAuthors, getId }) {
 							</th>
 							<th scope='col' className='line-break-decription-th'>Description(s)</th>
 							<th scope='col' className='line-break-url-th'>url(s)</th>
-							<th scope='col' className='line-break-favorite-th'>Favorite</th>
+							<th scope='col' id='line-break-favorite-home-th'>Favorite</th>
 						</tr>
 					</thead>
 					{dbAuthors.length > 0 &&
@@ -123,13 +123,13 @@ function TableResponsive({ dbAuthors, getId }) {
 
 										}
 									</td>
-									<td width='100' className='line-break-favorite-td'>
-										<div className='btn-favorite'>
+									<td width='100' id='line-break-favorite-home-td'>
+										<div className='div-btn-favorite'>
 											<button
-												className='btn-size-favorite'
+												id='btn-favorite-home'
 												onClick={() => getId(item._id)}
 											>
-												<FaStar size={30} />
+												<FaStar size={30} color="#e1e1e1" />
 											</button>
 										</div>
 									</td>

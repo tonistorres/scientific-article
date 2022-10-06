@@ -1,0 +1,35 @@
+@media screen and (width: 375px) and (height: 667px) {
+	.ct-search-title-boy  {
+		/* border: 2px solid orangered; */
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		height: 49vh;
+		width: 100vw;
+	}
+	.ct-search-title-boy img {
+		/* border: 2px solid orange; */
+		border-radius: 50%;
+		height: 250px;
+		min-height: 250px;
+		min-width: 250px;
+		width: 250px;
+	}
+
+
+
+}
+
+
+@media screen and (width: 667px) and (height: 375px) {
+	.ct-search-title-boy  {
+		display: none;
+	}
+	.ct-search-title-boy img {
+		display: none;
+	}
+
+
+
+}
+

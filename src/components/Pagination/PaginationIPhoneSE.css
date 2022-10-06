@@ -1,12 +1,4 @@
-/*
-
-	375px 													1614px(min-width)
-	|--------------------------------------------------------|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
-
-*/
-
-/* https://www.youtube.com/watch?v=ctiDWDq7C8E */
-@media only screen and (min-width: 1614px) {
+@media screen and (width: 375px) and (height: 667px) {
 
 	.ct-pagination {
 		align-items: center;
@@ -17,7 +9,7 @@
 		height: 60px;
 		justify-content: space-around;
 		position: fixed;
-		width: 50vw;
+		width: 100vw;
 	}
 
 	.ct-buttons {
@@ -73,15 +65,7 @@
 }
 
 
-
-/*
-
-	375px 											1614px(min-width)
-	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
-												1613px(max-width)
-*/
-
-@media (max-width: 1613px) {
+@media screen and (width: 667px) and (height: 375px) {
 
 	.ct-pagination {
 		align-items: center;
@@ -92,8 +76,7 @@
 		height: 60px;
 		justify-content: space-around;
 		position: fixed;
-		width: 50vw;
-		min-width: 375px;/*Fixando o menor valor aceito para pagination IPhoneSE*/
+		width: 100vw;
 	}
 
 	.ct-buttons {
@@ -147,56 +130,3 @@
 		font-weight: 700;
 	}
 }
-
-
-/*
-
-	375px 											1614px(min-width)
-	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
-												1613px(max-width)
-*/
-
-@media (max-width: 960px) {
-
-
-	.ct-pagination {
-		/* border: 5px solid orange; */
-		width: 70vw;
-	}
-
-}
-
-
-/*
-
-	375px 											1614px(min-width)
-	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
-												1613px(max-width)
-*/
-
-@media (max-width: 650px) {
-
-
-	.ct-pagination {
-		/* border: 5px solid orange; */
-		width: 85vw;
-	}
-
-}
-
-
-
-/*
-
-	375px 											1614px(min-width)
-	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
-												1613px(max-width)
-*/
-
-@media (max-width: 450px) {
-	.ct-pagination {
-		/* border: 5px solid orange; */
-		width: 95vw;
-	}
-}
-

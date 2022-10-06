@@ -1,0 +1,67 @@
+@media screen and (width: 375px) and (height: 667px) {
+
+	.ct-pagination-favorite {
+		align-items: center;
+		background-color: #66B175;
+		border-radius: 12px;
+		bottom: 0;
+		color: #1e1e1e;
+		display: flex;
+		height: 60px;
+		justify-content: start;
+		position: absolute;
+		width: 99.5%;
+	}
+
+	.ct-butons {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		margin-left: 3%;
+		width: 500px;
+	}
+
+	.btn-pagination {
+	}
+
+	/* https://stackoverflow.com/questions/26754497/css-disable-hover-effect */
+	.btn-pagination strong {
+		pointer-events: none;
+	}
+
+
+
+}
+
+@media screen and (width: 667px) and (height: 375px) {
+
+	.ct-pagination-favorite {
+		/* border: 5px solid red; */
+		align-items: center;
+		background-color: #66B175;
+		bottom: 0;
+		color: #1e1e1e;
+		display: flex;
+		height: 60px;
+		justify-content: start;
+		position: fixed;
+		width: 99.5%;
+	}
+
+	.ct-butons {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		margin-left: 10%;
+		width: 500px;
+	}
+
+	.btn-pagination {
+	}
+
+	/* https://stackoverflow.com/questions/26754497/css-disable-hover-effect */
+	.btn-pagination strong {
+		pointer-events: none;
+	}
+
+}

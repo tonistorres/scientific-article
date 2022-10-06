@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { FaConfluence } from 'react-icons/fa';
 import { searchLocalStorage } from '../../util/LocalStorage';
 import './Navbar.css';
-import './NavbarMediaQuery.css'
+// import './NavbarMediaQuery.css'
+import './NavIPhoneSE.css';
 import ModalNotFavorite from '../Modal/ModalNotFavorite';
 
 // https://www.youtube.com/watch?v=ctiDWDq7C8E
@@ -50,7 +51,7 @@ export const Navbar = ({ dbFavorite, favoriteItems, dbAuthors, pageCurrent, hand
 	return (
 		<div className="Navbar">
 			<div className="nav-logo">
-				<FaConfluence size={45} /> <span>Dev:T</span>
+				<FaConfluence size={35} color="#66B175 "/> <span>Dev:T</span>
 			</div>
 			<div className='ct-favorite-nav'>
 				{
@@ -76,8 +77,8 @@ export const Navbar = ({ dbFavorite, favoriteItems, dbAuthors, pageCurrent, hand
 Navbar.propTypes = {
 	dbFavorite: PropTypes.array,
 	pageCurrent: PropTypes.string,
-	favoriteItems: PropTypes.array,
-	dbAuthors: PropTypes.array,
+	favoriteItems: PropTypes.number,
+	dbAuthors: PropTypes.number,
 	handleModalNotFavorite: PropTypes.func,
 
 };

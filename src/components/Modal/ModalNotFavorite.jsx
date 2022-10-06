@@ -1,7 +1,8 @@
 // https://www.youtube.com/watch?v=fu-enUG2VEE
 import React from 'react';
 import imgLoading from '../../assets/loading.gif';
-import './ModalNotFavorite.css';
+// import './ModalNotFavorite.css';
+import './ModalFavoriteIPhoneSE.css';
 import PropTypes from 'prop-types';
 
 function ModalNotFavorite({ valueClass, flagMsg }) {
@@ -13,8 +14,9 @@ const modaListening = (str)=>{
 		case "btnprevious":   return (<h1><p>We are at the</p><p> beginning of </p><p>the pagination!!</p></h1>);
 		case "btnnextsearch": return (<h1><p>Empty search field!!</p></h1>);
 		case "searchDigite":  return (<h1><p>type something </p><p>in the search</p></h1>);
-
-		default:      return <h1>No Component </h1>
+		case "notSearch": return (<h1><p>Data not </p><p>found in API</p></h1>);
+		case "itemFavorited": return (<h1><p>Already </p><p>favorited item</p></h1>);
+		default:      return <h1>Return empity </h1>
 	  }
 
 }

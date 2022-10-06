@@ -7,8 +7,6 @@ import ScreenSearch from '../../components/ScreenSearch/ScreenSearch';
 import { SearchInput } from '../../components/SearchInput/SearchInput';
 import Modal from '../../components/Modal/Modal';
 import Pagination from '../../components/Pagination/Pagination';
-import '../../index.css';
-import './Home.css';
 import './HomeWidth.css';
 
 function Home() {
@@ -42,33 +40,36 @@ function Home() {
 	}, []);
 
 	return (
-		<div className='ct-main-home'>
-			{/* <Header dbFavorite={dbFavorite} dbAuthors={dbAuthors} /> */}
-			<Navbar
-				dbFavorite={dbFavorite}
-				handleModalNotFavorite={handleModalNotFavorite}
-			/>
-			<SearchInput
-				handleInput={handleInput}
-				handleOptions={handleOptions}
-				searchTitle={searchTitle}
-				valueSearchInput={valueSearchInput}
-				controlePagina={controlePagina}
-			/>
-
-			{dbAuthors.length === 0 ? (
-				<ScreenSearch />
-			) : (
-				<TableResponsive dbAuthors={dbAuthors} getId={getId} />
-			)}
-			<Modal valueClass={modalValue} />
-			<ModalNotFavorite valueClass={modalValueNot} flagMsg={flagMsg} />
-			<Pagination
-				controlePagina={controlePagina}
-				btnNext={btnNext}
-				btnPrevious={btnPrevious}
-				valueSearchInput={valueSearchInput}
-			/>
+		<div>
+			<div className='ct-main-home'>
+				<Navbar
+					dbFavorite={dbFavorite}
+					handleModalNotFavorite={handleModalNotFavorite}
+				/>
+				<SearchInput
+					handleInput={handleInput}
+					handleOptions={handleOptions}
+					searchTitle={searchTitle}
+					valueSearchInput={valueSearchInput}
+					controlePagina={controlePagina}
+				/>
+				{dbAuthors.length === 0 ? (
+					<ScreenSearch />
+				) : (
+					<TableResponsive dbAuthors={dbAuthors} getId={getId} />
+				)}
+				<Modal valueClass={modalValue} />
+				<ModalNotFavorite
+					valueClass={modalValueNot}
+					flagMsg={flagMsg}
+				/>
+				<Pagination
+					controlePagina={controlePagina}
+					btnNext={btnNext}
+					btnPrevious={btnPrevious}
+					valueSearchInput={valueSearchInput}
+				/>
+			</div>
 		</div>
 	);
 }

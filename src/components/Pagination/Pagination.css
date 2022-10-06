@@ -1,3 +1,12 @@
+/*
+
+	375px 													1614px(min-width)
+	|--------------------------------------------------------|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+
+*/
+
+/* https://www.youtube.com/watch?v=ctiDWDq7C8E */
+@media only screen and (min-width: 1614px) {
 .ct-pagination {
 	align-items: center;
 	/* background-color: whitesmoke; */
@@ -76,4 +85,95 @@
 	font-size: 25px;
 	font-weight: 700;
 
+}
+}
+
+
+/*
+
+	375px 											1614px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+												1613px(max-width)
+*/
+
+@media (max-width: 1613px) {
+	.ct-pagination {
+		align-items: center;
+		/* background-color: whitesmoke; */
+		border-radius: 12px;
+		bottom: 0;
+		display: flex;
+		height: 80px;
+		justify-content: space-around;
+		position: absolute;
+		width: 99.5%;
+	}
+
+
+	.ct-buttons {
+		align-items: center;
+		border-radius: 15px;
+		background-color: #000;
+		display: flex;
+		height: 100%;
+		justify-content: space-around;
+		min-width: 40%;
+		width: 40%;
+	}
+
+	.btn-pagination {
+		border: none;
+		border-radius: 12px;
+		background-color:#66B175;
+		color: #e1e1e1;
+		font-size: 25px;
+		font-weight: 700;
+		height: 55px;
+		width: 130px;
+	}
+
+
+	.btn-pagination:hover{
+		border-radius: 5px 105px 55px;
+		background: #e1e1e1;
+		color: #66B175;
+	}
+
+	.btn-next {
+		border: none;
+		border-radius: 12px;
+		background-color: #66B175;
+
+		font-size: 25px;
+		font-weight: 700;
+		color: #e1e1e1;
+		height: 55px;
+		width: 130px;
+	}
+
+	.btn-next:hover{
+		border-radius: 5px 105px 55px;
+		background: #e1e1e1;
+		color: #66B175;
+	}
+
+
+
+	.div-pagination {
+		align-items: center;
+		background-color: #66B175;
+		border-radius: 12px;
+		display: flex;
+		justify-content: center;
+		height: 55px;
+		width: 130px;
+	}
+
+	.div-pagination span {
+		border: none;
+		color: #e1e1e1;
+		font-size: 25px;
+		font-weight: 700;
+
+	}
 }

@@ -1,24 +1,119 @@
-.ct-pagination-favorite{
-    align-items: center;
-    background-color: #212121;
-    border-radius: 12px;
-    bottom: 0;
-    display: flex;
-    height: 80px;
-    justify-content: start;
-    position: absolute;
-    width: 99.5%;
-  }
-  
-  .ct-butons{
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    margin-left: 10%;
-    width:50%;
-  }
 
-  .btn-pagination{
-    margin-left: 15px;
-  }
+	/*
 
+	375px 													1614px(min-width)
+	|--------------------------------------------------------|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+
+*/
+
+/* https://www.youtube.com/watch?v=ctiDWDq7C8E */
+@media only screen and (min-width: 1614px) {
+	.ct-pagination-favorite {
+		border: 5px solid red;
+		align-items: center;
+		background-color: #66B175;
+		bottom: 0;
+		color: #1e1e1e;
+		display: flex;
+		height: 60px;
+		justify-content: start;
+		position: fixed;
+		width: 99.5%;
+	}
+
+	.ct-butons {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		margin-left: 10%;
+		width: 500px;
+	}
+
+	.btn-pagination {
+	}
+
+	/* https://stackoverflow.com/questions/26754497/css-disable-hover-effect */
+	.btn-pagination strong {
+		pointer-events: none;
+	}
+}
+
+
+/*
+
+	375px 											1614px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+												1613px(max-width)
+*/
+
+@media (max-width: 1613px) {
+	.ct-pagination-favorite {
+		/* border: 5px solid red; */
+		align-items: center;
+		background-color: #66B175;
+		bottom: 0;
+		color: #1e1e1e;
+		display: flex;
+		height: 60px;
+		justify-content: start;
+		position: fixed;
+		width: 99.5%;
+	}
+
+	.ct-butons {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		margin-left: 10%;
+		width: 500px;
+	}
+
+	.btn-pagination {
+	}
+
+	/* https://stackoverflow.com/questions/26754497/css-disable-hover-effect */
+	.btn-pagination strong {
+		pointer-events: none;
+	}
+}
+
+
+
+/*
+
+	375px 											1614px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+												1613px(max-width)
+*/
+
+@media (max-width: 1080px) {
+	.ct-pagination-favorite {
+		border: 5px solid red;
+		align-items: center;
+		/* background-color: #66B175; */
+		background-color: yellow;
+		bottom: 0;
+		color: #1e1e1e;
+		display: flex;
+		height: 60px;
+		justify-content: start;
+		position: fixed;
+		width: 99.5%;
+	}
+
+	.ct-butons {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		margin-left: 10%;
+		width: 500px;
+	}
+
+	.btn-pagination {
+	}
+
+	/* https://stackoverflow.com/questions/26754497/css-disable-hover-effect */
+	.btn-pagination strong {
+		pointer-events: none;
+	}
+}

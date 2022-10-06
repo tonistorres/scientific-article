@@ -100,6 +100,14 @@ function HomeProvider({ children }) {
 		}, 2000);
 	}
 
+	const handleModalNotSearch=()=>{
+		setModalValueNot(true);
+		setFlagMsg('notSearch');
+		setTimeout(() => {
+		 return setModalValueNot(false);
+		}, 2000);
+	}
+
 	const searchTitle = async (valueSearchInput, controlePagina) => {
 		try {
 			if (
@@ -123,9 +131,7 @@ function HomeProvider({ children }) {
 						setAuthors(response);
 					}
 				} else {
-					alert(
-						'Não foi encontrado o item pesquisado me nossa base renderizando lista inicial',
-					);
+					handleModalNotSearch();
 					searchAPI();
 				}
 			}
@@ -133,6 +139,14 @@ function HomeProvider({ children }) {
 			console.log(`Erro function searcTitle:${error}`);
 		}
 	};
+
+	const handleModalItemFavorited=()=>{
+		setModalValueNot(true);
+		setFlagMsg('itemFavorited');
+		setTimeout(() => {
+		 return setModalValueNot(false);
+		}, 2000);
+	}
 
 	const getId = id => {
 		try {
@@ -150,7 +164,7 @@ function HomeProvider({ children }) {
 					...itemAddFavorite,
 				]);
 			} else {
-				alert('Item já Favoritado :)');
+				handleModalItemFavorited();
 			}
 		} catch (error) {
 			console.log(`Erro function getId:${error}`);
