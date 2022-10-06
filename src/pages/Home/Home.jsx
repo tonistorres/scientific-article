@@ -7,7 +7,7 @@ import ScreenSearch from '../../components/ScreenSearch/ScreenSearch';
 import { SearchInput } from '../../components/SearchInput/SearchInput';
 import Modal from '../../components/Modal/Modal';
 import Pagination from '../../components/Pagination/Pagination';
-import './HomeIPhoneSE.css';
+import './HomeWidth.css';
 
 function Home() {
 	const {
@@ -41,18 +41,18 @@ function Home() {
 
 	return (
 		<div>
-			<Navbar
-				dbFavorite={dbFavorite}
-				handleModalNotFavorite={handleModalNotFavorite}
-			/>
-			<SearchInput
-				handleInput={handleInput}
-				handleOptions={handleOptions}
-				searchTitle={searchTitle}
-				valueSearchInput={valueSearchInput}
-				controlePagina={controlePagina}
-			/>
 			<div className='ct-main-home'>
+				<Navbar
+					dbFavorite={dbFavorite}
+					handleModalNotFavorite={handleModalNotFavorite}
+				/>
+				<SearchInput
+					handleInput={handleInput}
+					handleOptions={handleOptions}
+					searchTitle={searchTitle}
+					valueSearchInput={valueSearchInput}
+					controlePagina={controlePagina}
+				/>
 				{dbAuthors.length === 0 ? (
 					<ScreenSearch />
 				) : (
@@ -63,13 +63,13 @@ function Home() {
 					valueClass={modalValueNot}
 					flagMsg={flagMsg}
 				/>
+				<Pagination
+					controlePagina={controlePagina}
+					btnNext={btnNext}
+					btnPrevious={btnPrevious}
+					valueSearchInput={valueSearchInput}
+				/>
 			</div>
-			<Pagination
-				controlePagina={controlePagina}
-				btnNext={btnNext}
-				btnPrevious={btnPrevious}
-				valueSearchInput={valueSearchInput}
-			/>
 		</div>
 	);
 }
