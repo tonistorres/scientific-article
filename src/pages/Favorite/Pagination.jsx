@@ -1,5 +1,6 @@
 import React from 'react';
 import './PaginationIPhoneSE.css';
+import './PaginationFavorite.css';
 import PropTypes from 'prop-types';
 
 function Pagination({ setCurrentPage, pages }) {
