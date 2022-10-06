@@ -1,10 +1,69 @@
-/* Se a janela do navegador for de 1400px ou menor */
-@media only screen and (max-width: 2300px) {
+/*
+
+	375px 													1614px(min-width)
+	|--------------------------------------------------------|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+
+*/
+
+/* https://www.youtube.com/watch?v=ctiDWDq7C8E */
+@media only screen and (min-width: 1614px) {
+	.ct-search-title-boy{
+		align-items: center;
+		/* border: 15px solid red; */
+		display: flex;
+		justify-content: center;
+		height: 58vh;
+		width: 55%;
+	}
+
+
 	.ct-search-title-boy img {
 		border-radius: 50%;
 		height: 220px;
 		min-height: 150px;
 		min-width: 150px;
 		width: 220px;
+	}
+}
+
+/*
+
+	375px 											1614px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+												1613px(max-width)
+*/
+
+@media (max-width: 1613px) {
+	.ct-search-title-boy{
+		align-items: center;
+		/* border: 15px solid red; */
+		display: flex;
+		justify-content: center;
+		height: 58vh;
+		width: 55%;
+	}
+
+	.ct-search-title-boy img {
+		border-radius: 50%;
+		height: 320px;
+		min-height: 150px;
+		min-width: 150px;
+		width: 320px;
+	}
+
+}
+
+@media (max-width: 550px) {
+	.ct-search-title-boy{
+		align-items: center;
+		/* border: 15px solid red; */
+		display: flex;
+		justify-content: center;
+		height: 58vh;
+		width: 55%;
+	}
+
+	.ct-search-title-boy img {
+		display: none;
 	}
 }
