@@ -1,7 +1,7 @@
 /*Se LARGURA da janela for de 1920px e SUPERIOR aplique estilo*/
 
 @media (min-width: 1920px){
-	.content-main{
+	.content-main-home{
 
 		margin-top: 10px;
 		height: 72vh;

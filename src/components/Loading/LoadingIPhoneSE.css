@@ -1,22 +1,37 @@
 @media screen and (width: 375px) and (height: 667px) {
-	.lodad-main {
+	.ct-main-background{
+		display: flex;
 		align-items: center;
-		background-color: black;
+		justify-content: center;
+		/* border: 5px solid yellow; */
+		height: 90%;
+		width: 90%;
+		min-width: 375px;
+		background-color:#1e1e1e ;
+	}
+	.sub-lodad-main {
+		align-items: center;
+		/* border: 15px solid orangered; */
+		/* background-color: black; */
 		border-radius: 25px;
-		border:10px solid #1e1e1e;
 		color: #66B175;
 		display: flex;
-		height: 100vh;
+		height: 40%;
+		min-height: 250px;
 		justify-content: center;
-		width: 99vw;
+		width: 40%;
+		min-width: 375px;
 	}
 
 	.ct-oroganization {
+		/* border: 10px solid yellowgreen; */
 		align-items: start;
 		display: flex;
 		height: auto;
+		min-height: 250px;
 		justify-content: space-between;
-		width: 57%;
+		width: 80%;
+		min-width: 320px;
 	}
 
 	.img-logo {
@@ -28,33 +43,52 @@
 	}
 
 	h3 {
+		/* border: 8px solid green; */
 		font-size: 52px;
 		font-weight: 700;
 		letter-spacing: 25px;
+		min-height: 150px;
 		width: 98%;
+		min-width: 160px;
 	}
 
 }
 
 @media screen and (width: 667px) and (height: 375px) {
-	.lodad-main {
+	.ct-main-background{
+		display: flex;
 		align-items: center;
-		background-color: black;
+		justify-content: center;
+		/* border: 5px solid green; */
+		height: 90%;
+		width: 90%;
+		min-width: 375px;
+		background-color:#1e1e1e ;
+	}
+	.sub-lodad-main {
+		align-items: center;
+		/* border: 5px solid red; */
+		/* background-color: black; */
 		border-radius: 25px;
-		border:10px solid #1e1e1e;
+		/* border:10px solid #1e1e1e; */
 		color: #66B175;
 		display: flex;
-		height: 100vh;
+		height: 40%;
+		min-height: 250px;
 		justify-content: center;
-		width: 99vw;
+		width: 40%;
+		min-width: 375px;
 	}
 
 	.ct-oroganization {
+		/* border: 10px solid yellowgreen; */
 		align-items: start;
 		display: flex;
 		height: auto;
+		min-height: 250px;
 		justify-content: space-between;
-		width: 57%;
+		width: 100%;
+		min-width: 375px;
 	}
 
 	.img-logo {
@@ -66,10 +100,12 @@
 	}
 
 	h3 {
+		/* border: 8px solid green; */
 		font-size: 52px;
 		font-weight: 700;
 		letter-spacing: 25px;
+		min-height: 150px;
 		width: 98%;
+		min-width: 160px;
 	}
-
 }

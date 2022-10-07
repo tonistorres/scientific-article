@@ -1,12 +1,14 @@
 .link-content-main{
+	/* border: 5px solid orange; */
 	align-items: center;
 	display: flex;
 	justify-content: center;
+	height: 100%;
 	width: 100%;
 }
 
 .link-content-main img{
 	height: 35px;
 	width: 35px;
-	margin: 5px 5px;
+	/* margin: 5px 5px; */
 }

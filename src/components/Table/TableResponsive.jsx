@@ -4,7 +4,7 @@ import { NotContent } from './NotContent/NotContent';
 import { NotContentAuthors } from './NotContent/NotContentAuthors';
 import { LinkBroken } from './LinkBroken/LinkBroken';
 import PropTypes from 'prop-types';
-// import './Table.css';
+import './Table.css';
 // import './ScrollBar.css';
 // import './TableMediaWidth.css';
 import './TableIPhoneSE.css';
