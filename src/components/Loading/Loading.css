@@ -1,64 +1,140 @@
-.lodad-main {
-    align-items: center;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    width: 100vw;
+/*
+
+	375px 													1614px(min-width)
+	|--------------------------------------------------------|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+
+*/
+
+/* https://www.youtube.com/watch?v=ctiDWDq7C8E */
+@media only screen and (min-width: 1614px) {
+	.ct-main-background{
+		display: flex;
+		align-items: center;
+		border-radius: 12px;
+
+		justify-content: center;
+		/* border: 5px solid green; */
+		height: 40%;
+		width: 30%;
+		min-width: 375px;
+		background-color:#1e1e1e ;
+	}
+	.sub-lodad-main {
+		align-items: center;
+		/* border: 5px solid red; */
+		/* background-color: black; */
+		border-radius: 25px;
+		/* border:10px solid #1e1e1e; */
+		color: #66B175;
+		display: flex;
+		height: 40%;
+		min-height: 250px;
+		justify-content: center;
+		width: 30%;
+		max-width: 400px;
+		min-width: 375px;
+	}
+
+	.ct-oroganization {
+		/* border: 10px solid yellowgreen; */
+		align-items: start;
+		display: flex;
+		height: auto;
+		min-height: 250px;
+		justify-content: space-between;
+		width: 100%;
+		min-width: 375px;
+	}
+
+	.img-logo {
+		/* border: 1px solid black; */
+		border-radius: 5px 500px 1px;
+		width: 100px;
+		width: 100px;
+
+	}
+
+	h3 {
+		/* border: 8px solid green; */
+		font-size: 52px;
+		font-weight: 700;
+		letter-spacing: 25px;
+		min-height: 150px;
+		width: 98%;
+		min-width: 160px;
+	}
 }
 
-.ct-oroganization {
-    align-items: start;
-    display: flex;
-    height: auto;
-    justify-content: space-between;
-    width: 57%;
+
+
+/*
+
+	375px 											1614px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+												1613px(max-width)
+*/
+
+@media (max-width: 1613px) {
+	.ct-main-background{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		/* border: 5px solid green; */
+		height: 40%;
+		width: 40%;
+		min-width: 375px;
+		background-color:#1e1e1e ;
+		border-radius: 12px;
+
+	}
+	.sub-lodad-main {
+		align-items: center;
+		/* border: 5px solid red; */
+		/* background-color: black; */
+		border-radius: 25px;
+		/* border:10px solid #1e1e1e; */
+		color: #66B175;
+		display: flex;
+		height: 40%;
+		min-height: 250px;
+		justify-content: center;
+		width: 40%;
+		max-width: 400px;
+		min-width: 375px;
+	}
+
+	.ct-oroganization {
+		/* border: 10px solid yellowgreen; */
+		align-items: start;
+		display: flex;
+		height: auto;
+		min-height: 250px;
+		justify-content: space-between;
+		width: 100%;
+		min-width: 375px;
+	}
+
+	.img-logo {
+		/* border: 1px solid black; */
+		border-radius: 5px 500px 1px;
+		width: 100px;
+		width: 100px;
+
+	}
+
+	h3 {
+		/* border: 8px solid green; */
+		font-size: 52px;
+		font-weight: 700;
+		letter-spacing: 25px;
+		min-height: 150px;
+		width: 98%;
+		min-width: 160px;
+	}
 }
 
-.img-boy {
-    border: 1px solid black;
-    border-radius: 50%;
-    width: 250px;
-    width: 250px;
-
-}
-
-.load-render {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    height: 100vh;
-    width: 100%;
-}
-
-.img-logo-load {
-    border: none;
-    border-radius: 50%;
-    height: 50%;
-    width: 50%;
-}
-
-h3 {
-    font-size: 172px;
-    font-weight: 400;
-    letter-spacing: 25px;
-    width: 98%;
-}
-
-/* Se a janela do navegador for de 800px ou menor */
-@media only screen and (max-width: 800px) {
-    .ct-oroganization {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        justify-content: space-between;
-        width: 100%;
-    }
-    h3{
-        font-size: 122px;
-        font-weight: 300;
-        letter-spacing: 25px;
-        width: 98%; 
-    }
-    
-  }
+@media (max-width: 764px) {.sub-lodad-main {height: 35%;width: 50%;}}
+@media (max-width: 604px) {.sub-lodad-main {height: 35%;width: 60%;}}
+@media (max-width: 500px) {.sub-lodad-main {height: 35%;width: 65%;}}
+@media (max-width: 450px) {.sub-lodad-main {height: 35%;width: 70%;}}
+@media (max-width: 412px) {.sub-lodad-main {height: 35%;width: 80%;}}
