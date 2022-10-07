@@ -40,36 +40,33 @@ function Home() {
 	}, []);
 
 	return (
-		<div>
-			<div className='ct-main-home'>
-				<Navbar
-					dbFavorite={dbFavorite}
-					handleModalNotFavorite={handleModalNotFavorite}
-				/>
-				<SearchInput
-					handleInput={handleInput}
-					handleOptions={handleOptions}
-					searchTitle={searchTitle}
-					valueSearchInput={valueSearchInput}
-					controlePagina={controlePagina}
-				/>
+		<div className='ct-main-home'>
+			<Navbar
+				dbFavorite={dbFavorite}
+				handleModalNotFavorite={handleModalNotFavorite}
+			/>
+			<SearchInput
+				handleInput={handleInput}
+				handleOptions={handleOptions}
+				searchTitle={searchTitle}
+				valueSearchInput={valueSearchInput}
+				controlePagina={controlePagina}
+			/>
+			<div className='ct-data-base-structure'>
 				{dbAuthors.length === 0 ? (
 					<ScreenSearch />
 				) : (
 					<TableResponsive dbAuthors={dbAuthors} getId={getId} />
 				)}
-				<Modal valueClass={modalValue} />
-				<ModalNotFavorite
-					valueClass={modalValueNot}
-					flagMsg={flagMsg}
-				/>
-				<Pagination
-					controlePagina={controlePagina}
-					btnNext={btnNext}
-					btnPrevious={btnPrevious}
-					valueSearchInput={valueSearchInput}
-				/>
 			</div>
+			<Modal valueClass={modalValue} />
+			<ModalNotFavorite valueClass={modalValueNot} flagMsg={flagMsg} />
+			<Pagination
+				controlePagina={controlePagina}
+				btnNext={btnNext}
+				btnPrevious={btnPrevious}
+				valueSearchInput={valueSearchInput}
+			/>
 		</div>
 	);
 }
