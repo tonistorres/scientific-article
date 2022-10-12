@@ -63,7 +63,7 @@
 		center;
 		background: rgba(0, 0, 0, .5);
 		justify-content: center;
-		border: 10px solid red;
+		/* border: 10px solid red; */
 		height: 100vh;
 		position: fixed;
 		top: 0px;
@@ -78,7 +78,7 @@
 		center;
 		background: rgba(0, 0, 0, .5);
 		justify-content: center;
-		border: 10px solid red;
+		/* border: 10px solid red; */
 		height: 100vh;
 		position: fixed;
 		top: 0px;
