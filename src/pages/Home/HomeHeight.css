@@ -2,7 +2,8 @@
 @media (min-height: 751px ) {
 	.ct-main-home {
 		align-items: center;
-		background: rgba(10, 180, 100, .5);
+		/* background: rgba(10, 180, 100, .5); */
+		background-color: #1e1e1e;
 		display: flex;
 		flex-direction: column;
 		height: 100vh;
@@ -23,7 +24,7 @@
 @media (max-height: 750px ) {
 	.ct-main-home {
 		align-items: center;
-		background: rgba(10, 180, 100, .5);
+		background-color: #1e1e1e;
 		display: flex;
 		flex-direction: column;
 		height: 100vh;

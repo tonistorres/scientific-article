@@ -1,3 +1,12 @@
+.main-favorite{
+	display: flex;
+	border: 5px solid red;
+	left: 0;
+	/* flex-direction: column; */
+	height: 100%;
+	justify-content: center;
+	width: 100%;
 
+}
     ul{list-style-type: none;}
 

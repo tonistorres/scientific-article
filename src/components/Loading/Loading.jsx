@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaConfluence } from 'react-icons/fa';
+// import '../../index.css';
 import './Loading.css';
-import './LoadingIPhoneSE.css';
+// import './LoadingIPhoneSE.css';
 import boy from '../../assets/loading.gif';
 
 function Loading() {

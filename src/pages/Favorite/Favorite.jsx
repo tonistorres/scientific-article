@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import TableFavorite from './TableFavorite/TableFavorite';
-import { Navbar } from '../../components/Navbar/Navbar';
+// import { Navbar } from '../../components/Navbar/Navbar';
 import { saveLocalStorage, searchLocalStorage } from '../../util/LocalStorage';
-import Pagination from './Pagination';
+// import Pagination from './Pagination';
 import './Favorite.css';
 
 function Favorite() {
@@ -82,14 +82,14 @@ function Favorite() {
 
 	return (
 		<div className='main-favorite'>
-			<Navbar
+			{/* <Navbar
 				favoriteItems={dbFavorite.length}
 				dbAuthors={currentItens.length}
 				dbFavorite={dbFavorite}
 				pageCurrent={pageCurrent}
-			/>
-			<TableFavorite currentItens={currentItens} getId={getId} />
-			<Pagination setCurrentPage={setCurrentPage} pages={pages} />
+			/> */}
+			{/* <TableFavorite currentItens={currentItens} getId={getId} /> */}
+			{/* <Pagination setCurrentPage={setCurrentPage} pages={pages} /> */}
 		</div>
 	);
 }
