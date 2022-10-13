@@ -8,6 +8,7 @@ import { SearchInput } from '../../components/SearchInput/SearchInput';
 import Modal from '../../components/Modal/Modal';
 import Pagination from '../../components/Pagination/Pagination';
 import './HomeWidth.css';
+import './HomeHeight.css';
 
 function Home() {
 	const {
