@@ -4,7 +4,8 @@ import { NotContent } from './NotContent/NotContent';
 import { NotContentAuthors } from './NotContent/NotContentAuthors';
 import { LinkBroken } from './LinkBroken/LinkBroken';
 import PropTypes from 'prop-types';
-import './TableFavoriteIPhoneSE.css';
+// import './TableFavoriteIPhoneSE.css';
+import './TableFavorite.css';
 
 function TableFavorite({ currentItens, getId }) {
 	function capitalize(word) {
@@ -25,7 +26,7 @@ function TableFavorite({ currentItens, getId }) {
 	}
 
 	return (
-		<div className='content-main'>
+		<div className='content-main-favorite'>
 			<table className='table table-sm'>
 				<tr>
 					<thead>
