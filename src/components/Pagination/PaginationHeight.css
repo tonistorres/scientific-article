@@ -1,8 +1,32 @@
-/*Qdo janela menor ou igual a 263 execute*/
-@media only screen and (max-height: 263px) {
+/*
+
+	375px 													750px(min-width)
+	|--------------------------------------------------------|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+
+*/
+
+/* https://www.youtube.com/watch?v=ctiDWDq7C8E */
+@media only screen and (min-height: 750px) {
+
 	.ct-pagination {
-		display: none;
+		margin-top: 20px;
 	}
 
 
+}
+
+
+/*
+
+	375px 											750px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+												741px(max-width)
+*/
+
+@media (max-height: 741px) {
+
+	.ct-pagination {
+		display: none;
+
+	}
 }
