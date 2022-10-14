@@ -1,5 +1,5 @@
 import React from 'react';
-import './PaginationIPhoneSE.css';
+// import './PaginationIPhoneSE.css';
 import './PaginationFavorite.css';
 import PropTypes from 'prop-types';
 

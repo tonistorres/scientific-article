@@ -5,7 +5,7 @@ import { FaConfluence } from 'react-icons/fa';
 import { searchLocalStorage } from '../../util/LocalStorage';
 import './Navbar.css';
 // import './NavbarMediaQuery.css'
-import './NavIPhoneSE.css';
+// import './NavIPhoneSE.css';
 import ModalNotFavorite from '../Modal/ModalNotFavorite';
 
 // https://www.youtube.com/watch?v=ctiDWDq7C8E

@@ -16,7 +16,7 @@
 		border-left: 10px solid #1e1e1e;
 		/* border-top: 5px solid #1e1e1e; */
 		display: flex;
-		height: 100%;
+		height: 95%;
 		margin-top: 5px;
 		overflow-x: scroll;
 		/* show only horizontal scrollbar */
@@ -200,8 +200,7 @@
 		border-left: 10px solid #1e1e1e;
 		/* border-top: 5px solid #1e1e1e; */
 		display: flex;
-		height: 100%;
-		margin-top: 5px;
+		height: 90%;
 		overflow-x: scroll;
 		/* show only horizontal scrollbar */
 		width: 100%;
@@ -375,7 +374,7 @@
 */
 
 
-@media (max-width: 1419px) {
+@media (max-width: 1252px) {
 
 	.line-break-title-th {
 		display: none;
@@ -384,21 +383,6 @@
 	.line-break-title-td {
 		display: none;
 	}
-
-}
-
-
-
-
-/*
-
-	375px 											1614px(min-width)
-	|<<<∞∞∞∞∞∞∞∞∞∞|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
-				1251px				1419px	1613px(max-width)
-*/
-
-
-@media (max-width: 1251px) {
 
 
 	.line-break-decription-th {
@@ -412,9 +396,17 @@
 
 	}
 
-
-
 }
+
+
+
+
+/*
+
+	375px 											1614px(min-width)
+	|<<<∞∞∞∞∞∞∞∞∞∞|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
+				1251px				1419px	1613px(max-width)
+*/
 
 
 
@@ -453,6 +445,8 @@
 	|<<<∞∞∞∞∞∞∞∞∞|∞∞∞∞∞∞∞|∞∞∞∞∞∞∞∞∞∞∞∞|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞|-|∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞>>>
 				500px		732px			1251px				1419px	1613px(max-width)
 */
+
+
 
 
 @media (max-width: 500px) {

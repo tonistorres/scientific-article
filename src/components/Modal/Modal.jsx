@@ -2,7 +2,7 @@
 import React from 'react';
 import imgLoading from '../../assets/loading.gif';
 import PropTypes from 'prop-types';
-import './ModalIPhoneSE.css';
+// import './ModalIPhoneSE.css';
 import './ModalWidth.css';
 
 function Modal({ valueClass }) {

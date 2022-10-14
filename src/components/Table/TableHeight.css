@@ -1,0 +1,42 @@
+
+@media only screen and (min-height: 900px) {
+	.content-main-home {
+		/* border: 25px solid blue; */
+		/* background-color: #E8F0FE; */
+		/* border-radius: 10px; */
+		/* border-right: 10px solid #1e1e1e; */
+		/* border-bottom: 10px solid #1e1e1e; */
+		/* border-left: 10px solid #1e1e1e; */
+		/* border-top: 5px solid #1e1e1e; */
+		/* display: flex; */
+		/* height: 55vh; */
+		/* margin-top: 105px; */
+		/* overflow-x: scroll; */
+		/* show only horizontal scrollbar */
+		/* width: 100%; */
+	}
+}
+
+
+
+@media (max-height: 899px) {
+.content-main-home {
+	/* border: 5px solid orange; */
+	/* background-color: #E8F0FE; */
+	/* border-radius: 10px; */
+	/* border-right: 10px solid #1e1e1e; */
+	/* border-bottom: 10px solid #1e1e1e; */
+	/* border-left: 10px solid #1e1e1e; */
+	/* border-top: 5px solid #1e1e1e; */
+	/* display: flex; */
+	/* height: 90%; */
+	/* margin-top: 5px; */
+	/* align-items: start; */
+	/* justify-content: center; */
+	/* overflow-x: scroll; */
+	/* show only horizontal scrollbar */
+	/* width: 100%; */
+	/* margin-bottom: 80px; */
+
+}
+}
