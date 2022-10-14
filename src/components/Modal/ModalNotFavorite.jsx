@@ -2,7 +2,7 @@
 import React from 'react';
 import imgLoading from '../../assets/loading.gif';
 // import './ModalNotFavorite.css';
-import './ModalFavoriteIPhoneSE.css';
+// import './ModalFavoriteIPhoneSE.css';
 import PropTypes from 'prop-types';
 
 function ModalNotFavorite({ valueClass, flagMsg }) {
