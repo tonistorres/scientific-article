@@ -5,9 +5,10 @@ import { NotContentAuthors } from './NotContent/NotContentAuthors';
 import { LinkBroken } from './LinkBroken/LinkBroken';
 import PropTypes from 'prop-types';
 import './Table.css';
+import './TableHeight.css';
 // import './ScrollBar.css';
 // import './TableMediaWidth.css';
-import './TableIPhoneSE.css';
+// import './TableIPhoneSE.css';
 
 
 
