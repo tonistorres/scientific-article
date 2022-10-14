@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './SearchInput.css';
 import './SearchInputMediaHeight.css';
+import './SearchInput.css';
 // import './SearchInputMediaWidth.css';
-import './SearchIPhoneSE.css';
+// import './SearchIPhoneSE.css';
 
 export const SearchInput = ({
 	handleInput,
